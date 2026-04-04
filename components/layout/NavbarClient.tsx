@@ -13,27 +13,26 @@ export default function NavbarClient() {
 
   return (
     <>
-      {/* Desktop nav links */}
-      <nav className="hidden lg:flex items-center gap-1">
-        {NAV_LINKS.map((link) => {
-          const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href)
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isActive
-                  ? 'text-dq-green bg-dq-light font-semibold'
-                  : 'text-gray-600 hover:text-dq-green hover:bg-dq-light'
-              }`}
-            >
-              {link.label}
-            </Link>
-          )
-        })}
-      </nav>
-
-      <div className="hidden lg:block">
+      {/* Desktop: nav links + CTA grouped on the right */}
+      <div className="hidden lg:flex items-center gap-2">
+        <nav className="flex items-center gap-1">
+          {NAV_LINKS.map((link) => {
+            const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href)
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  isActive
+                    ? 'text-dq-green bg-dq-light font-semibold'
+                    : 'text-gray-600 hover:text-dq-green hover:bg-dq-light'
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
+        </nav>
         <Button href="/contact" size="sm">
           Book Free Demo
         </Button>
