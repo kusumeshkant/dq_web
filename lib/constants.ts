@@ -98,6 +98,9 @@ export const WHY_DQ_FEATURES = [
   { icon: '💰', text: '₹2,999/month — less than the daily wage of one checkout staff' },
 ]
 
+export const CONTACT_EMAIL = 'kushumeshkant2014@gmail.com'
+export const WHATSAPP_NUMBER = '918754886595'  // +91 87548 86595
+
 export const STORE_TYPES = [
   'Fashion',
   'Electronics',
