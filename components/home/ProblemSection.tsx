@@ -11,7 +11,7 @@ export default function ProblemSection() {
           subtitle="Every minute a customer spends waiting is a minute they're reconsidering their purchase."
         />
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {PROBLEM_STATS.map((item, i) => (
             <div
               key={item.stat}

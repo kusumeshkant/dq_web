@@ -10,7 +10,7 @@ export default function SocialProofStrip() {
   return (
     <section className="bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:gap-x-12">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-10 lg:gap-x-12">
           {proofs.map((p) => (
             <div key={p.name} className="flex items-center gap-2 text-gray-500 whitespace-nowrap">
               <span className="text-lg">{p.icon}</span>

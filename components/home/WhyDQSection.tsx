@@ -12,7 +12,7 @@ export default function WhyDQSection() {
           light
         />
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
           {WHY_DQ_FEATURES.map((f, i) => (
             <div
               key={f.text}

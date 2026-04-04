@@ -14,7 +14,7 @@ export default function NavbarClient() {
   return (
     <>
       {/* Desktop nav links */}
-      <nav className="hidden md:flex items-center gap-1">
+      <nav className="hidden lg:flex items-center gap-1">
         {NAV_LINKS.map((link) => {
           const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href)
           return (
@@ -33,7 +33,7 @@ export default function NavbarClient() {
         })}
       </nav>
 
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Button href="/contact" size="sm">
           Book Free Demo
         </Button>
@@ -41,7 +41,7 @@ export default function NavbarClient() {
 
       {/* Mobile hamburger */}
       <button
-        className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
         onClick={() => setOpen(!open)}
         aria-label="Toggle menu"
       >
@@ -50,7 +50,7 @@ export default function NavbarClient() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg md:hidden z-50">
+        <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg lg:hidden z-50">
           <nav className="flex flex-col p-4 gap-1">
             {NAV_LINKS.map((link) => {
               const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href)

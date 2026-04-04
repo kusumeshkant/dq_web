@@ -6,13 +6,13 @@ export default function PricingCards() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {PRICING_PLANS.map((plan) => (
             <div
               key={plan.name}
               className={`relative rounded-2xl border-2 p-8 flex flex-col ${
                 plan.highlight
-                  ? 'border-dq-green shadow-2xl shadow-green-100 bg-white scale-105'
+                  ? 'border-dq-green shadow-2xl shadow-green-100 bg-white lg:scale-105'
                   : 'border-gray-200 bg-white'
               }`}
             >

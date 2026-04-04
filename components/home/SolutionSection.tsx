@@ -44,7 +44,7 @@ export default function SolutionSection() {
           {/* Connector line — desktop only */}
           <div className="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-0.5 bg-gradient-to-r from-dq-green via-dq-amber to-blue-600 opacity-30" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {steps.map((step, i) => (
               <div
                 key={step.number}

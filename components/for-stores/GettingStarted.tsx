@@ -33,7 +33,7 @@ export default function GettingStarted() {
           light
         />
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {steps.map((s) => (
             <div key={s.step} className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
