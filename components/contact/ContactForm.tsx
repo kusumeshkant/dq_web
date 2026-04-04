@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { STORE_TYPES, CONTACT_EMAIL, WHATSAPP_NUMBER } from '@/lib/constants'
+import { STORE_TYPES, CONTACT_EMAIL, WHATSAPP_NUMBER, WEB3FORMS_KEY } from '@/lib/constants'
 import Button from '@/components/ui/Button'
 
 interface FormData {
@@ -39,7 +39,7 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: WEB3FORMS_KEY,
           subject: `DQ Demo Request — ${form.storeName} (${form.city})`,
           from_name: 'DQ Store Website',
           name: form.name,

@@ -100,6 +100,7 @@ export const WHY_DQ_FEATURES = [
 
 export const CONTACT_EMAIL = 'kushumeshkant2014@gmail.com'
 export const WHATSAPP_NUMBER = '918754886595'  // +91 87548 86595
+export const WEB3FORMS_KEY = '76c6c6dd-e2aa-4c97-b1a5-f1fca47d329b'
 
 export const STORE_TYPES = [
   'Fashion',
