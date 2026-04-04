@@ -1,22 +1,19 @@
 'use client'
 
 import { useState } from 'react'
-import { STORE_TYPES, CONTACT_EMAIL, WHATSAPP_NUMBER, WEB3FORMS_KEY } from '@/lib/constants'
+import { CONTACT_EMAIL, WHATSAPP_NUMBER, WEB3FORMS_KEY } from '@/lib/constants'
 import Button from '@/components/ui/Button'
 
+// Removed fields (add back when ready): storeName, storeType, ordersPerDay
 interface FormData {
   name: string
-  storeName: string
-  storeType: string
   city: string
   mobile: string
   email: string
-  ordersPerDay: string
 }
 
 const INITIAL: FormData = {
-  name: '', storeName: '', storeType: '', city: '',
-  mobile: '', email: '', ordersPerDay: '',
+  name: '', city: '', mobile: '', email: '',
 }
 
 export default function ContactForm() {
@@ -25,7 +22,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -40,18 +37,15 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `DQ Demo Request — ${form.storeName} (${form.city})`,
+          subject: `DQ Demo Request — ${form.name} (${form.city})`,
           from_name: 'DQ Store Website',
           name: form.name,
           email: form.email,
           message: [
             `Name: ${form.name}`,
-            `Store: ${form.storeName}`,
-            `Type: ${form.storeType || 'Not specified'}`,
             `City: ${form.city}`,
             `Mobile: ${form.mobile}`,
             `Email: ${form.email}`,
-            `Orders/day: ${form.ordersPerDay || 'Not specified'}`,
           ].join('\n'),
         }),
       })
@@ -83,7 +77,7 @@ export default function ContactForm() {
           </a>
         </p>
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20just%20submitted%20a%20demo%20request%20for%20${encodeURIComponent(form.storeName)}`}
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20just%20submitted%20a%20demo%20request%20from%20dqstore.in`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-[#1ebe5d] transition"
@@ -102,24 +96,6 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field label="Your Name *" name="name" value={form.name} onChange={handleChange} required />
-        <Field label="Store Name *" name="storeName" value={form.storeName} onChange={handleChange} required />
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1.5">Store Type</label>
-          <select
-            name="storeType"
-            value={form.storeType}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-dq-green focus:border-transparent"
-          >
-            <option value="">Select type</option>
-            {STORE_TYPES.map((t) => (
-              <option key={t} value={t}>{t}</option>
-            ))}
-          </select>
-        </div>
         <Field label="City *" name="city" value={form.city} onChange={handleChange} required />
       </div>
 
@@ -127,15 +103,6 @@ export default function ContactForm() {
         <Field label="Mobile Number *" name="mobile" type="tel" value={form.mobile} onChange={handleChange} required />
         <Field label="Email Address *" name="email" type="email" value={form.email} onChange={handleChange} required />
       </div>
-
-      <Field
-        label="Approx. orders per day?"
-        name="ordersPerDay"
-        type="number"
-        value={form.ordersPerDay}
-        onChange={handleChange}
-        placeholder="e.g. 50"
-      />
 
       {error && (
         <p className="text-sm text-red-500 text-center">{error}</p>
