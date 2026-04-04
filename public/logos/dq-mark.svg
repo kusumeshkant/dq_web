@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    DQ MASTER MARK — Transparent background, green elements
+    Use on light/white backgrounds.
+
+    Design language:
+    - D: geometric filled shape (the left anchor — structure, store)
+    - Q: open ring, with amber exit tail at the lower-right
+    - Amber tail: the brand's "motion mark" — the customer exiting the queue
+    - Stroke weights matched: D stroke = Q ring stroke = tail stroke (all 72px at 1024)
+
+    Concept: "DeQueue" — breaking free from the checkout loop
+  -->
+
+  <!-- D: geometric letterform -->
+  <!-- Vertical stroke + semicircular belly -->
+  <!-- D occupies x:168–432, y:320–704 -->
+  <path
+    d="M 168 320 L 240 320 A 192 192 0 0 1 240 704 L 168 704 Z"
+    fill="#16a34a"
+  />
+
+  <!-- Q: ring (circle outline matching D's height = 384px diameter) -->
+  <!-- Q center: (664, 512), radius 192, left edge 472 (40px gap from D at 432) -->
+  <circle
+    cx="664" cy="512" r="192"
+    fill="none"
+    stroke="#16a34a"
+    stroke-width="72"
+  />
+
+  <!--
+    Amber exit tail — the brand's motion mark
+    Originates at Q ring's inner edge at 60° below horizontal right
+    (inner edge = r - half-stroke = 192 - 36 = 156)
+    Inner @ 60°: (664 + 156×cos60, 512 + 156×sin60) = (742, 647)
+    Extends outward at 60° for ~90px beyond the ring outer edge
+    End: (742 + 44, 647 + 76) = (786, 723)
+    Exits visually through and beyond the Q ring, creating the "queue exit" symbol
+  -->
+  <line
+    x1="742" y1="647" x2="800" y2="746"
+    stroke="#f59e0b"
+    stroke-width="72"
+    stroke-linecap="round"
+  />
+</svg>

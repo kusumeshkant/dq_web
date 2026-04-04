@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    DQ FAVICON — 512×512 scalable SVG
+    Browsers render this at 16×16, 32×32, 48×48.
+
+    At small sizes, the full DQ geometric mark would lose the amber tail detail.
+    Solution: Simplified favicon — the FULL mark is preserved but the amber tail
+    has enhanced contrast to remain visible even at 16px.
+
+    The green bg circle + white DQ mark + high-contrast amber tail
+    reads as a recognizable "DQ" even at favicon scale.
+  -->
+
+  <!-- Circular bg (favicons are often shown as circles in browser tabs) -->
+  <rect width="512" height="512" rx="0" fill="#16a34a"/>
+
+  <!-- Optional: subtle gradient for slight depth even at small sizes -->
+  <defs>
+    <radialGradient id="fav-glow" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#fav-glow)"/>
+
+  <!-- DQ mark — scaled to 512×512, same proportions as master mark -->
+  <!-- Scale from 1024→512: factor 0.5 -->
+
+  <!-- D: M 84 160 L 120 160 A 96 96 0 0 1 120 352 L 84 352 Z -->
+  <path
+    d="M 84 160 L 120 160 A 96 96 0 0 1 120 352 L 84 352 Z"
+    fill="white"
+  />
+
+  <!-- Q: cx=332, cy=256, r=96, stroke-width=36 -->
+  <circle
+    cx="332" cy="256" r="96"
+    fill="none"
+    stroke="white"
+    stroke-width="36"
+  />
+
+  <!--
+    Amber exit tail — ENHANCED weight for favicon visibility
+    At 60°: inner edge (332+78×0.5, 256+78×0.866) = (371, 323)
+    End: (371+29, 323+50) = (400, 373)
+    Stroke-width boosted to 40 (vs 36) for clarity at small sizes
+  -->
+  <line
+    x1="371" y1="323" x2="400" y2="373"
+    stroke="#f59e0b"
+    stroke-width="40"
+    stroke-linecap="round"
+  />
+</svg>

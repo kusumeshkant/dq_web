@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    DQ ADMIN APP ICON — 1024×1024
+    Personality: Professional, analytical, authoritative
+    Background: Deep navy-blue (trust, control, data)
+    Accent: Violet (#a78bfa) — intelligence, analytics, system-level thinking
+
+    This is the owner's command center — revenue, inventory, trends.
+    Blue = trust, authority. Violet = insight, intelligence beyond the transactional.
+  -->
+
+  <defs>
+    <linearGradient id="bg-admin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#0c1445"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" rx="224" fill="url(#bg-admin)"/>
+
+  <!-- Inner glow — cool violet -->
+  <rect
+    x="2" y="2" width="1020" height="1020" rx="222"
+    fill="none"
+    stroke="rgba(167,139,250,0.2)"
+    stroke-width="4"
+  />
+
+  <!-- DQ MARK — white on blue -->
+  <path
+    d="M 168 320 L 240 320 A 192 192 0 0 1 240 704 L 168 704 Z"
+    fill="white"
+  />
+
+  <circle
+    cx="664" cy="512" r="192"
+    fill="none"
+    stroke="white"
+    stroke-width="72"
+  />
+
+  <!-- Violet exit tail — analytical depth, intelligent systems -->
+  <line
+    x1="742" y1="647" x2="800" y2="746"
+    stroke="#a78bfa"
+    stroke-width="72"
+    stroke-linecap="round"
+  />
+</svg>

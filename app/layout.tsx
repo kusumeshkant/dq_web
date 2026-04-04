@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   description:
     'DQ is India\'s scan-and-go retail platform. Customers scan products, pay on their phone, and walk out. No checkout counter. No waiting. Starting at ₹2,999/month.',
   keywords: 'scan and go, retail technology, India, queue management, self checkout, DQ app',
+  icons: {
+    icon: '/logos/favicon.svg',
+    shortcut: '/logos/favicon.svg',
+  },
   openGraph: {
     title: 'DQ Store — Skip the Queue. Shop Smarter.',
     description: 'Scan-and-go retail platform for Indian stores. Starting ₹2,999/month.',

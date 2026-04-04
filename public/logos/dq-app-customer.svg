@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    DQ CUSTOMER APP ICON — 1024×1024
+    Personality: Friendly, approachable, vibrant
+    Background: DQ Green (brand primary)
+    Accent: Amber (warm, inviting, the "go" signal)
+
+    This is the shopper's app — scan products, pay, walk out.
+    Green = "go ahead, you're free." Amber = the exit arrow.
+  -->
+
+  <defs>
+    <!-- Subtle top-left highlight for depth without losing flatness -->
+    <linearGradient id="bg-cust" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- App icon background (Apple/Android rounded square: ~21% corner radius) -->
+  <rect width="1024" height="1024" rx="224" fill="url(#bg-cust)"/>
+
+  <!-- Thin inner glow for premium feel -->
+  <rect
+    x="2" y="2" width="1020" height="1020" rx="222"
+    fill="none"
+    stroke="rgba(255,255,255,0.12)"
+    stroke-width="4"
+  />
+
+  <!-- DQ MARK — white on green -->
+
+  <!-- D: vertical stroke + semicircular belly -->
+  <path
+    d="M 168 320 L 240 320 A 192 192 0 0 1 240 704 L 168 704 Z"
+    fill="white"
+  />
+
+  <!-- Q: full ring -->
+  <circle
+    cx="664" cy="512" r="192"
+    fill="none"
+    stroke="white"
+    stroke-width="72"
+  />
+
+  <!-- Amber exit tail — the brand motion mark -->
+  <!-- Drawn on top of Q ring so it "erupts" from the ring in amber -->
+  <line
+    x1="742" y1="647" x2="800" y2="746"
+    stroke="#f59e0b"
+    stroke-width="72"
+    stroke-linecap="round"
+  />
+</svg>
