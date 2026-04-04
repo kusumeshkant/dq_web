@@ -1,5 +1,4 @@
 import SectionHeading from '@/components/ui/SectionHeading'
-import Card from '@/components/ui/Card'
 
 const apps = [
   {
@@ -54,8 +53,12 @@ export default function AppsSection() {
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {apps.map((app) => (
-            <Card key={app.title} hover className="overflow-hidden p-0">
+          {apps.map((app, i) => (
+            <div
+              key={app.title}
+              className="rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md overflow-hidden transition-all duration-200 animate-fade-up"
+              style={{ animationDelay: `${i * 0.12}s` }}
+            >
               <div className={`${app.color} p-6`}>
                 <div className="text-4xl mb-3">{app.icon}</div>
                 <h3 className="text-xl font-bold text-white">{app.title}</h3>
@@ -63,12 +66,12 @@ export default function AppsSection() {
               <ul className="p-6 space-y-3">
                 {app.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span className="text-dq-green font-bold mt-0.5">✓</span>
+                    <span className="text-dq-green font-bold mt-0.5 flex-shrink-0">✓</span>
                     {f}
                   </li>
                 ))}
               </ul>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import ContactForm   from '@/components/contact/ContactForm'
 import SectionHeading from '@/components/ui/SectionHeading'
+import { CONTACT_EMAIL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Book a Demo — DQ App',
@@ -56,7 +57,7 @@ export default function ContactPage() {
 
               <div className="bg-gray-50 rounded-2xl p-6 space-y-3">
                 <h3 className="font-bold text-gray-900 text-sm">Or reach us directly</h3>
-                <p className="text-sm text-gray-600">📧 <a href="mailto:stores@dqstore.in" className="text-dq-green font-medium">stores@dqstore.in</a></p>
+                <p className="text-sm text-gray-600">📧 <a href={`mailto:${CONTACT_EMAIL}`} className="text-dq-green font-medium">{CONTACT_EMAIL}</a></p>
                 <p className="text-sm text-gray-500">We respond within 24 hours, Monday–Saturday.</p>
               </div>
 

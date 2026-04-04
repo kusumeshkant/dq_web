@@ -2,26 +2,35 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS } from '@/lib/constants'
 import Button from '@/components/ui/Button'
 
 export default function NavbarClient() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <>
       {/* Desktop nav links */}
       <nav className="hidden md:flex items-center gap-1">
-        {NAV_LINKS.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="px-4 py-2 text-sm font-medium text-gray-600 rounded-lg hover:text-dq-green hover:bg-dq-light transition-colors"
-          >
-            {link.label}
-          </Link>
-        ))}
+        {NAV_LINKS.map((link) => {
+          const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href)
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                isActive
+                  ? 'text-dq-green bg-dq-light font-semibold'
+                  : 'text-gray-600 hover:text-dq-green hover:bg-dq-light'
+              }`}
+            >
+              {link.label}
+            </Link>
+          )
+        })}
       </nav>
 
       <div className="hidden md:block">
@@ -43,16 +52,23 @@ export default function NavbarClient() {
       {open && (
         <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg md:hidden z-50">
           <nav className="flex flex-col p-4 gap-1">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="px-4 py-3 text-sm font-medium text-gray-700 rounded-lg hover:text-dq-green hover:bg-dq-light transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href)
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
+                    isActive
+                      ? 'text-dq-green bg-dq-light font-semibold'
+                      : 'text-gray-700 hover:text-dq-green hover:bg-dq-light'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
             <div className="pt-3 border-t border-gray-100 mt-2">
               <Button href="/contact" size="sm" className="w-full justify-center">
                 Book Free Demo

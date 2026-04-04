@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { NAV_LINKS } from '@/lib/constants'
+import { NAV_LINKS, CONTACT_EMAIL } from '@/lib/constants'
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
               Making the checkout queue extinct in Indian retail — one store at a time.
             </p>
             <p className="text-xs mt-4 text-gray-500">
-              📧 stores@dqstore.in
+              📧 {CONTACT_EMAIL}
             </p>
           </div>
 

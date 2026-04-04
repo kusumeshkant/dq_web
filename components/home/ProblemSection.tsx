@@ -1,6 +1,5 @@
 import { PROBLEM_STATS } from '@/lib/constants'
 import SectionHeading from '@/components/ui/SectionHeading'
-import Card from '@/components/ui/Card'
 
 export default function ProblemSection() {
   return (
@@ -13,12 +12,20 @@ export default function ProblemSection() {
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {PROBLEM_STATS.map((item) => (
-            <Card key={item.stat} hover className="text-center border-gray-100">
-              <div className="text-4xl mb-3">{item.icon}</div>
-              <div className="text-4xl font-black text-dq-green mb-2">{item.stat}</div>
-              <p className="text-gray-500 text-sm leading-relaxed">{item.label}</p>
-            </Card>
+          {PROBLEM_STATS.map((item, i) => (
+            <div
+              key={item.stat}
+              className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm hover:shadow-md hover:border-dq-green/30 transition-all duration-200 animate-fade-up"
+              style={{ animationDelay: `${i * 0.1}s` }}
+            >
+              {/* Subtle bg accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-dq-green/5 to-transparent pointer-events-none" />
+              <div className="relative">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="text-5xl font-black text-dq-green mb-3 leading-none">{item.stat}</div>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.label}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
