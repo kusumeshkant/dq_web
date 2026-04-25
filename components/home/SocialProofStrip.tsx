@@ -1,25 +1,72 @@
+import { ShieldCheck, Smartphone, Zap, Globe2, Package, RotateCcw } from 'lucide-react'
+
 const proofs = [
-  { label: 'Powered by',  name: 'Razorpay',        icon: '💳', verified: true },
-  { label: 'Built on',    name: 'Firebase',         icon: '🔥', verified: true },
-  { label: 'Secured by',  name: 'Cloudflare',       icon: '🛡️', verified: true },
-  { label: 'Live across', name: '4 store types',    icon: '🏪', verified: true },
-  { label: 'Setup in',    name: 'under 1 hour',     icon: '⚡', verified: true },
+  {
+    Icon: ShieldCheck,
+    label: 'Razorpay-secured',
+    sub:   'UPI · Cards · Wallets',
+    color: 'text-dq-green',
+    bg:    'bg-dq-light',
+  },
+  {
+    Icon: Smartphone,
+    label: 'Android · iOS · Tablet',
+    sub:   'No hardware to buy',
+    color: 'text-blue-600',
+    bg:    'bg-blue-50',
+  },
+  {
+    Icon: Zap,
+    label: 'Live in under 1 hour',
+    sub:   'No IT team needed',
+    color: 'text-dq-amber',
+    bg:    'bg-amber-50',
+  },
+  {
+    Icon: Globe2,
+    label: '6 Indian languages',
+    sub:   'Hindi to Bengali',
+    color: 'text-purple-600',
+    bg:    'bg-purple-50',
+  },
+  {
+    Icon: Package,
+    label: '₹0 hardware cost',
+    sub:   'Use phones you already own',
+    color: 'text-gray-700',
+    bg:    'bg-gray-100',
+  },
+  {
+    Icon: RotateCcw,
+    label: '30-day free trial',
+    sub:   'Cancel anytime',
+    color: 'text-rose-600',
+    bg:    'bg-rose-50',
+  },
 ]
 
 export default function SocialProofStrip() {
   return (
     <section className="bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-10 lg:gap-x-12">
-          {proofs.map((p) => (
-            <div key={p.name} className="flex items-center gap-2 text-gray-500 whitespace-nowrap">
-              <span className="text-lg">{p.icon}</span>
-              <span className="text-sm">
-                <span className="text-gray-400">{p.label} </span>
-                <span className="font-semibold text-gray-700">{p.name}</span>
-              </span>
-            </div>
-          ))}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-0 lg:divide-x lg:divide-gray-100">
+          {proofs.map((p) => {
+            const { Icon } = p
+            return (
+              <div
+                key={p.label}
+                className="flex items-center gap-2.5 lg:px-5 lg:first:pl-0 lg:last:pr-0"
+              >
+                <div className={`w-8 h-8 ${p.bg} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                  <Icon className={`w-4 h-4 ${p.color}`} strokeWidth={1.75} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold text-gray-800 leading-snug">{p.label}</p>
+                  <p className="text-[10px] text-gray-400 leading-snug">{p.sub}</p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

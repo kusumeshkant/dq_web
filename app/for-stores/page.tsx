@@ -6,8 +6,15 @@ import GettingStarted    from '@/components/for-stores/GettingStarted'
 import CtaBanner         from '@/components/home/CtaBanner'
 
 export const metadata: Metadata = {
-  title: 'For Store Owners — DQ App',
-  description: 'Turn every customer\'s phone into a checkout counter. Get DQ for your retail store from ₹2,999/month.',
+  title: 'For Store Owners',
+  description: 'Give your fashion or lifestyle store scan-and-go checkout — no hardware, no IT team. Live in under 1 hour. Starting from ₹2,999/month.',
+  alternates: { canonical: 'https://dqstore.in/for-stores/' },
+  openGraph: {
+    title: 'DQ for Store Owners — Scan-and-Go Checkout for Retail',
+    description: 'Turn your billing counter into a self-checkout experience. No hardware. Live in under an hour. From ₹2,999/month.',
+    url: 'https://dqstore.in/for-stores/',
+    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
+  },
 }
 
 export default function ForStoresPage() {

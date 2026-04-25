@@ -1,39 +1,44 @@
 import Link from 'next/link'
 import { NAV_LINKS, CONTACT_EMAIL } from '@/lib/constants'
 
+const productLinks = NAV_LINKS.filter(l => l.href !== '/')
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-gray-950 text-gray-400 pb-20 lg:pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-800">
+
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-dq-green rounded-lg flex items-center justify-center">
-                <span className="text-white font-black text-sm">DQ</span>
+                <span className="text-white font-black text-sm tracking-tight">DQ</span>
               </div>
-              <span className="font-bold text-lg text-white">DQ Store</span>
+              <span className="font-bold text-lg text-white">DQ</span>
             </div>
-            <p className="text-sm leading-relaxed max-w-xs">
+            <p className="text-sm leading-relaxed max-w-xs text-gray-400">
               Making the checkout queue extinct in Indian retail — one store at a time.
             </p>
-            <p className="text-xs mt-4 text-gray-500">
-              📧 {CONTACT_EMAIL}
-            </p>
+            <div className="mt-5 space-y-1.5">
+              <p className="text-xs text-gray-500">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-dq-green transition-colors">
+                  {CONTACT_EMAIL}
+                </a>
+              </p>
+              <p className="text-xs text-gray-500">Monday–Saturday, 10am–7pm IST</p>
+            </div>
           </div>
 
-          {/* Nav links */}
+          {/* Product */}
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h3 className="text-white font-semibold text-xs mb-4 uppercase tracking-widest">
               Product
             </h3>
-            <ul className="space-y-2">
-              {NAV_LINKS.map((link) => (
+            <ul className="space-y-2.5">
+              {productLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-dq-green transition-colors"
-                  >
+                  <Link href={link.href} className="text-sm hover:text-dq-green transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -41,24 +46,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Company */}
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h3 className="text-white font-semibold text-xs mb-4 uppercase tracking-widest">
               Company
             </h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="hover:text-dq-green transition-colors">About Us</Link></li>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/about"   className="hover:text-dq-green transition-colors">About Us</Link></li>
               <li><Link href="/contact" className="hover:text-dq-green transition-colors">Contact</Link></li>
               <li><Link href="/pricing" className="hover:text-dq-green transition-colors">Pricing</Link></li>
-              <li><span className="text-gray-600">Privacy Policy</span></li>
-              <li><span className="text-gray-600">Terms of Service</span></li>
+              <li><Link href="/privacy" className="hover:text-dq-green transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms"   className="hover:text-dq-green transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
           <p>© 2026 DQ Technologies Pvt Ltd. All rights reserved.</p>
-          <p>Built in India 🇮🇳</p>
+          <p className="flex items-center gap-1">Built with ❤️ in India 🇮🇳</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14532D"/>
+      <stop offset="50%" style="stop-color:#166534"/>
+      <stop offset="100%" style="stop-color:#16A34A"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.04)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.4" opacity="0.08"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Glow blob top-left -->
+  <ellipse cx="100" cy="100" rx="300" ry="300" fill="white" opacity="0.04"/>
+  <!-- Glow blob bottom-right -->
+  <ellipse cx="1100" cy="530" rx="350" ry="350" fill="#F59E0B" opacity="0.08"/>
+
+  <!-- Logo mark -->
+  <rect x="80" y="72" width="56" height="56" rx="14" fill="#16A34A"/>
+  <rect x="80" y="72" width="56" height="56" rx="14" fill="white" fill-opacity="0.15"/>
+  <text x="108" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="white" text-anchor="middle" letter-spacing="-0.5">DQ</text>
+
+  <!-- Brand name -->
+  <text x="150" y="108" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white" opacity="0.95">DQ</text>
+
+  <!-- Main headline -->
+  <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="62" font-weight="900" fill="white" letter-spacing="-2">No Queue.</text>
+  <text x="80" y="318" font-family="system-ui, -apple-system, sans-serif" font-size="62" font-weight="900" fill="#F59E0B" letter-spacing="-2">No Counter.</text>
+  <text x="80" y="396" font-family="system-ui, -apple-system, sans-serif" font-size="62" font-weight="900" fill="white" letter-spacing="-2">No Lost Sales.</text>
+
+  <!-- Subtext -->
+  <text x="80" y="455" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="white" opacity="0.75">Mobile self-checkout for fashion, lifestyle &amp; branded retail in India.</text>
+
+  <!-- Stats cards -->
+  <rect x="80" y="500" width="160" height="80" rx="14" fill="url(#card)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="160" y="538" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">₹0</text>
+  <text x="160" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="white" opacity="0.65" text-anchor="middle">Setup cost</text>
+
+  <rect x="258" y="500" width="160" height="80" rx="14" fill="url(#card)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="338" y="538" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">&lt;1 hr</text>
+  <text x="338" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="white" opacity="0.65" text-anchor="middle">Go live in</text>
+
+  <rect x="436" y="500" width="200" height="80" rx="14" fill="url(#card)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="536" y="538" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" fill="white" text-anchor="middle">Android·iOS</text>
+  <text x="536" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="white" opacity="0.65" text-anchor="middle">Tablet · Web</text>
+
+  <!-- Right side mockup card -->
+  <rect x="760" y="140" width="360" height="340" rx="24" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.15" stroke-width="1.5"/>
+
+  <!-- Mock phone screen -->
+  <rect x="820" y="170" width="240" height="280" rx="16" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- Scan icon -->
+  <rect x="890" y="210" width="100" height="100" rx="8" fill="white" fill-opacity="0.1"/>
+  <rect x="898" y="218" width="20" height="20" rx="3" fill="none" stroke="#F59E0B" stroke-width="3"/>
+  <rect x="962" y="218" width="20" height="20" rx="3" fill="none" stroke="#F59E0B" stroke-width="3"/>
+  <rect x="898" y="282" width="20" height="20" rx="3" fill="none" stroke="#F59E0B" stroke-width="3"/>
+  <line x1="918" y1="228" x2="962" y2="228" stroke="#F59E0B" stroke-width="2" opacity="0.5"/>
+  <line x1="918" y1="248" x2="962" y2="248" stroke="white" stroke-width="1.5" opacity="0.3"/>
+  <line x1="918" y1="258" x2="948" y2="258" stroke="white" stroke-width="1.5" opacity="0.3"/>
+  <line x1="918" y1="268" x2="962" y2="268" stroke="white" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Mock step labels -->
+  <text x="940" y="338" font-family="system-ui" font-size="15" font-weight="700" fill="white" text-anchor="middle">Scan</text>
+  <text x="940" y="358" font-family="system-ui" font-size="11" fill="white" opacity="0.6" text-anchor="middle">Pay on phone · Walk out</text>
+
+  <!-- Three dots steps -->
+  <circle cx="830" cy="400" r="5" fill="#16A34A"/>
+  <line x1="835" y1="400" x2="855" y2="400" stroke="white" stroke-opacity="0.2" stroke-width="1.5"/>
+  <circle cx="860" cy="400" r="5" fill="#F59E0B"/>
+  <line x1="865" y1="400" x2="885" y2="400" stroke="white" stroke-opacity="0.2" stroke-width="1.5"/>
+  <circle cx="890" cy="400" r="5" fill="white" fill-opacity="0.4"/>
+
+  <!-- URL badge -->
+  <rect x="840" y="420" width="120" height="32" rx="16" fill="#16A34A"/>
+  <text x="900" y="440" font-family="system-ui" font-size="13" font-weight="600" fill="white" text-anchor="middle">dqstore.in</text>
+</svg>

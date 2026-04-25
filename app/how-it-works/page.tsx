@@ -4,12 +4,19 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import CtaBanner     from '@/components/home/CtaBanner'
 
 export const metadata: Metadata = {
-  title: 'How It Works — DQ App',
-  description: 'Scan, pay, go. See the full DQ flow for customers, staff, and store admins.',
+  title: 'How It Works',
+  description: 'See the full DQ flow — customers scan products and pay on their phone, staff validates at exit, admins monitor everything in real time. Simple for everyone.',
+  alternates: { canonical: 'https://dqstore.in/how-it-works/' },
+  openGraph: {
+    title: 'How DQ Works — Scan, Pay, Walk Out',
+    description: 'Three apps. One seamless experience. Customers scan and pay on their phone. Staff validates at exit. Admins monitor everything.',
+    url: 'https://dqstore.in/how-it-works/',
+    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
+  },
 }
 
 const customerSteps = [
-  { number: '1', title: 'Download DQ & Sign Up', desc: 'Free app, takes 30 seconds.' },
+  { number: '1', title: 'Download DQ & Sign Up', desc: 'Free app on Android and iOS. Takes 30 seconds.' },
   { number: '2', title: 'Walk into a DQ store & select it in the app', desc: 'App shows nearby DQ-enabled stores. Tap to confirm yours.' },
   { number: '3', title: 'Scan products as you shop', desc: 'Point camera at any barcode. Product added to cart instantly. Stock validated in real time.' },
   { number: '4', title: 'Tap Checkout & pay', desc: 'Pay via UPI, card, or wallet through Razorpay. Takes under 10 seconds.' },
@@ -24,7 +31,7 @@ const staffSteps = [
 ]
 
 const adminSteps = [
-  { number: '1', title: 'Log in to Admin App', desc: 'Android or web browser — your choice.' },
+  { number: '1', title: 'Log in to Admin App', desc: 'Android, iOS, tablet, or web browser — your choice.' },
   { number: '2', title: 'Upload inventory from Excel', desc: 'One file, one click. Entire catalogue live in minutes.' },
   { number: '3', title: 'Monitor orders in real time', desc: 'See every order as it happens. Filter by status.' },
   { number: '4', title: 'Track revenue and analytics daily', desc: 'Revenue trends, top products, low stock alerts — all in one place.' },
@@ -52,6 +59,7 @@ export default function HowItWorksPage() {
           subtitle="No training. No confusion. Just scan, pay, go."
           steps={customerSteps}
           accentColor="#16A34A"
+          accentClass="bg-dq-green"
         />
 
         <div className="bg-gray-50">
@@ -61,6 +69,7 @@ export default function HowItWorksPage() {
             subtitle="Less running around. More time helping customers."
             steps={staffSteps}
             accentColor="#F59E0B"
+            accentClass="bg-dq-amber"
           />
         </div>
 
@@ -70,6 +79,7 @@ export default function HowItWorksPage() {
           subtitle="Inventory, orders, and analytics — always at your fingertips."
           steps={adminSteps}
           accentColor="#2563EB"
+          accentClass="bg-blue-600"
         />
       </div>
 

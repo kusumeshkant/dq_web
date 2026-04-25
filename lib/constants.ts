@@ -12,8 +12,9 @@ export const PRICING_PLANS = [
     name: 'Starter',
     price: '₹2,999',
     period: '/month',
-    annual: '₹29,990/year',
+    annual: '₹29,990/year — save ₹5,998',
     description: 'Perfect for a single store getting started.',
+    bestFor: 'Best for single-outlet stores testing DQ',
     cta: 'Start Free Trial',
     highlight: false,
     features: [
@@ -32,8 +33,9 @@ export const PRICING_PLANS = [
     name: 'Growth',
     price: '₹5,999',
     period: '/month',
-    annual: '₹59,990/year',
+    annual: '₹59,990/year — save ₹11,998',
     description: 'For stores ready to scale with advanced tools.',
+    bestFor: 'Best for established stores with repeat customers',
     cta: 'Start Free Trial',
     highlight: true,
     features: [
@@ -54,6 +56,7 @@ export const PRICING_PLANS = [
     period: '',
     annual: 'Talk to us',
     description: 'Multi-outlet chains and large-format retail.',
+    bestFor: 'Best for chains, malls & large-format retail',
     cta: 'Talk to Us',
     highlight: false,
     features: [
@@ -72,41 +75,118 @@ export const PRICING_PLANS = [
 
 export const PROBLEM_STATS = [
   {
-    stat: '32%',
-    label: 'of shoppers abandon purchases due to long queues',
-    icon: '📊',
+    stat: '1 in 3',
+    label: 'fashion store customers walk out without buying when they see a long billing queue',
+    context: 'Your products did the selling. The queue at the counter undid it.',
+    icon: '🛍️',
   },
   {
-    stat: '25 min',
-    label: 'average checkout wait on weekends in Indian retail',
+    stat: '20+ min',
+    label: 'average billing wait during weekends and festive season in Indian fashion stores',
+    context: 'Your highest footfall days are also your worst checkout experience.',
     icon: '⏱️',
   },
   {
-    stat: '₹1.2L Cr',
-    label: 'lost annually to queue abandonment in India',
-    icon: '💸',
+    stat: 'Peak hours',
+    label: 'leave all your billing staff stuck at the counter — and no one left to assist on the floor',
+    context: 'Customers who can\'t find help on the floor leave. Customers stuck in queues also leave.',
+    icon: '🏷️',
   },
 ]
 
-export const WHY_DQ_FEATURES = [
-  { icon: '📱', text: 'No hardware needed — works on any Android phone' },
-  { icon: '🔐', text: 'Exit QR validation — prevents scan-and-skip theft' },
-  { icon: '📈', text: 'Real-time analytics — know what\'s selling before stock runs out' },
-  { icon: '🔔', text: 'FCM push notifications — customers updated at every step' },
-  { icon: '📦', text: 'Bulk inventory upload — onboard your full catalogue in minutes' },
-  { icon: '🇮🇳', text: 'Hindi + English — built for Bharat' },
-  { icon: '💰', text: '₹2,999/month — less than the daily wage of one checkout staff' },
+export const WHY_DQ_DIFFERENTIATORS = [
+  {
+    icon: 'TrendingUp',
+    title: 'Pays for itself in week 1',
+    description: 'Recovering just 5 abandoned purchases per day at ₹500 average covers your entire monthly plan. The math works at any store size.',
+    highlight: '30x calculated ROI',
+    accent: 'green',
+  },
+  {
+    icon: 'Zap',
+    title: 'Live in under 1 hour',
+    description: 'No hardware to buy, no IT team needed. Upload inventory from Excel, log in your staff, share your store code — done.',
+    highlight: '< 1hr setup',
+    accent: 'amber',
+  },
+  {
+    icon: 'ShieldCheck',
+    title: 'Theft-proof by design',
+    description: 'Every exit is validated by QR code scan. Green = paid and cleared. Red = hold for review. Zero scan-and-skip theft.',
+    highlight: 'Exit QR validation',
+    accent: 'blue',
+  },
 ]
 
-export const CONTACT_EMAIL = 'kushumeshkant2014@gmail.com'
-export const WHATSAPP_NUMBER = '918754886595'  // +91 87548 86595
-export const WEB3FORMS_KEY = '76c6c6dd-e2aa-4c97-b1a5-f1fca47d329b'
+export const WHY_DQ_METRICS = [
+  { value: '₹0',          label: 'Hardware cost' },
+  { value: 'UPI · Cards', label: 'Payment methods' },
+  { value: '6 languages', label: 'Hindi · Tamil · Telugu · Kannada · Bengali · English' },
+  { value: '3 apps',      label: 'Customer · Staff · Admin' },
+]
+
+export const INDUSTRIES = [
+  {
+    icon: '👗',
+    name: 'Fashion & Apparel',
+    desc: 'Eliminate billing queues at branded clothing stores, boutiques, and apparel chains.',
+  },
+  {
+    icon: '👟',
+    name: 'Footwear & Bags',
+    desc: 'Faster checkout for footwear stores — no waiting after a long try-on session.',
+  },
+  {
+    icon: '💍',
+    name: 'Jewellery & Accessories',
+    desc: 'Speed up billing at jewellery counters where customers expect a premium experience.',
+  },
+  {
+    icon: '💄',
+    name: 'Beauty & Personal Care',
+    desc: 'No counter wait for cosmetics, skincare, and personal care retail stores.',
+  },
+  {
+    icon: '🏠',
+    name: 'Home & Lifestyle',
+    desc: 'Streamline checkout for home décor, gifting, and lifestyle concept stores.',
+  },
+  {
+    icon: '💪',
+    name: 'Sports & Fitness',
+    desc: 'Quick billing for branded sports stores, activewear, and fitness equipment retail.',
+  },
+  {
+    icon: '📚',
+    name: 'Books & Stationery',
+    desc: 'Fast checkout for bookstores, stationery chains, and school supply shops.',
+  },
+  {
+    icon: '🌟',
+    name: 'Specialty & Concept Retail',
+    desc: 'Korean lifestyle, branded gift stores, niche retail — any tagged-product store with a checkout queue.',
+  },
+]
+
+export const CONTACT_EMAIL   = 'dqinfo@dqstore.in'
+export const WHATSAPP_NUMBER = '918754886595'
+export const WEB3FORMS_KEY   = '76c6c6dd-e2aa-4c97-b1a5-f1fca47d329b'
 
 export const STORE_TYPES = [
-  'Fashion',
-  'Electronics',
-  'Grocery',
-  'Specialty',
-  'Pharmacy',
+  'Fashion & Apparel',
+  'Footwear & Bags',
+  'Jewellery & Accessories',
+  'Beauty & Personal Care',
+  'Home & Lifestyle',
+  'Sports & Fitness',
+  'Books & Stationery',
+  'Specialty / Concept Store',
   'Other',
+]
+
+export const DAILY_ORDER_RANGES = [
+  'Under 50 orders/day',
+  '50–150 orders/day',
+  '150–500 orders/day',
+  '500+ orders/day',
 ]

@@ -1,5 +1,8 @@
+'use client'
+
 import SectionHeading from '@/components/ui/SectionHeading'
 import Button from '@/components/ui/Button'
+import { useInView } from '@/hooks/useInView'
 
 const steps = [
   {
@@ -23,8 +26,9 @@ const steps = [
 ]
 
 export default function GettingStarted() {
+  const { ref, inView } = useInView<HTMLElement>()
   return (
-    <section className="py-20 bg-dq-dark">
+    <section ref={ref} className="py-20 bg-dq-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Getting Started"
@@ -34,8 +38,8 @@ export default function GettingStarted() {
         />
 
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {steps.map((s) => (
-            <div key={s.step} className="bg-white/5 border border-white/10 rounded-2xl p-6">
+          {steps.map((s, i) => (
+            <div key={s.step} className={`bg-white/5 border border-white/10 rounded-2xl p-6 reveal${inView ? ' is-visible' : ''}`} style={{ transitionDelay: `${i * 0.12}s` }}>
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-10 h-10 rounded-xl bg-dq-green flex items-center justify-center text-white font-black text-sm">
                   {s.step}
