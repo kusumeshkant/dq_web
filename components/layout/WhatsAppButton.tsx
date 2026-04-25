@@ -15,26 +15,18 @@ export default function WhatsAppButton() {
       aria-label="Chat with us on WhatsApp"
       className="fixed bottom-20 right-4 lg:bottom-6 lg:right-6 z-50 flex items-center gap-2.5 pl-4 pr-5 py-3 rounded-full transition-all duration-300 hover:scale-105 active:scale-95"
       style={{
-        background: 'rgba(255,255,255,0.12)',
+        background: 'rgba(255,255,255,0.92)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        border: '1.5px solid rgba(255,255,255,0.40)',
+        border: '1.5px solid rgba(255,255,255,0.90)',
         boxShadow: `
-          inset 0 1.5px 0 rgba(255,255,255,0.55),
-          inset 0 -1px 0 rgba(0,0,0,0.08),
-          0 8px 32px rgba(0,0,0,0.12),
-          0 2px 8px rgba(0,0,0,0.10)
+          inset 0 1.5px 0 rgba(255,255,255,0.90),
+          inset 0 -1px 0 rgba(0,0,0,0.06),
+          0 8px 32px rgba(0,0,0,0.18),
+          0 2px 8px rgba(0,0,0,0.12)
         `,
       }}
     >
-      {/* Specular highlight */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 rounded-full pointer-events-none"
-        style={{
-          background: 'linear-gradient(145deg, rgba(255,255,255,0.22) 0%, transparent 55%)',
-        }}
-      />
 
       <svg
         viewBox="0 0 24 24"
