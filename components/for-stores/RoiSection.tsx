@@ -8,7 +8,7 @@ const roiRows = [
   { label: 'Revenue lost per day',         value: '₹18,000',           highlight: false, loss: true  },
   { label: 'Revenue lost per month',       value: '₹5,40,000',         highlight: false, loss: true  },
   { label: 'DQ cost per month',            value: '₹2,999',            highlight: false, loss: false },
-  { label: 'Recover even 5 customers/day', value: '₹90,000 recovered', highlight: true,  loss: false },
+  { label: 'Recover even 5 customers/day', value: 'Potential ₹90,000/month recovered', highlight: true,  loss: false },
 ]
 
 export default function RoiSection() {
