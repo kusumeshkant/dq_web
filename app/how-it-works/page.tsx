@@ -31,7 +31,7 @@ const staffSteps = [
 ]
 
 const adminSteps = [
-  { number: '1', title: 'Log in to Admin App', desc: 'Android, iOS, tablet, or web browser — your choice.' },
+  { number: '1', title: 'Log in to Admin App', desc: 'Android, iOS, or tablet — install once, manage from anywhere.' },
   { number: '2', title: 'Upload inventory from Excel', desc: 'One file, one click. Entire catalogue live in minutes.' },
   { number: '3', title: 'Monitor orders in real time', desc: 'See every order as it happens. Filter by status.' },
   { number: '4', title: 'Track revenue and analytics daily', desc: 'Revenue trends, top products, low stock alerts — all in one place.' },

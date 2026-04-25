@@ -43,7 +43,7 @@ const apps = [
     tagline: 'Analytics and control from anywhere',
     color:   'from-blue-900 to-blue-600',
     ring:    'ring-blue-400/20',
-    platform: 'Android · iOS · Tablet · Web',
+    platform: 'Android · iOS · Tablet',
     features: [
       'Revenue analytics dashboard',
       'Inventory management',
