@@ -41,7 +41,7 @@ export default function PricingCards() {
         {/* Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {PRICING_PLANS.map((plan) => {
-            const showAnnual = annual && plan.annual && plan.name !== 'Enterprise'
+            const showAnnual = annual && !!plan.annualPerMonth
             return (
               <div
                 key={plan.name}
@@ -64,16 +64,10 @@ export default function PricingCards() {
 
                 {/* Price */}
                 <div className="mb-3">
-                  {plan.name === 'Enterprise' ? (
-                    <div className="flex items-end gap-1">
-                      <span className="text-4xl font-black text-gray-900">Custom</span>
-                    </div>
-                  ) : showAnnual ? (
+                  {showAnnual ? (
                     <>
                       <div className="flex items-end gap-1">
-                        <span className="text-4xl font-black text-gray-900">
-                          {plan.name === 'Starter' ? '₹2,499' : '₹4,999'}
-                        </span>
+                        <span className="text-4xl font-black text-gray-900">{plan.annualPerMonth}</span>
                         <span className="text-gray-400 mb-1.5 text-sm">/month</span>
                       </div>
                       <p className="text-xs text-dq-green font-semibold mt-1">
@@ -86,7 +80,7 @@ export default function PricingCards() {
                         <span className="text-4xl font-black text-gray-900">{plan.price}</span>
                         <span className="text-gray-400 mb-1.5 text-sm">{plan.period}</span>
                       </div>
-                      {plan.annual && plan.name !== 'Enterprise' && (
+                      {plan.annualPerMonth && (
                         <p className="text-xs text-gray-400 mt-1">Switch to annual — {plan.annual.split('—')[1]?.trim()}</p>
                       )}
                     </>

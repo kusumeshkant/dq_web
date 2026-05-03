@@ -7,10 +7,16 @@ export const NAV_LINKS = [
   { label: 'Contact',       href: '/contact' },
 ]
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PRICING — source of truth for the website.
+// Admin app reads plans live from the backend API (seed_subscription_plans.js).
+// When you change prices here, mirror the change in the seed and re-run it.
+// ─────────────────────────────────────────────────────────────────────────────
 export const PRICING_PLANS = [
   {
     name: 'Starter',
     price: '₹2,999',
+    annualPerMonth: '₹2,499',
     period: '/month',
     annual: '₹29,990/year — save ₹5,998',
     description: 'Perfect for a single store getting started.',
@@ -32,6 +38,7 @@ export const PRICING_PLANS = [
   {
     name: 'Growth',
     price: '₹5,999',
+    annualPerMonth: '₹4,999',
     period: '/month',
     annual: '₹59,990/year — save ₹11,998',
     description: 'For stores ready to scale with advanced tools.',
@@ -53,6 +60,7 @@ export const PRICING_PLANS = [
   {
     name: 'Enterprise',
     price: 'Custom',
+    annualPerMonth: null,
     period: '',
     annual: 'Talk to us',
     description: 'Multi-outlet chains and large-format retail.',
