@@ -75,6 +75,16 @@ export default function TestimonialsSection() {
           })}
         </div>
 
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/pricing" className="inline-flex items-center gap-1.5 text-dq-green font-semibold text-sm hover:underline underline-offset-2">
+            See pricing and plans →
+          </a>
+          <span className="hidden sm:block text-gray-200">·</span>
+          <a href="/for-stores" className="inline-flex items-center gap-1.5 text-gray-500 font-medium text-sm hover:text-dq-green hover:underline underline-offset-2 transition-colors">
+            See how DQ works for your store →
+          </a>
+        </div>
+
       </div>
     </section>
   )

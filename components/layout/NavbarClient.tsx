@@ -56,7 +56,15 @@ export default function NavbarClient() {
             )
           })}
         </nav>
-        <div className="ml-3">
+        <div className="ml-3 flex items-center gap-2">
+          <a
+            href="https://dq.dqstore.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 text-sm font-semibold rounded-xl border-2 border-dq-green text-dq-green hover:bg-dq-light active:scale-[0.98] transition-all duration-200 whitespace-nowrap"
+          >
+            Launch App ↗
+          </a>
           <Button href="/contact" size="sm" className="font-semibold">
             Book Free Demo
           </Button>
@@ -102,6 +110,14 @@ export default function NavbarClient() {
               )
             })}
             <div className="pt-3 mt-2 border-t border-gray-100 space-y-2">
+              <a
+                href="https://dq.dqstore.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-xl border-2 border-dq-green text-dq-green hover:bg-dq-light active:scale-[0.98] transition-all duration-200"
+              >
+                Launch Web App ↗
+              </a>
               <Button href="/contact" size="sm" className="w-full justify-center font-semibold">
                 Book Free Demo
               </Button>

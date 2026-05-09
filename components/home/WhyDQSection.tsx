@@ -91,6 +91,17 @@ export default function WhyDQSection() {
             </span>
           ))}
         </div>
+
+        {/* CTA */}
+        <div className="mt-12 text-center">
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-dq-green hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg shadow-dq-green/30 hover:shadow-dq-green/50 hover:-translate-y-0.5 active:scale-[0.98]"
+          >
+            Book a Free Demo →
+          </a>
+          <p className="mt-3 text-xs text-green-400">30-day free trial · No credit card · Go live in under 1 hour</p>
+        </div>
       </div>
     </section>
   )

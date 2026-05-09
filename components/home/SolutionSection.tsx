@@ -15,7 +15,7 @@ const steps = [
     accent:  'text-dq-green',
     ring:    'ring-dq-green/20',
     light:   'bg-dq-light text-dq-dark',
-    note:    'Android · iOS · Tablet · Free app',
+    note:    'Web App Live · Android & iOS coming soon',
   },
   {
     number: '02',

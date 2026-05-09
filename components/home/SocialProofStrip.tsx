@@ -10,8 +10,8 @@ const proofs = [
   },
   {
     Icon: Smartphone,
-    label: 'Android · iOS · Tablet',
-    sub:   'No hardware to buy',
+    label: '3 live web apps',
+    sub:   'Customer · Staff · Admin',
     color: 'text-blue-600',
     bg:    'bg-blue-50',
   },

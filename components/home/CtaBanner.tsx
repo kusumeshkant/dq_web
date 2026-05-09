@@ -31,14 +31,14 @@ export default function CtaBanner() {
           >
             Book a Free Demo →
           </Button>
-          <Button
-            href="/pricing"
-            size="lg"
-            variant="outline"
-            className="border-white/50 text-white hover:bg-white/10 hover:border-white/70"
+          <a
+            href="https://dq.dqstore.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-200 px-7 py-3.5 text-base sm:text-lg bg-dq-amber/20 border-2 border-dq-amber/60 text-dq-amber hover:bg-dq-amber/30 hover:border-dq-amber active:scale-[0.98] select-none"
           >
-            See Pricing Plans
-          </Button>
+            Launch Web App ↗
+          </a>
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-green-300">

@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-950 text-gray-400 pb-20 lg:pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-10 border-b border-gray-800">
 
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -43,6 +43,36 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Live Apps */}
+          <div>
+            <h3 className="text-white font-semibold text-xs mb-4 uppercase tracking-widest">
+              Live Apps
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a href="https://dq.dqstore.in" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center gap-2 hover:text-dq-green transition-colors">
+                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0" />
+                  Customer App ↗
+                </a>
+              </li>
+              <li>
+                <a href="https://staff.dqstore.in" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center gap-2 hover:text-dq-green transition-colors">
+                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full flex-shrink-0" />
+                  Staff Portal ↗
+                </a>
+              </li>
+              <li>
+                <a href="https://app.dqstore.in" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center gap-2 hover:text-dq-green transition-colors">
+                  <span className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0" />
+                  Admin Dashboard ↗
+                </a>
+              </li>
             </ul>
           </div>
 

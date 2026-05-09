@@ -33,7 +33,7 @@ const jsonLd = [
     '@type': 'SoftwareApplication',
     name: 'DQ — Scan & Go Checkout',
     applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Android, iOS',
+    operatingSystem: 'Web',
     offers: {
       '@type': 'Offer',
       price: '2999',
@@ -63,8 +63,12 @@ export const metadata: Metadata = {
   keywords:
     'scan and go fashion store India, self checkout fashion retail, retail queue management India, DQ store checkout, no queue fashion store, mobile checkout India, branded retail technology, jewellery store checkout, lifestyle store billing',
   icons: {
-    icon: '/logos/favicon.svg',
+    icon: [
+      { url: '/logos/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
     shortcut: '/logos/favicon.svg',
+    apple: '/apple-touch-icon.png',
   },
   alternates: {
     canonical: 'https://dqstore.in/',

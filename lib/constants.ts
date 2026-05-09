@@ -176,6 +176,13 @@ export const INDUSTRIES = [
   },
 ]
 
+// ── Production app URLs ───────────────────────────────────────────────────────
+export const APP_URLS = {
+  customer: 'https://dq.dqstore.in',
+  staff:    'https://staff.dqstore.in',
+  admin:    'https://app.dqstore.in',
+} as const
+
 export const CONTACT_EMAIL   = 'kusumeshkantsharma@gmail.com'
 export const WHATSAPP_NUMBER = '918754886595'
 export const WEB3FORMS_KEY   = '76c6c6dd-e2aa-4c97-b1a5-f1fca47d329b'

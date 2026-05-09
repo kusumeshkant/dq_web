@@ -30,6 +30,18 @@ export default function HeroSection() {
 
           {/* ── Left: copy ── */}
           <div className="animate-fade-up">
+            {/* Web Beta announcement strip */}
+            <a
+              href="https://dq.dqstore.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 bg-dq-amber/20 border border-dq-amber/40 hover:bg-dq-amber/30 hover:border-dq-amber/60 rounded-full px-4 py-1.5 mb-4 transition-all duration-200"
+            >
+              <span className="w-1.5 h-1.5 bg-dq-amber rounded-full animate-pulse flex-shrink-0" />
+              <span className="text-dq-amber text-xs font-bold tracking-wide">DQ web apps are now live</span>
+              <span className="text-dq-amber/70 text-xs group-hover:text-dq-amber transition-colors">→ Try it now</span>
+            </a>
+
             <Badge variant="amber" className="mb-6 inline-flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-dq-amber rounded-full animate-pulse" />
               Built for Fashion &amp; Lifestyle Retail in India
@@ -54,17 +66,23 @@ export default function HeroSection() {
               >
                 Book a Free Demo →
               </Button>
-              <Button
-                href="/how-it-works"
-                size="lg"
-                variant="outline"
-                className="border-white/40 text-white hover:bg-white/10 hover:border-white/60"
+              <a
+                href="https://dq.dqstore.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-200 px-7 py-3.5 text-base sm:text-lg bg-dq-amber/20 border-2 border-dq-amber/60 text-dq-amber hover:bg-dq-amber/30 hover:border-dq-amber active:scale-[0.98] select-none"
               >
-                See How It Works
-              </Button>
+                Launch Web App ↗
+              </a>
             </div>
 
-            <p className="mt-5 text-xs text-green-300 flex flex-wrap items-center gap-x-5 gap-y-1.5">
+            <p className="mt-4">
+              <a href="/how-it-works" className="text-green-300/80 text-xs hover:text-green-200 underline underline-offset-2 transition-colors">
+                See how it works →
+              </a>
+            </p>
+
+            <p className="mt-4 text-xs text-green-300 flex flex-wrap items-center gap-x-5 gap-y-1.5">
               <span className="flex items-center gap-1.5">
                 <span className="text-dq-amber font-bold">✓</span> No hardware to buy
               </span>
@@ -74,13 +92,16 @@ export default function HeroSection() {
               <span className="flex items-center gap-1.5">
                 <span className="text-dq-amber font-bold">✓</span> Live in under 1 hour
               </span>
+              <span className="flex items-center gap-1.5">
+                <span className="text-dq-amber font-bold">🌐</span> All web apps live · Android &amp; iOS coming soon
+              </span>
             </p>
 
-            {/* Early access status */}
+            {/* Live status */}
             <div className="mt-7 inline-flex items-center gap-2.5 bg-white/[0.08] border border-white/[0.15] rounded-full px-4 py-2">
-              <span className="w-2 h-2 bg-dq-amber rounded-full animate-pulse flex-shrink-0" />
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
               <span className="text-green-100 text-xs font-medium">
-                Early access open — now onboarding pilot stores in India
+                All web apps live — now onboarding pilot stores across India
               </span>
             </div>
 
@@ -151,6 +172,32 @@ export default function HeroSection() {
                       <span className="text-green-300 text-[10px] ml-1.5">{s.note}</span>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Live ecosystem status */}
+            <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-4">
+              <p className="text-xs text-green-300 font-semibold uppercase tracking-widest mb-3">Live ecosystem</p>
+              <div className="space-y-2">
+                {[
+                  { name: 'Customer App',    href: 'https://dq.dqstore.in',    dot: 'bg-green-400' },
+                  { name: 'Staff Portal',    href: 'https://staff.dqstore.in', dot: 'bg-blue-400'  },
+                  { name: 'Admin Dashboard', href: 'https://app.dqstore.in',   dot: 'bg-amber-400' },
+                ].map((app) => (
+                  <a
+                    key={app.name}
+                    href={app.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between group hover:bg-white/5 rounded-lg px-2 py-1.5 -mx-2 transition-colors"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className={`w-1.5 h-1.5 ${app.dot} rounded-full animate-pulse flex-shrink-0`} />
+                      <span className="text-white text-xs font-medium">{app.name}</span>
+                    </div>
+                    <span className="text-green-400 text-[10px] font-bold group-hover:text-green-300 transition-colors">LIVE ↗</span>
+                  </a>
                 ))}
               </div>
             </div>
