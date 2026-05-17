@@ -1,24 +1,31 @@
 import Link from 'next/link'
-import { Activity, GitBranch, Shield, Server, Zap, QrCode, BarChart3, Users } from 'lucide-react'
+import { QrCode, BarChart3, Users, Globe, Smartphone, CreditCard, ShieldCheck, Languages } from 'lucide-react'
 
 const ANCHOR_STATS = [
   { value: '₹0',    label: 'Hardware cost' },
   { value: '48hrs', label: 'Deployment time' },
-  { value: '82%',   label: 'Gross margin' },
-  { value: '3',     label: 'Production apps' },
-]
-
-const INFRA_SIGNALS = [
-  { Icon: Server,    label: 'Azure — Central India' },
-  { Icon: Shield,    label: 'Razorpay Model B' },
-  { Icon: Activity,  label: '12-Phase Observability' },
-  { Icon: GitBranch, label: 'DEV → UAT → PROD' },
+  { value: '6',     label: 'Languages' },
+  { value: '3',     label: 'Live apps' },
 ]
 
 const LIVE_APPS = [
-  { name: 'Customer Checkout',    href: 'https://dq.dqstore.in',    dot: 'bg-enterprise-live', Icon: QrCode  },
-  { name: 'Staff Portal',         href: 'https://staff.dqstore.in', dot: 'bg-enterprise-blue', Icon: Users   },
-  { name: 'Admin Dashboard',      href: 'https://app.dqstore.in',   dot: 'bg-yellow-400',      Icon: BarChart3 },
+  { name: 'Customer Checkout', href: 'https://dq.dqstore.in',    dot: 'bg-enterprise-live', Icon: QrCode   },
+  { name: 'Staff Operations',  href: 'https://staff.dqstore.in', dot: 'bg-enterprise-blue', Icon: Users    },
+  { name: 'Admin Intelligence',href: 'https://app.dqstore.in',   dot: 'bg-yellow-400',      Icon: BarChart3 },
+]
+
+const PLATFORM_SURFACES = [
+  { name: 'Customer Checkout',  dot: 'bg-enterprise-live',    status: 'Web Live',  Icon: QrCode    },
+  { name: 'Staff Operations',   dot: 'bg-enterprise-blue',    status: 'Web Live',  Icon: Users     },
+  { name: 'Admin Intelligence', dot: 'bg-yellow-400',         status: 'Web Live',  Icon: BarChart3 },
+  { name: 'Mobile Apps',        dot: 'bg-enterprise-muted/40',status: 'Q3 2026',   Icon: Smartphone },
+]
+
+const CAPABILITIES = [
+  { Icon: Globe,       label: 'Web-first, no install' },
+  { Icon: CreditCard,  label: 'Digital payments' },
+  { Icon: Languages,   label: '6 Indian languages' },
+  { Icon: ShieldCheck, label: 'Exit validation' },
 ]
 
 export default function HeroSection() {
@@ -112,37 +119,42 @@ export default function HeroSection() {
             className="hidden lg:flex flex-col gap-3 animate-fade-up"
             style={{ animationDelay: '0.15s' }}
           >
-            {/* Platform architecture card */}
+            {/* Platform status card */}
             <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl overflow-hidden">
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-enterprise-elevated">
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF4A4A]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-enterprise-live" />
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 bg-enterprise-blue rounded-md flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-[9px] tracking-tight">DQ</span>
                   </div>
-                  <span className="text-enterprise-muted text-[11px] font-mono ml-1">platform.architecture</span>
+                  <span className="text-white text-xs font-semibold">DQ Platform</span>
                 </div>
-                <span className="text-[10px] text-enterprise-blue font-semibold bg-enterprise-blue/10 border border-enterprise-blue/20 px-2 py-0.5 rounded-full">LIVE</span>
+                <span className="text-[10px] text-enterprise-blue font-semibold bg-enterprise-blue/10 border border-enterprise-blue/20 px-2 py-0.5 rounded-full">
+                  3 Apps · All Live
+                </span>
               </div>
-              <div className="p-4 font-mono text-[11px] leading-relaxed space-y-1 text-enterprise-muted">
-                <div className="text-enterprise-blue/80 mb-2 font-semibold">// DQ Platform — 3 production surfaces</div>
-                <div><span className="text-yellow-400">customer</span>  → <span className="text-enterprise-muted/70">dq.dqstore.in</span>     <span className="text-enterprise-live text-[10px]">● live</span></div>
-                <div><span className="text-yellow-400">staff</span>     → <span className="text-enterprise-muted/70">staff.dqstore.in</span>  <span className="text-enterprise-live text-[10px]">● live</span></div>
-                <div><span className="text-yellow-400">admin</span>     → <span className="text-enterprise-muted/70">app.dqstore.in</span>    <span className="text-enterprise-live text-[10px]">● live</span></div>
-                <div className="pt-1 border-t border-enterprise-elevated mt-2">
-                  <span className="text-enterprise-muted/60">GraphQL</span> → <span className="text-enterprise-muted/60">Node.js + Apollo</span>
-                </div>
-                <div><span className="text-enterprise-muted/60">Storage</span>  → <span className="text-enterprise-muted/60">MongoDB Atlas · Azure IN</span></div>
-                <div><span className="text-enterprise-muted/60">Auth</span>     → <span className="text-enterprise-muted/60">Firebase JWT · RBAC</span></div>
-                <div><span className="text-enterprise-muted/60">Payments</span> → <span className="text-enterprise-muted/60">Razorpay Model B</span></div>
+              <div className="p-4 space-y-2.5">
+                {PLATFORM_SURFACES.map((item) => {
+                  const { Icon } = item
+                  return (
+                    <div key={item.name} className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Icon className="w-3.5 h-3.5 text-enterprise-muted/60" strokeWidth={1.5} />
+                        <span className="text-white text-xs font-medium">{item.name}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`w-1.5 h-1.5 ${item.dot} rounded-full flex-shrink-0`} />
+                        <span className="text-[10px] text-enterprise-muted">{item.status}</span>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-            {/* Live app status */}
+            {/* Live app links */}
             <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-4">
               <p className="text-[10px] text-enterprise-muted font-semibold uppercase tracking-widest mb-3">
-                Live ecosystem
+                Live platforms
               </p>
               <div className="space-y-2">
                 {LIVE_APPS.map((app) => {
@@ -162,7 +174,7 @@ export default function HeroSection() {
                         <span className="text-white text-xs font-medium">{app.name}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <span className={`w-1.5 h-1.5 ${app.dot} rounded-full animate-pulse flex-shrink-0`} />
+                        <span className={`w-1.5 h-1.5 ${app.dot} rounded-full flex-shrink-0`} />
                         <span className="text-enterprise-live text-[10px] font-bold">LIVE ↗</span>
                       </div>
                     </a>
@@ -171,13 +183,13 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Infrastructure signals */}
+            {/* Platform capabilities */}
             <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-4">
               <p className="text-[10px] text-enterprise-muted font-semibold uppercase tracking-widest mb-3">
-                Infrastructure
+                Platform capabilities
               </p>
               <div className="grid grid-cols-2 gap-2">
-                {INFRA_SIGNALS.map(({ Icon, label }) => (
+                {CAPABILITIES.map(({ Icon, label }) => (
                   <div key={label} className="flex items-center gap-2">
                     <div className="w-6 h-6 bg-enterprise-elevated rounded-md flex items-center justify-center flex-shrink-0">
                       <Icon className="w-3 h-3 text-enterprise-blue" strokeWidth={1.5} />

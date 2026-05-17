@@ -61,8 +61,8 @@ export default function CtaBanner() {
             <div>
               <h3 className="text-white font-bold text-lg leading-snug">For investors &amp; enterprise partners</h3>
               <p className="text-enterprise-muted text-sm mt-2 leading-relaxed">
-                Platform architecture, unit economics, and four-layer vision available on request.
-                Full technical and commercial overview deck.
+                Platform vision, unit economics, and four-phase roadmap available on request.
+                Complete commercial and product overview deck.
               </p>
             </div>
             <Link
@@ -72,7 +72,7 @@ export default function CtaBanner() {
               Request Platform Overview →
             </Link>
             <p className="text-[11px] text-enterprise-muted/60 -mt-2">
-              Architecture · Unit economics · Four-layer vision
+              Vision · Unit economics · Roadmap
             </p>
           </div>
 
@@ -86,11 +86,11 @@ export default function CtaBanner() {
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 bg-enterprise-blue rounded-full" />
-            Azure production infrastructure
+            Production-grade cloud infrastructure
           </span>
           <span className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 bg-enterprise-muted/40 rounded-full" />
-            Razorpay Model B — RBI compliant
+            RBI-compliant digital payments
           </span>
         </div>
 

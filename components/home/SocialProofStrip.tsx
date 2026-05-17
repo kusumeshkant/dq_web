@@ -1,47 +1,47 @@
-import { Server, Shield, Lock, Activity, Zap, GitBranch } from 'lucide-react'
+import { QrCode, Users, LayoutDashboard, Smartphone, CreditCard, Globe } from 'lucide-react'
 
 const SIGNALS = [
   {
-    Icon: Server,
-    label: 'Azure — Central India',
-    sub: 'Production cloud hosting',
-    color: 'text-enterprise-blue',
-    bg: 'bg-enterprise-blue/10',
-  },
-  {
-    Icon: Shield,
-    label: 'Razorpay Model B',
-    sub: 'No RBI PA License needed',
+    Icon: QrCode,
+    label: 'Customer Platform',
+    sub: 'Web · Live',
     color: 'text-enterprise-live',
     bg: 'bg-enterprise-live/10',
   },
   {
-    Icon: Lock,
-    label: 'Firebase Auth + RBAC',
-    sub: '4-tier role-based access',
-    color: 'text-purple-400',
-    bg: 'bg-purple-400/10',
-  },
-  {
-    Icon: Activity,
-    label: '12-Phase Observability',
-    sub: 'Correlation IDs · Crash trace',
+    Icon: Users,
+    label: 'Staff Operations',
+    sub: 'Web · Live',
     color: 'text-enterprise-blue',
     bg: 'bg-enterprise-blue/10',
   },
   {
-    Icon: Zap,
-    label: 'Apollo GraphQL API',
-    sub: 'Type-safe · API-ready',
+    Icon: LayoutDashboard,
+    label: 'Admin Intelligence',
+    sub: 'Web · Live',
     color: 'text-yellow-400',
     bg: 'bg-yellow-400/10',
   },
   {
-    Icon: GitBranch,
-    label: 'DEV → UAT → PROD',
-    sub: 'Multi-environment pipeline',
+    Icon: Smartphone,
+    label: 'Mobile Apps',
+    sub: 'Android & iOS · Q3 2026',
     color: 'text-enterprise-muted',
     bg: 'bg-enterprise-elevated',
+  },
+  {
+    Icon: CreditCard,
+    label: 'Digital Payments',
+    sub: 'UPI · Cards · Wallets',
+    color: 'text-enterprise-blue',
+    bg: 'bg-enterprise-blue/10',
+  },
+  {
+    Icon: Globe,
+    label: '6 Indian Languages',
+    sub: 'Hindi · Tamil · Telugu · More',
+    color: 'text-purple-400',
+    bg: 'bg-purple-400/10',
   },
 ]
 

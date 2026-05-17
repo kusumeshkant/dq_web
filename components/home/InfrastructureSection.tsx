@@ -1,62 +1,74 @@
 'use client'
 
-import { Server, Activity, GitBranch, Shield, Lock, Zap } from 'lucide-react'
+import { QrCode, Users, LayoutDashboard, Globe, Smartphone, Tablet } from 'lucide-react'
 import { useInView } from '@/hooks/useInView'
 
-const PILLARS = [
+const PLATFORMS = [
   {
-    Icon: Server,
-    title: 'Azure Container Apps — Central India',
-    body: 'Production backend deployed on Microsoft Azure, Central India region. India-resident data, horizontal scaling, compliance-ready hosting — the same tier used by enterprise SaaS platforms.',
-    tags: ['Azure', 'India-hosted', 'Scalable'],
-    color: 'text-enterprise-blue',
-    bg: 'bg-enterprise-blue/10',
-    border: 'hover:border-enterprise-blue/30',
-  },
-  {
-    Icon: Activity,
-    title: '12-Phase Production Observability',
-    body: 'Structured logging with correlation IDs injected into every API request. BreadcrumbService ring buffer captures the last 50 events before any crash. ANR detection and frame performance monitoring across all three apps.',
-    tags: ['Correlation IDs', 'Crash trace', 'ANR detection'],
+    Icon: QrCode,
+    title: 'Customer Platform',
+    status: 'Live',
+    live: true,
+    desc: 'Customers scan product barcodes, build their cart, pay digitally, and show an exit QR code — all from their smartphone browser. No app download needed.',
+    tags: ['Web', 'Scan & Pay', 'Exit QR'],
     color: 'text-enterprise-live',
     bg: 'bg-enterprise-live/10',
     border: 'hover:border-enterprise-live/30',
   },
   {
-    Icon: GitBranch,
-    title: 'DEV → UAT → PROD Pipeline',
-    body: 'Every feature passes through three environments before reaching production. DEV (Vercel) → UAT (Azure staging) → PROD (Azure production). No debugging on production. No shortcut deployments.',
-    tags: ['Staged releases', 'Zero prod debug', 'Enterprise discipline'],
-    color: 'text-purple-400',
-    bg: 'bg-purple-400/10',
-    border: 'hover:border-purple-400/30',
-  },
-  {
-    Icon: Shield,
-    title: 'Razorpay Model B — No PA License',
-    body: 'DQ never holds merchant funds. Each store links its own Razorpay account directly. Customer payments settle T+1 into your account. This is not a workaround — it is the architecture. No RBI Payment Aggregator License required.',
-    tags: ['RBI compliant', 'Zero float', 'Structural moat'],
-    color: 'text-yellow-400',
-    bg: 'bg-yellow-400/10',
-    border: 'hover:border-yellow-400/30',
-  },
-  {
-    Icon: Lock,
-    title: 'Firebase JWT + 4-Tier RBAC',
-    body: 'Session management via Firebase Authentication with JWT verification at the API middleware layer. Role-based access control at both API and UI layers: Owner · Manager · Staff · Cashier. Full audit trail on every action.',
-    tags: ['Firebase Auth', 'RBAC', 'Audit trail'],
+    Icon: Users,
+    title: 'Staff Operations',
+    status: 'Live',
+    live: true,
+    desc: 'Real-time order feed with instant notifications on every payment. One-tap order management and exit QR validation — built for the store floor.',
+    tags: ['Web', 'Live Orders', 'Exit Validation'],
     color: 'text-enterprise-blue',
     bg: 'bg-enterprise-blue/10',
     border: 'hover:border-enterprise-blue/30',
   },
   {
-    Icon: Zap,
-    title: 'Apollo GraphQL — Type-Safe API',
-    body: 'Fully typed GraphQL schema with 15+ MongoDB models. Resolver-level validation. API-ready for ERP integrations, analytics extensions, and the intelligence layer that emerges as transaction data scales.',
-    tags: ['Apollo GraphQL', 'MongoDB Atlas', 'API-ready'],
+    Icon: LayoutDashboard,
+    title: 'Admin Intelligence',
+    status: 'Live',
+    live: true,
+    desc: 'Revenue analytics, inventory tracking, staff performance dashboards, and multi-store management — complete operational visibility in one place.',
+    tags: ['Web', 'Analytics', 'Multi-Store'],
+    color: 'text-yellow-400',
+    bg: 'bg-yellow-400/10',
+    border: 'hover:border-yellow-400/30',
+  },
+  {
+    Icon: Globe,
+    title: 'Web Platform',
+    status: 'Live',
+    live: true,
+    desc: 'All three platforms run as progressive web apps. Accessible from any device with a browser — no installation, no updates, no friction.',
+    tags: ['No Install', 'All Devices', 'Always Current'],
     color: 'text-enterprise-muted',
     bg: 'bg-enterprise-elevated',
     border: 'hover:border-enterprise-muted/30',
+  },
+  {
+    Icon: Smartphone,
+    title: 'Mobile Apps',
+    status: 'Q3 2026',
+    live: false,
+    desc: 'Native Android and iOS apps for customers and staff — with push notifications, offline support, and optimised camera scanning.',
+    tags: ['Android', 'iOS', 'Native'],
+    color: 'text-purple-400',
+    bg: 'bg-purple-400/10',
+    border: 'hover:border-purple-400/20',
+  },
+  {
+    Icon: Tablet,
+    title: 'Tablet Experience',
+    status: 'Coming Soon',
+    live: false,
+    desc: 'Dedicated tablet-optimised interface for staff operations and admin dashboards — designed for store floor and manager workflows.',
+    tags: ['iPad', 'Android Tablet', 'Floor-Ready'],
+    color: 'text-enterprise-muted',
+    bg: 'bg-enterprise-elevated',
+    border: 'hover:border-enterprise-muted/20',
   },
 ]
 
@@ -69,22 +81,22 @@ export default function InfrastructureSection() {
 
         {/* Header */}
         <div className="max-w-3xl mb-14">
-          <span className="inline-block mb-4 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase bg-enterprise-elevated text-enterprise-muted border border-enterprise-elevated">
-            Infrastructure
+          <span className="inline-block mb-4 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase bg-enterprise-blue/10 text-enterprise-blue border border-enterprise-blue/20">
+            Platform Ecosystem
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
-            Enterprise infrastructure.<br />
-            <span className="text-enterprise-muted font-normal">Not a startup prototype.</span>
+            One platform. Complete store coverage.<br />
+            <span className="text-enterprise-muted font-normal">Every surface, every role, every transaction.</span>
           </h2>
           <p className="mt-4 text-enterprise-muted text-base sm:text-lg leading-relaxed">
-            DQ is built on production-grade cloud infrastructure with multi-environment
-            deployment discipline and 12-phase observability — from day one of the platform.
+            Three live platforms running today. Mobile and tablet surfaces shipping Q3 2026.
+            All connected, all real-time.
           </p>
         </div>
 
         {/* 2×3 grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {PILLARS.map((p, i) => {
+          {PLATFORMS.map((p, i) => {
             const { Icon } = p
             return (
               <div
@@ -92,11 +104,24 @@ export default function InfrastructureSection() {
                 className={`group bg-enterprise-navy border border-enterprise-elevated rounded-xl p-6 ${p.border} transition-all duration-300 reveal${inView ? ' is-visible' : ''}`}
                 style={{ transitionDelay: `${i * 0.07}s` }}
               >
-                <div className={`w-10 h-10 ${p.bg} rounded-lg flex items-center justify-center mb-5 group-hover:scale-105 transition-transform`}>
-                  <Icon className={`w-5 h-5 ${p.color}`} strokeWidth={1.5} />
+                {/* Icon + status row */}
+                <div className="flex items-start justify-between mb-5">
+                  <div className={`w-10 h-10 ${p.bg} rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform`}>
+                    <Icon className={`w-5 h-5 ${p.color}`} strokeWidth={1.5} />
+                  </div>
+                  <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-1 rounded-full border ${
+                    p.live
+                      ? 'bg-enterprise-live/10 text-enterprise-live border-enterprise-live/20'
+                      : 'bg-enterprise-elevated text-enterprise-muted/60 border-enterprise-elevated'
+                  }`}>
+                    {p.live && <span className="w-1 h-1 bg-enterprise-live rounded-full" />}
+                    {p.status}
+                  </span>
                 </div>
+
                 <h3 className="text-white font-semibold text-sm leading-snug mb-2">{p.title}</h3>
-                <p className="text-enterprise-muted text-sm leading-relaxed mb-4">{p.body}</p>
+                <p className="text-enterprise-muted text-sm leading-relaxed mb-4">{p.desc}</p>
+
                 <div className="flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
                     <span
@@ -112,26 +137,36 @@ export default function InfrastructureSection() {
           })}
         </div>
 
-        {/* Live system status */}
-        <div className="mt-8 bg-enterprise-navy border border-enterprise-elevated rounded-xl px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-enterprise-live rounded-full animate-pulse flex-shrink-0" />
-            <span className="text-enterprise-muted text-xs font-semibold uppercase tracking-widest">System Status</span>
+        {/* Partner + system status strip */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          {/* Live status */}
+          <div className="bg-enterprise-navy border border-enterprise-elevated rounded-xl px-6 py-4 flex items-center gap-4">
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <span className="w-2 h-2 bg-enterprise-live rounded-full animate-pulse" />
+              <span className="text-enterprise-muted text-xs font-semibold uppercase tracking-widest">All Systems Live</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5">
+              {['Customer Platform', 'Staff Platform', 'Admin Platform'].map((item) => (
+                <span key={item} className="flex items-center gap-1.5 text-xs text-enterprise-muted">
+                  <span className="w-1.5 h-1.5 bg-enterprise-live rounded-full flex-shrink-0" />
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 flex-1">
-            {[
-              'Customer App — Operational',
-              'Staff Portal — Operational',
-              'Admin Dashboard — Operational',
-              'GraphQL API — Operational',
-            ].map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-xs text-enterprise-muted">
-                <span className="w-1.5 h-1.5 bg-enterprise-live rounded-full flex-shrink-0" />
-                {item}
-              </span>
-            ))}
+
+          {/* Payment partner */}
+          <div className="bg-enterprise-navy border border-enterprise-elevated rounded-xl px-6 py-4 flex items-center gap-4">
+            <div className="flex-shrink-0">
+              <span className="text-enterprise-muted text-xs font-semibold uppercase tracking-widest">Payment Partner</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white text-sm font-semibold">Razorpay</span>
+              <span className="text-enterprise-muted text-xs">— UPI · Cards · Wallets · RBI compliant</span>
+            </div>
           </div>
-          <span className="text-[10px] text-enterprise-muted/60 flex-shrink-0">Uptime target: 99.9%</span>
+
         </div>
 
       </div>

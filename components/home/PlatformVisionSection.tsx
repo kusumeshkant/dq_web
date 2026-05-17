@@ -5,32 +5,32 @@ import { useInView } from '@/hooks/useInView'
 const LAYERS = [
   {
     num: '04',
-    title: 'AI-Native Retail OS',
     phase: 'Phase 5+',
+    title: 'AI-Native Retail OS',
     desc: 'Autonomous operations. Cross-store AI intelligence. Demand prediction. Customer intelligence at platform scale.',
     features: ['Autonomous reorder', 'Demand forecasting', 'Cross-store AI', 'Platform intelligence'],
     status: 'vision',
   },
   {
     num: '03',
-    title: 'Intelligence Engine',
     phase: 'Phase 3–4',
-    desc: 'AI reorder signals. SKU-level velocity predictions. Inventory optimization. The intelligence layer that forms from your data.',
-    features: ['Velocity predictions', 'AI reorder signals', 'SKU forecasting', 'Anomaly detection'],
+    title: 'Intelligence Engine',
+    desc: 'Predictive inventory signals. SKU-level velocity insights. Inventory optimisation. The intelligence layer that forms from your data.',
+    features: ['Velocity insights', 'Predictive reorder', 'SKU forecasting', 'Anomaly detection'],
     status: 'roadmap',
   },
   {
     num: '02',
-    title: 'Retail Operations',
     phase: 'Phase 2–3',
+    title: 'Retail Operations',
     desc: 'Staff performance analytics. Multi-store management. Discount engine. Inventory velocity tracking across outlets.',
-    features: ['Multi-store mgmt', 'Staff analytics', 'Inventory velocity', 'Discount engine'],
+    features: ['Multi-store management', 'Staff analytics', 'Inventory velocity', 'Discount engine'],
     status: 'roadmap',
   },
   {
     num: '01',
-    title: 'Checkout Infrastructure',
     phase: 'Live Now',
+    title: 'Checkout & Payments',
     desc: 'Customer scan-and-pay. Staff order validation. Admin analytics. Real-time queue elimination at the point of service.',
     features: ['Customer checkout', 'Staff operations', 'Admin analytics', 'Exit validation'],
     status: 'live',
@@ -47,14 +47,14 @@ export default function PlatformVisionSection() {
         {/* Header */}
         <div className="max-w-3xl mb-14">
           <span className="inline-block mb-4 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase bg-enterprise-blue/10 text-enterprise-blue border border-enterprise-blue/20">
-            Platform Architecture
+            Platform Roadmap
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
             Not a checkout app.<br />
             <span className="text-enterprise-blue">A platform that compounds with every transaction.</span>
           </h2>
           <p className="mt-4 text-enterprise-muted text-base sm:text-lg leading-relaxed">
-            DQ is built in four layers. You onboard at Layer 1 today.
+            DQ is built in four phases. You go live at Phase 1 today.
             The platform grows smarter with every store, every transaction, every month.
           </p>
         </div>
@@ -80,10 +80,10 @@ export default function PlatformVisionSection() {
                 style={{ transitionDelay: `${(LAYERS.length - 1 - i) * 0.07}s` }}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 sm:p-6">
-                  {/* Layer number + live badge */}
+                  {/* Phase indicator */}
                   <div className="flex items-center gap-3 flex-shrink-0 sm:w-48">
-                    <span className={`text-[11px] font-black tracking-[0.2em] font-mono ${isLive ? 'text-enterprise-blue' : 'text-enterprise-muted/40'}`}>
-                      LAYER {layer.num}
+                    <span className={`text-[11px] font-bold tracking-[0.15em] ${isLive ? 'text-enterprise-blue' : 'text-enterprise-muted/40'}`}>
+                      PHASE {layer.num}
                     </span>
                     <span className={`
                       text-[10px] font-bold px-2.5 py-0.5 rounded-full border
@@ -140,14 +140,14 @@ export default function PlatformVisionSection() {
             <p className="text-white font-semibold text-sm leading-snug">Every transaction compounds platform intelligence.</p>
             <p className="text-enterprise-muted text-sm mt-1 leading-relaxed">
               As more stores run DQ and more orders complete, the intelligence layer deepens automatically.
-              This is the architecture — not a future promise.
+              This is the vision — and the foundation is already live.
             </p>
           </div>
           <a
             href="/contact"
             className="flex-shrink-0 inline-flex items-center gap-2 bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-all duration-200 whitespace-nowrap"
           >
-            Start at Layer 1 →
+            Get Started Today →
           </a>
         </div>
 
