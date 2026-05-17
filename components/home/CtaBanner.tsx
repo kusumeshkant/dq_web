@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Store, TrendingUp } from 'lucide-react'
+import { Store } from 'lucide-react'
 
 export default function CtaBanner() {
   return (
@@ -23,28 +23,26 @@ export default function CtaBanner() {
             to every transaction?
           </h2>
           <p className="mt-4 text-enterprise-muted text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-            Two paths. Same platform. Choose the conversation that fits your role.
+            See DQ running live in your store category. 48-hour deployment. No hardware. No IT team.
           </p>
         </div>
 
-        {/* Two-track CTA cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-
-          {/* Track 1: Store owner */}
-          <div className="bg-enterprise-surface border border-enterprise-elevated hover:border-enterprise-blue/40 rounded-xl p-7 flex flex-col gap-5 transition-all duration-300 group">
+        {/* Primary CTA card — store owners */}
+        <div className="max-w-lg mx-auto">
+          <div className="bg-enterprise-surface border border-enterprise-elevated hover:border-enterprise-blue/40 rounded-xl p-7 flex flex-col gap-5 transition-all duration-300">
             <div className="w-11 h-11 bg-enterprise-blue/10 rounded-xl flex items-center justify-center">
               <Store className="w-5 h-5 text-enterprise-blue" strokeWidth={1.5} />
             </div>
             <div>
               <h3 className="text-white font-bold text-lg leading-snug">For store owners &amp; GMs</h3>
               <p className="text-enterprise-muted text-sm mt-2 leading-relaxed">
-                See DQ running live in your store category.
-                48-hour deployment after demo. No hardware. No IT team.
+                Book a live walkthrough of DQ in your store category.
+                We configure and deploy in 48 hours — no hardware, no IT team required.
               </p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200 shadow-[0_4px_16px_rgba(46,134,255,0.3)] hover:shadow-[0_6px_24px_rgba(46,134,255,0.4)] mt-auto"
+              className="inline-flex items-center justify-center gap-2 bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200 shadow-[0_4px_16px_rgba(46,134,255,0.3)] hover:shadow-[0_6px_24px_rgba(46,134,255,0.4)]"
             >
               Request a Store Demo →
             </Link>
@@ -53,29 +51,16 @@ export default function CtaBanner() {
             </p>
           </div>
 
-          {/* Track 2: Investor / Partner */}
-          <div className="bg-enterprise-surface border border-enterprise-elevated hover:border-enterprise-elevated/80 rounded-xl p-7 flex flex-col gap-5 transition-all duration-300 group">
-            <div className="w-11 h-11 bg-enterprise-elevated rounded-xl flex items-center justify-center">
-              <TrendingUp className="w-5 h-5 text-enterprise-muted" strokeWidth={1.5} />
-            </div>
-            <div>
-              <h3 className="text-white font-bold text-lg leading-snug">For investors &amp; enterprise partners</h3>
-              <p className="text-enterprise-muted text-sm mt-2 leading-relaxed">
-                Platform vision, unit economics, and four-phase roadmap available on request.
-                Complete commercial and product overview deck.
-              </p>
-            </div>
+          {/* Secondary enterprise line */}
+          <p className="mt-5 text-center text-xs text-enterprise-muted/50 leading-relaxed">
+            Enterprise partnerships and platform overview available on request.{' '}
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 border border-enterprise-elevated hover:border-enterprise-muted/50 text-enterprise-muted hover:text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200 mt-auto"
+              className="text-enterprise-muted/70 hover:text-enterprise-muted underline underline-offset-2 decoration-enterprise-muted/30 hover:decoration-enterprise-muted/60 transition-colors duration-200"
             >
-              Request Platform Overview →
+              Request Platform Overview
             </Link>
-            <p className="text-[11px] text-enterprise-muted/60 -mt-2">
-              Vision · Unit economics · Roadmap
-            </p>
-          </div>
-
+          </p>
         </div>
 
         {/* Bottom trust row */}
