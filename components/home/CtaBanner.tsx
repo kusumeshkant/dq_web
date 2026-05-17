@@ -52,11 +52,11 @@ export default function CtaBanner() {
           </div>
 
           {/* Secondary enterprise line */}
-          <p className="mt-5 text-center text-xs text-enterprise-muted/50 leading-relaxed">
+          <p className="mt-4 text-center text-[13px] text-enterprise-muted/60 leading-relaxed">
             Enterprise partnerships and platform overview available on request.{' '}
             <Link
               href="/contact"
-              className="text-enterprise-muted/70 hover:text-enterprise-muted underline underline-offset-2 decoration-enterprise-muted/30 hover:decoration-enterprise-muted/60 transition-colors duration-200"
+              className="text-enterprise-muted/80 hover:text-enterprise-muted underline underline-offset-2 decoration-enterprise-muted/40 hover:decoration-enterprise-muted/70 transition-colors duration-200"
             >
               Request Platform Overview
             </Link>
