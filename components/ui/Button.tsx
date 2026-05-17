@@ -23,12 +23,12 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-dq-green focus-visible:ring-offset-2 disabled:opacity-55 disabled:cursor-not-allowed select-none'
+    'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-enterprise-blue focus-visible:ring-offset-2 disabled:opacity-55 disabled:cursor-not-allowed select-none'
 
   const variants = {
-    primary: 'bg-dq-green text-white hover:bg-dq-dark active:scale-[0.98] shadow-sm hover:shadow-md',
-    outline: 'border-2 border-dq-green text-dq-green hover:bg-dq-light active:scale-[0.98]',
-    ghost:   'text-dq-green hover:bg-dq-light active:scale-[0.98]',
+    primary: 'bg-enterprise-blue text-white hover:bg-enterprise-blue-hover active:scale-[0.98] shadow-sm hover:shadow-md',
+    outline: 'border-2 border-enterprise-blue text-enterprise-blue hover:bg-enterprise-blue/5 active:scale-[0.98]',
+    ghost:   'text-enterprise-blue hover:bg-enterprise-blue/5 active:scale-[0.98]',
   }
 
   const sizes = {

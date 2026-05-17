@@ -3,7 +3,7 @@ export default function StorySection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <span className="inline-block mb-5 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-dq-light text-dq-dark border border-dq-muted">
+          <span className="inline-block mb-5 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase bg-enterprise-blue/8 text-enterprise-blue border border-enterprise-blue/15">
             Our Story
           </span>
 
@@ -41,11 +41,11 @@ export default function StorySection() {
             </p>
           </div>
 
-          <div className="mt-10 p-7 bg-dq-light border border-dq-muted rounded-2xl">
-            <p className="text-dq-dark font-bold text-xl italic text-center leading-snug">
+          <div className="mt-10 p-7 bg-enterprise-navy border border-enterprise-elevated rounded-xl">
+            <p className="text-white font-bold text-xl italic text-center leading-snug">
               &ldquo;To make the checkout queue extinct in Indian retail.&rdquo;
             </p>
-            <p className="text-dq-green text-sm text-center mt-3 font-semibold tracking-wide uppercase text-xs">
+            <p className="text-enterprise-blue text-xs text-center mt-3 font-semibold tracking-widest uppercase">
               Our Mission
             </p>
           </div>

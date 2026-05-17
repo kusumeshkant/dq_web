@@ -49,7 +49,7 @@ export default function RoiSection() {
   return (
     <section
       ref={ref}
-      className={`py-20 bg-white reveal${inView ? ' is-visible' : ''}`}
+      className={`py-20 bg-[#F8FAFC] reveal${inView ? ' is-visible' : ''}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -59,15 +59,15 @@ export default function RoiSection() {
         />
 
         <div className="mt-14 max-w-3xl mx-auto">
-          <div className="rounded-3xl border border-gray-100 shadow-2xl shadow-gray-100 overflow-hidden bg-white">
+          <div className="rounded-2xl border border-gray-200 shadow-xl shadow-gray-100/60 overflow-hidden bg-white">
 
             {/* ── Header ── */}
-            <div className="bg-gradient-to-r from-dq-dark to-dq-green px-6 py-4 flex items-center justify-between">
+            <div className="bg-enterprise-navy px-6 py-4 flex items-center justify-between border-b border-enterprise-elevated">
               <div className="flex items-center gap-2.5">
-                <TrendingUp className="w-4 h-4 text-dq-amber" strokeWidth={2} />
+                <TrendingUp className="w-4 h-4 text-enterprise-blue" strokeWidth={2} />
                 <span className="text-white font-bold text-sm">DQ ROI Calculator</span>
               </div>
-              <span className="text-[11px] text-green-200 bg-white/10 border border-white/20 px-2.5 py-1 rounded-full font-medium">
+              <span className="text-[11px] text-enterprise-muted bg-enterprise-elevated border border-enterprise-elevated px-2.5 py-1 rounded-full font-medium">
                 Adjust for your store
               </span>
             </div>
@@ -106,7 +106,7 @@ export default function RoiSection() {
                     <div className="flex items-center justify-between mt-3">
                       <span className="text-xs text-gray-400">1/day</span>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl font-black text-dq-green tabular-nums leading-none">
+                        <span className="text-3xl font-black text-enterprise-blue tabular-nums leading-none">
                           {lost}
                         </span>
                         <span className="text-sm text-gray-500 font-medium">customers/day</span>
@@ -129,10 +129,10 @@ export default function RoiSection() {
                           key={v}
                           type="button"
                           onClick={() => setBasket(v)}
-                          className={`py-2.5 px-1 rounded-xl text-sm font-semibold border-2 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dq-green focus-visible:ring-offset-2 ${
+                          className={`py-2.5 px-1 rounded-xl text-sm font-semibold border-2 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-enterprise-blue focus-visible:ring-offset-2 ${
                             basket === v
-                              ? 'border-dq-green bg-dq-light text-dq-dark shadow-sm'
-                              : 'border-gray-200 text-gray-600 hover:border-dq-green/40 hover:bg-gray-50'
+                              ? 'border-enterprise-blue bg-enterprise-blue/5 text-enterprise-blue shadow-sm'
+                              : 'border-gray-200 text-gray-600 hover:border-enterprise-blue/30 hover:bg-gray-50'
                           }`}
                         >
                           {basketLabel(v)}
@@ -146,7 +146,7 @@ export default function RoiSection() {
                     <p className="text-xs text-gray-500 font-mono leading-relaxed">
                       {lost} customers × {basketLabel(basket)} × 30 days
                       <br />
-                      <span className="text-dq-green font-bold">
+                      <span className="text-enterprise-blue font-bold">
                         = {fmtINR(monthly)} / month potential
                       </span>
                     </p>
@@ -157,8 +157,8 @@ export default function RoiSection() {
                 <div className="flex flex-col gap-4">
 
                   {/* Hero result card */}
-                  <div className="bg-gradient-to-br from-dq-dark to-dq-green rounded-2xl p-6 text-center">
-                    <p className="text-green-200 text-[10px] font-semibold uppercase tracking-[0.15em] mb-2">
+                  <div className="bg-enterprise-navy rounded-2xl p-6 text-center border border-enterprise-elevated">
+                    <p className="text-enterprise-muted text-[10px] font-semibold uppercase tracking-[0.15em] mb-2">
                       Monthly Recovery Potential
                     </p>
                     <div
@@ -168,21 +168,21 @@ export default function RoiSection() {
                     >
                       {fmtINR(monthly)}
                     </div>
-                    <p className="text-green-300 text-xs mt-2 font-medium">
+                    <p className="text-enterprise-muted text-xs mt-2 font-medium">
                       {fmtINRShort(yearly)} per year upside
                     </p>
                   </div>
 
                   {/* ROI + Break-even */}
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-dq-light border border-dq-muted rounded-xl p-4 text-center">
+                    <div className="bg-enterprise-blue/5 border border-enterprise-blue/20 rounded-xl p-4 text-center">
                       <div
-                        className="text-2xl font-black text-dq-green tabular-nums"
+                        className="text-2xl font-black text-enterprise-blue tabular-nums"
                         aria-live="polite"
                       >
                         {roi}x
                       </div>
-                      <p className="text-xs text-dq-dark font-medium mt-1 leading-snug">
+                      <p className="text-xs text-gray-600 font-medium mt-1 leading-snug">
                         return on DQ cost
                       </p>
                     </div>
@@ -207,11 +207,11 @@ export default function RoiSection() {
                     </div>
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-gray-500 text-xs">Recovery potential</span>
-                      <span className="font-bold text-dq-green text-xs">{fmtINR(monthly)}</span>
+                      <span className="font-bold text-enterprise-blue text-xs">{fmtINR(monthly)}</span>
                     </div>
                     <div className="h-2 bg-gray-200 rounded-full overflow-hidden mt-1">
                       <div
-                        className="h-full bg-dq-green rounded-full transition-all duration-500 ease-out"
+                        className="h-full bg-enterprise-blue rounded-full transition-all duration-500 ease-out"
                         style={{ width: `${recoveryBarW}%` }}
                         role="presentation"
                       />
@@ -222,7 +222,7 @@ export default function RoiSection() {
                   </div>
 
                   {/* CTA */}
-                  <Button href="/contact" size="md" className="w-full justify-center">
+                  <Button href="/contact" size="md" className="w-full justify-center bg-enterprise-blue hover:bg-enterprise-blue-hover text-white border-0 shadow-[0_2px_8px_rgba(46,134,255,0.3)]">
                     Get a personalised estimate →
                   </Button>
                 </div>
@@ -236,7 +236,7 @@ export default function RoiSection() {
             queue patterns, and customer adoption rate.{' '}
             <Link
               href="/contact"
-              className="text-dq-green hover:underline underline-offset-2 font-medium"
+              className="text-enterprise-blue hover:underline underline-offset-2 font-medium"
             >
               Talk to us for a personalised ROI analysis →
             </Link>

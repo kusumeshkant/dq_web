@@ -1,5 +1,6 @@
 'use client'
 
+import { QrCode, Users, LayoutDashboard } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
 import { useInView } from '@/hooks/useInView'
 
@@ -7,77 +8,83 @@ const CUSTOMER_URL = 'https://dq.dqstore.in'
 const STAFF_URL    = 'https://staff.dqstore.in'
 const ADMIN_URL    = 'https://app.dqstore.in'
 
-const apps = [
+const APPS = [
   {
-    title:       'Customer App',
-    tagline:     'The checkout experience — in every customer\'s pocket',
-    gradient:    'from-dq-dark to-dq-green',
-    ring:        'ring-dq-green/20',
-    icon:        '🛍️',
-    status:      'Web App Live',
-    statusDot:   'bg-green-400',
-    href:        CUSTOMER_URL,
-    cta:         'Open Customer App',
+    title:    'Customer Checkout',
+    tagline:  'The zero-friction checkout terminal in every customer\'s pocket',
+    Icon:     QrCode,
+    iconBg:   'bg-enterprise-blue/15',
+    iconColor:'text-enterprise-blue',
+    headerBg: 'bg-enterprise-navy',
+    accent:   'border-enterprise-blue/30',
+    status:   'Web Live',
+    statusDot:'bg-enterprise-live',
+    href:     CUSTOMER_URL,
+    cta:      'Open Customer App',
     platforms: [
-      { label: 'Web',     note: 'Live',        live: true  },
-      { label: 'Android', note: 'Coming Soon', live: false },
-      { label: 'iOS',     note: 'Coming Soon', live: false },
+      { label: 'Web',     note: 'Live',       live: true  },
+      { label: 'Android', note: 'Q3 2026',    live: false },
+      { label: 'iOS',     note: 'Q3 2026',    live: false },
     ],
     features: [
-      'Scan barcodes, build cart',
-      'Pay via UPI, card, or wallet',
-      'Real-time order tracking',
-      'QR code for exit validation',
-      'Full order history',
-      'Hindi, Tamil, Telugu, Kannada, Bengali & English',
+      'Mobile browser PWA — no download required',
+      'Scan product barcodes to build cart',
+      'Pay via UPI, cards, or wallets',
+      'Real-time order confirmation',
+      'Exit QR code for staff validation',
+      '6 Indian languages supported',
     ],
   },
   {
-    title:       'Staff App',
-    tagline:     'Full order control for your floor team',
-    gradient:    'from-slate-800 to-slate-600',
-    ring:        'ring-slate-400/20',
-    icon:        '👥',
-    status:      'Web Portal Live',
-    statusDot:   'bg-blue-400',
-    href:        STAFF_URL,
-    cta:         'Open Staff Portal',
+    title:    'Staff Operations Portal',
+    tagline:  'Real-time order control for your floor team',
+    Icon:     Users,
+    iconBg:   'bg-enterprise-muted/10',
+    iconColor:'text-enterprise-muted',
+    headerBg: 'bg-enterprise-surface',
+    accent:   'border-enterprise-elevated',
+    status:   'Web Live',
+    statusDot:'bg-enterprise-blue',
+    href:     STAFF_URL,
+    cta:      'Open Staff Portal',
     platforms: [
-      { label: 'Web',     note: 'Live',        live: true  },
-      { label: 'Android', note: 'Coming Soon', live: false },
-      { label: 'iOS',     note: 'Coming Soon', live: false },
+      { label: 'Web',     note: 'Live',       live: true  },
+      { label: 'Android', note: 'Q3 2026',    live: false },
+      { label: 'iOS',     note: 'Q3 2026',    live: false },
     ],
     features: [
       'Live incoming order feed',
       'Push alerts on every new order',
-      'One-tap status updates',
+      'One-tap order status: Accept / Hold / Reject',
+      'Exit QR scan and validation',
       'Product fulfilment checklist',
-      'Exit QR scan & validation',
       'Silent background sync',
     ],
   },
   {
-    title:       'Admin Dashboard',
-    tagline:     'Analytics and full store control — from anywhere',
-    gradient:    'from-blue-900 to-blue-600',
-    ring:        'ring-blue-400/20',
-    icon:        '📊',
-    status:      'Dashboard Live',
-    statusDot:   'bg-amber-400',
-    href:        ADMIN_URL,
-    cta:         'Open Admin Dashboard',
+    title:    'Admin Intelligence Dashboard',
+    tagline:  'Operational clarity for store owners and GMs',
+    Icon:     LayoutDashboard,
+    iconBg:   'bg-yellow-400/10',
+    iconColor:'text-yellow-400',
+    headerBg: 'bg-enterprise-navy',
+    accent:   'border-yellow-400/20',
+    status:   'Web Live',
+    statusDot:'bg-yellow-400',
+    href:     ADMIN_URL,
+    cta:      'Open Admin Dashboard',
     platforms: [
-      { label: 'Web',     note: 'Live',        live: true  },
-      { label: 'Android', note: 'Coming Soon', live: false },
-      { label: 'iOS',     note: 'Coming Soon', live: false },
+      { label: 'Web',     note: 'Live',       live: true  },
+      { label: 'Android', note: 'Q3 2026',    live: false },
+      { label: 'iOS',     note: 'Q3 2026',    live: false },
     ],
     features: [
-      'Revenue analytics dashboard',
-      'Inventory management',
-      'Bulk Excel upload',
-      'Live order monitoring',
-      'Low stock alerts',
-      'Week-over-week trends',
+      'Revenue and GMV analytics by hour and day',
+      'Inventory velocity and low-stock alerts',
+      'Staff performance and shift analytics',
+      'Multi-store management (chains and franchises)',
+      'Bulk product upload via Excel',
+      'Week-over-week trend comparison',
     ],
   },
 ]
@@ -86,88 +93,78 @@ export default function AppsSection() {
   const { ref, inView } = useInView<HTMLElement>()
 
   return (
-    <section ref={ref} className="py-20 bg-white">
+    <section ref={ref} className="py-20 lg:py-28 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="3 Apps, 1 Ecosystem"
-          title="One system. Three apps. Complete store coverage."
-          subtitle="Customer checkout, staff order management, and admin analytics — all connected in real time. No integration work, no IT team."
+          badge="Three Operational Surfaces"
+          title="One platform. Three apps. Complete store coverage."
+          subtitle="Customer checkout, staff order management, and admin analytics — all connected in real time. No integration work. No IT team."
         />
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {apps.map((app, i) => (
-            <a
-              key={app.title}
-              href={app.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group flex flex-col rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden hover:shadow-2xl hover:-translate-y-1.5 hover:border-gray-200 transition-all duration-300 reveal${inView ? ' is-visible' : ''}`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              {/* ── Gradient header ────────────────────────────────── */}
-              <div className={`relative bg-gradient-to-br ${app.gradient} px-6 pt-6 pb-8`}>
-
-                {/* Live status badge */}
-                <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/25 backdrop-blur-sm rounded-full px-2.5 py-1 border border-white/20">
-                  <span className={`w-1.5 h-1.5 ${app.statusDot} rounded-full animate-pulse flex-shrink-0`} />
-                  <span className="text-white text-[10px] font-bold tracking-wide">{app.status}</span>
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {APPS.map((app, i) => {
+            const { Icon } = app
+            return (
+              <a
+                key={app.title}
+                href={app.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex flex-col rounded-xl border border-gray-100 bg-white shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1.5 hover:border-gray-200 transition-all duration-300 reveal${inView ? ' is-visible' : ''}`}
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                {/* Header */}
+                <div className={`relative ${app.headerBg} border-b border-enterprise-elevated px-6 pt-6 pb-6`}>
+                  <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/30 backdrop-blur-sm rounded-full px-2.5 py-1 border border-white/10">
+                    <span className={`w-1.5 h-1.5 ${app.statusDot} rounded-full animate-pulse flex-shrink-0`} />
+                    <span className="text-white text-[10px] font-bold tracking-wide">{app.status}</span>
+                  </div>
+                  <div className={`w-12 h-12 ${app.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300`}>
+                    <Icon className={`w-6 h-6 ${app.iconColor}`} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{app.title}</h3>
+                  <p className="text-enterprise-muted text-xs mt-1 leading-relaxed">{app.tagline}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {app.platforms.map((p) => (
+                      <span
+                        key={p.label}
+                        className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border ${
+                          p.live
+                            ? 'bg-enterprise-live/15 text-enterprise-live border-enterprise-live/30'
+                            : 'bg-white/5 text-white/40 border-white/10'
+                        }`}
+                      >
+                        {p.live && <span className="w-1 h-1 bg-enterprise-live rounded-full" />}
+                        {p.label} · {p.note}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                {/* App icon */}
-                <div
-                  className={`w-14 h-14 bg-white/15 rounded-2xl ring-2 ${app.ring} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 text-2xl select-none`}
-                  aria-hidden="true"
-                >
-                  {app.icon}
-                </div>
-
-                <h3 className="text-xl font-bold text-white">{app.title}</h3>
-                <p className="text-white/70 text-xs mt-1 leading-relaxed">{app.tagline}</p>
-
-                {/* Platform availability pills */}
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                  {app.platforms.map((p) => (
-                    <span
-                      key={p.label}
-                      className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-1 rounded-full border ${
-                        p.live
-                          ? 'bg-green-400/20 text-green-200 border-green-400/35'
-                          : 'bg-white/8 text-white/50 border-white/15'
-                      }`}
-                    >
-                      {p.live && (
-                        <span className="w-1 h-1 bg-green-400 rounded-full" />
-                      )}
-                      {p.label} · {p.note}
-                    </span>
+                {/* Features */}
+                <ul className="px-6 py-5 space-y-2.5 flex-1">
+                  {app.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
+                      <span className="text-enterprise-blue font-bold mt-0.5 flex-shrink-0 leading-none text-xs">✓</span>
+                      {f}
+                    </li>
                   ))}
-                </div>
-              </div>
+                </ul>
 
-              {/* ── Feature list ───────────────────────────────────── */}
-              <ul className="px-6 py-5 space-y-2.5 flex-1">
-                {app.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                    <span className="text-dq-green font-bold mt-0.5 flex-shrink-0 leading-none">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              {/* ── CTA button ─────────────────────────────────────── */}
-              <div className="px-6 pb-6 pt-1">
-                <div className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-dq-light border border-dq-muted text-dq-dark text-sm font-bold group-hover:bg-dq-green group-hover:text-white group-hover:border-dq-green transition-all duration-200">
-                  <span>{app.cta}</span>
-                  <span className="group-hover:translate-x-0.5 transition-transform duration-200 text-base">↗</span>
+                {/* CTA */}
+                <div className="px-6 pb-6 pt-1">
+                  <div className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-gray-50 border border-gray-100 text-gray-700 text-sm font-semibold group-hover:bg-[#2E86FF] group-hover:text-white group-hover:border-[#2E86FF] transition-all duration-200">
+                    <span>{app.cta}</span>
+                    <span className="group-hover:translate-x-0.5 transition-transform duration-200 text-sm">↗</span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            )
+          })}
         </div>
 
-        {/* Trust note */}
         <p className="text-center text-xs text-gray-400 mt-8">
-          All three web portals are live and available now. Android and iOS mobile apps are coming soon.
+          All three web portals are live and operational. Android and iOS mobile apps shipping Q3 2026.
         </p>
       </div>
     </section>

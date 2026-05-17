@@ -49,7 +49,7 @@ export default function PricingFaq() {
               <div
                 key={faq.q}
                 className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen ? 'border-dq-green/30 shadow-sm' : 'border-gray-100 hover:border-gray-200'
+                  isOpen ? 'border-enterprise-blue/20 shadow-sm' : 'border-gray-100 hover:border-gray-200'
                 }`}
               >
                 <button
@@ -60,7 +60,7 @@ export default function PricingFaq() {
                   <span className="font-semibold text-gray-900 text-sm leading-snug">{faq.q}</span>
                   <ChevronDown
                     className={`w-4 h-4 flex-shrink-0 text-gray-400 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-dq-green' : ''
+                      isOpen ? 'rotate-180 text-enterprise-blue' : ''
                     }`}
                   />
                 </button>

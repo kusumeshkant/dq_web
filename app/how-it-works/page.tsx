@@ -41,13 +41,15 @@ export default function HowItWorksPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-br from-dq-dark to-green-800 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-enterprise-navy py-16 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-enterprise-blue/40 to-transparent" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="How It Works"
             title="Simple for everyone. Powerful underneath."
             subtitle="Three different users. Three different apps. One seamless experience."
-            light
+            variant="dark"
           />
         </div>
       </section>
@@ -58,8 +60,8 @@ export default function HowItWorksPage() {
           title="From scan to exit in under 5 minutes"
           subtitle="No training. No confusion. Just scan, pay, go."
           steps={customerSteps}
-          accentColor="#16A34A"
-          accentClass="bg-dq-green"
+          accentColor="#2E86FF"
+          accentClass="bg-enterprise-blue"
         />
 
         <div className="bg-gray-50">
@@ -68,8 +70,8 @@ export default function HowItWorksPage() {
             title="Real-time orders. One-tap status updates."
             subtitle="Less running around. More time helping customers."
             steps={staffSteps}
-            accentColor="#F59E0B"
-            accentClass="bg-dq-amber"
+            accentColor="#EAB308"
+            accentClass="bg-yellow-500"
           />
         </div>
 

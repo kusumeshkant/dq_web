@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CONTACT_EMAIL } from '@/lib/constants'
 
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <div className="bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="mb-10">
-          <Link href="/" className="text-sm text-dq-green hover:underline">← Back to Home</Link>
+          <Link href="/" className="text-sm text-enterprise-blue hover:underline">â† Back to Home</Link>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-2">Privacy Policy</h1>
           <p className="text-gray-400 text-sm">Last updated: April 2026</p>
         </div>
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-3">7. Contact</h2>
             <p>
               For privacy-related questions or requests, email us at:{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-dq-green hover:underline font-medium">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-enterprise-blue hover:underline font-medium">
                 {CONTACT_EMAIL}
               </a>
             </p>

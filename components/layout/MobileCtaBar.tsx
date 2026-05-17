@@ -28,22 +28,22 @@ export default function MobileCtaBar() {
       }`}
       aria-hidden={!visible}
     >
-      <div className="bg-white border-t border-gray-200 shadow-[0_-4px_24px_rgba(0,0,0,0.10)] px-4 py-3 flex items-center gap-2.5 safe-area-inset-bottom">
+      <div className="bg-enterprise-navy border-t border-enterprise-elevated shadow-[0_-4px_24px_rgba(0,0,0,0.30)] px-4 py-3 flex items-center gap-2.5">
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-gray-900 leading-tight truncate">Remove queues from your store</p>
-          <p className="text-xs text-gray-500 mt-0.5">Web apps live · No hardware · Free trial</p>
+          <p className="text-sm font-bold text-white leading-tight truncate">Intelligence at Every Transaction.</p>
+          <p className="text-xs text-enterprise-muted mt-0.5">Web apps live · No hardware required</p>
         </div>
         <a
-          href="https://dq.dqstore.in"
+          href="https://app.dqstore.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 border-2 border-dq-green text-dq-green text-sm font-bold px-4 py-2 rounded-xl hover:bg-dq-light active:scale-95 transition-all duration-150 whitespace-nowrap"
+          className="flex-shrink-0 border border-enterprise-elevated text-enterprise-muted text-sm font-semibold px-3 py-2 rounded-lg hover:border-enterprise-muted/40 hover:text-white active:scale-95 transition-all duration-150 whitespace-nowrap"
         >
-          Try App ↗
+          Sign In ↗
         </a>
         <Link
           href="/contact"
-          className="flex-shrink-0 bg-dq-green text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-dq-dark active:scale-95 transition-all duration-150 whitespace-nowrap shadow-sm"
+          className="flex-shrink-0 bg-enterprise-blue text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-enterprise-blue-hover active:scale-95 transition-all duration-150 whitespace-nowrap shadow-[0_2px_8px_rgba(46,134,255,0.4)]"
         >
           Demo →
         </Link>

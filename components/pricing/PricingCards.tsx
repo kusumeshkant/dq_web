@@ -20,8 +20,8 @@ export default function PricingCards() {
           <button
             onClick={() => setAnnual(a => !a)}
             aria-label="Toggle billing period"
-            className={`relative w-12 h-6 rounded-full transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-dq-green focus-visible:ring-offset-2 ${
-              annual ? 'bg-dq-green' : 'bg-gray-200'
+            className={`relative w-12 h-6 rounded-full transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-enterprise-blue focus-visible:ring-offset-2 ${
+              annual ? 'bg-enterprise-blue' : 'bg-gray-200'
             }`}
           >
             <span
@@ -32,7 +32,7 @@ export default function PricingCards() {
           </button>
           <span className={`text-sm font-medium transition-colors flex items-center gap-2 ${annual ? 'text-gray-900' : 'text-gray-400'}`}>
             Annual
-            <span className="bg-dq-light text-dq-dark text-xs font-bold px-2 py-0.5 rounded-full border border-dq-muted">
+            <span className="bg-enterprise-blue/10 text-enterprise-blue text-xs font-bold px-2 py-0.5 rounded-full border border-enterprise-blue/20">
               Save 2 months
             </span>
           </span>
@@ -45,9 +45,9 @@ export default function PricingCards() {
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-2xl border-2 p-8 flex flex-col transition-all duration-300 ${
+                className={`relative rounded-xl border-2 p-8 flex flex-col transition-all duration-300 ${
                   plan.highlight
-                    ? 'border-dq-green shadow-2xl shadow-green-100 bg-white lg:scale-105'
+                    ? 'border-enterprise-blue shadow-2xl shadow-enterprise-blue/10 bg-white lg:scale-105'
                     : 'border-gray-200 bg-white hover:shadow-lg hover:border-gray-300'
                 }`}
               >
@@ -70,7 +70,7 @@ export default function PricingCards() {
                         <span className="text-4xl font-black text-gray-900">{plan.annualPerMonth}</span>
                         <span className="text-gray-400 mb-1.5 text-sm">/month</span>
                       </div>
-                      <p className="text-xs text-dq-green font-semibold mt-1">
+                      <p className="text-xs text-enterprise-blue font-semibold mt-1">
                         Billed as {plan.annual.split('—')[0].trim()} · {plan.annual.split('—')[1]?.trim()}
                       </p>
                     </>
@@ -106,7 +106,7 @@ export default function PricingCards() {
                 <ul className="space-y-2.5 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                      <span className="text-dq-green font-bold flex-shrink-0 mt-0.5">✓</span>
+                      <span className="text-enterprise-blue font-bold flex-shrink-0 mt-0.5 text-xs">✓</span>
                       {f}
                     </li>
                   ))}
@@ -123,7 +123,7 @@ export default function PricingCards() {
         </div>
 
         <p className="text-center text-sm text-gray-400 mt-10">
-          All plans include a <span className="font-semibold text-gray-600">30-day free trial</span>. No credit card required to start.
+          No credit card required. Cancel anytime.
         </p>
       </div>
     </section>

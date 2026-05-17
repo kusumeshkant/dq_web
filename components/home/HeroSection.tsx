@@ -1,213 +1,209 @@
-import Button from '@/components/ui/Button'
-import Badge  from '@/components/ui/Badge'
+import Link from 'next/link'
+import { Activity, GitBranch, Shield, Server, Zap, QrCode, BarChart3, Users } from 'lucide-react'
 
-const stats = [
-  { value: '₹0',     label: 'Setup cost' },
-  { value: '< 1 hr', label: 'Go live in' },
-  { value: '0',      label: 'Hardware needed' },
+const ANCHOR_STATS = [
+  { value: '₹0',    label: 'Hardware cost' },
+  { value: '48hrs', label: 'Deployment time' },
+  { value: '82%',   label: 'Gross margin' },
+  { value: '3',     label: 'Production apps' },
+]
+
+const INFRA_SIGNALS = [
+  { Icon: Server,    label: 'Azure — Central India' },
+  { Icon: Shield,    label: 'Razorpay Model B' },
+  { Icon: Activity,  label: '12-Phase Observability' },
+  { Icon: GitBranch, label: 'DEV → UAT → PROD' },
+]
+
+const LIVE_APPS = [
+  { name: 'Customer Checkout',    href: 'https://dq.dqstore.in',    dot: 'bg-enterprise-live', Icon: QrCode  },
+  { name: 'Staff Portal',         href: 'https://staff.dqstore.in', dot: 'bg-enterprise-blue', Icon: Users   },
+  { name: 'Admin Dashboard',      href: 'https://app.dqstore.in',   dot: 'bg-yellow-400',      Icon: BarChart3 },
 ]
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-dq-dark via-green-800 to-dq-green overflow-hidden">
-      {/* Subtle grid texture */}
+    <section className="relative bg-enterprise-navy overflow-hidden">
+      {/* Dot grid texture */}
       <div
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
         style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E\")",
+          backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.5) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
         }}
       />
+      {/* Accent line at top */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-enterprise-blue to-transparent opacity-60" />
 
-      {/* Glow blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -right-16 w-[600px] h-[600px] bg-dq-amber/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px] gap-12 lg:gap-16 items-start">
 
           {/* ── Left: copy ── */}
           <div className="animate-fade-up">
-            {/* Web Beta announcement strip */}
-            <a
-              href="https://dq.dqstore.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 bg-dq-amber/20 border border-dq-amber/40 hover:bg-dq-amber/30 hover:border-dq-amber/60 rounded-full px-4 py-1.5 mb-4 transition-all duration-200"
-            >
-              <span className="w-1.5 h-1.5 bg-dq-amber rounded-full animate-pulse flex-shrink-0" />
-              <span className="text-dq-amber text-xs font-bold tracking-wide">DQ web apps are now live</span>
-              <span className="text-dq-amber/70 text-xs group-hover:text-dq-amber transition-colors">→ Try it now</span>
-            </a>
 
-            <Badge variant="amber" className="mb-6 inline-flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-dq-amber rounded-full animate-pulse" />
-              Built for Fashion &amp; Lifestyle Retail in India
-            </Badge>
+            {/* Platform badge */}
+            <div className="inline-flex items-center gap-2 bg-enterprise-surface border border-enterprise-elevated rounded-full px-4 py-1.5 mb-8">
+              <span className="w-1.5 h-1.5 bg-enterprise-blue rounded-full" />
+              <span className="text-enterprise-blue text-xs font-semibold tracking-wide">
+                Checkout Intelligence Platform
+              </span>
+            </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-6xl font-black text-white leading-[1.06] tracking-tight">
-              Your Customers Are<br />Ready to Pay.{' '}
-              <span className="text-dq-amber">Your Queue<br />Is Making Them Leave.</span>
+            {/* Headline */}
+            <h1 className="text-[2.6rem] sm:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-white leading-[1.07] tracking-tight">
+              Intelligence at every<br />
+              <span className="text-enterprise-blue">retail transaction.</span>
             </h1>
 
-            <p className="mt-6 text-base sm:text-lg text-green-100 leading-relaxed max-w-[520px]">
-              DQ is a mobile self-checkout system for fashion, lifestyle, and branded retail stores.
-              Customers scan products, pay on their phone, and exit with a QR code —
-              {' '}<span className="font-semibold text-white">no counter, no waiting, no lost sale.</span>
+            {/* Subheadline */}
+            <p className="mt-6 text-base sm:text-lg text-enterprise-muted leading-relaxed max-w-[540px]">
+              DQ turns every retail transaction into structured operational intelligence.
+              Deployed in 48 hours across fashion, footwear, and lifestyle chains —
+              zero hardware, no IT team.
             </p>
 
+            {/* Core phrase */}
+            <p className="mt-4 text-sm font-medium text-enterprise-blue">
+              Every transaction compounds platform intelligence.
+            </p>
+
+            {/* CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Button
+              <Link
                 href="/contact"
-                size="lg"
-                className="bg-white text-dq-dark hover:bg-green-50 shadow-2xl shadow-black/25 animate-pulse-cta font-bold"
+                className="inline-flex items-center justify-center gap-2 bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 shadow-[0_4px_16px_rgba(46,134,255,0.35)] hover:shadow-[0_6px_24px_rgba(46,134,255,0.45)] hover:-translate-y-0.5 active:scale-[0.98] text-base"
               >
-                Book a Free Demo →
-              </Button>
-              <a
-                href="https://dq.dqstore.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-200 px-7 py-3.5 text-base sm:text-lg bg-dq-amber/20 border-2 border-dq-amber/60 text-dq-amber hover:bg-dq-amber/30 hover:border-dq-amber active:scale-[0.98] select-none"
+                Request a Demo
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="inline-flex items-center justify-center gap-2 text-enterprise-muted hover:text-white border border-enterprise-elevated hover:border-enterprise-blue/50 font-medium px-7 py-3.5 rounded-lg transition-all duration-200 text-base"
               >
-                Launch Web App ↗
-              </a>
+                View Platform →
+              </Link>
             </div>
 
-            <p className="mt-4">
-              <a href="/how-it-works" className="text-green-300/80 text-xs hover:text-green-200 underline underline-offset-2 transition-colors">
-                See how it works →
-              </a>
-            </p>
-
-            <p className="mt-4 text-xs text-green-300 flex flex-wrap items-center gap-x-5 gap-y-1.5">
+            {/* Micro trust */}
+            <p className="mt-5 text-xs text-enterprise-muted/70 flex flex-wrap items-center gap-x-5 gap-y-1.5">
               <span className="flex items-center gap-1.5">
-                <span className="text-dq-amber font-bold">✓</span> No hardware to buy
+                <span className="text-enterprise-blue font-bold">✓</span> Zero hardware required
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="text-dq-amber font-bold">✓</span> 30-day free trial
+                <span className="text-enterprise-blue font-bold">✓</span> 48-hour deployment
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="text-dq-amber font-bold">✓</span> Live in under 1 hour
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="text-dq-amber font-bold">🌐</span> All web apps live · Android &amp; iOS coming soon
+                <span className="text-enterprise-blue font-bold">✓</span> Production-grade infrastructure
               </span>
             </p>
 
-            {/* Live status */}
-            <div className="mt-7 inline-flex items-center gap-2.5 bg-white/[0.08] border border-white/[0.15] rounded-full px-4 py-2">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-              <span className="text-green-100 text-xs font-medium">
-                All web apps live — now onboarding pilot stores across India
-              </span>
-            </div>
-
-            {/* Mobile-only stat strip */}
-            <div className="lg:hidden mt-8 grid grid-cols-3 gap-3">
-              {stats.map((s) => (
-                <div key={s.label} className="bg-white/10 border border-white/20 rounded-xl p-3 text-center">
-                  <p className="text-xl font-black text-white">{s.value}</p>
-                  <p className="text-[10px] text-green-200 mt-0.5 leading-tight">{s.label}</p>
+            {/* Mobile anchor stats */}
+            <div className="lg:hidden mt-10 grid grid-cols-4 gap-2">
+              {ANCHOR_STATS.map((s) => (
+                <div key={s.label} className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-3 text-center">
+                  <p className="text-lg font-bold text-white tabular-nums">{s.value}</p>
+                  <p className="text-[10px] text-enterprise-muted mt-0.5 leading-tight">{s.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ── Right: stat cards ── */}
+          {/* ── Right: platform panel ── */}
           <div
-            className="hidden lg:flex flex-col gap-4 animate-fade-up"
-            style={{ animationDelay: '0.18s' }}
+            className="hidden lg:flex flex-col gap-3 animate-fade-up"
+            style={{ animationDelay: '0.15s' }}
           >
-            {/* Hero metric */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-              <p className="text-green-200 text-xs font-semibold uppercase tracking-widest mb-3">
-                Queue wait time with DQ
+            {/* Platform architecture card */}
+            <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl overflow-hidden">
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-enterprise-elevated">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF4A4A]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-enterprise-live" />
+                  </div>
+                  <span className="text-enterprise-muted text-[11px] font-mono ml-1">platform.architecture</span>
+                </div>
+                <span className="text-[10px] text-enterprise-blue font-semibold bg-enterprise-blue/10 border border-enterprise-blue/20 px-2 py-0.5 rounded-full">LIVE</span>
+              </div>
+              <div className="p-4 font-mono text-[11px] leading-relaxed space-y-1 text-enterprise-muted">
+                <div className="text-enterprise-blue/80 mb-2 font-semibold">// DQ Platform — 3 production surfaces</div>
+                <div><span className="text-yellow-400">customer</span>  → <span className="text-enterprise-muted/70">dq.dqstore.in</span>     <span className="text-enterprise-live text-[10px]">● live</span></div>
+                <div><span className="text-yellow-400">staff</span>     → <span className="text-enterprise-muted/70">staff.dqstore.in</span>  <span className="text-enterprise-live text-[10px]">● live</span></div>
+                <div><span className="text-yellow-400">admin</span>     → <span className="text-enterprise-muted/70">app.dqstore.in</span>    <span className="text-enterprise-live text-[10px]">● live</span></div>
+                <div className="pt-1 border-t border-enterprise-elevated mt-2">
+                  <span className="text-enterprise-muted/60">GraphQL</span> → <span className="text-enterprise-muted/60">Node.js + Apollo</span>
+                </div>
+                <div><span className="text-enterprise-muted/60">Storage</span>  → <span className="text-enterprise-muted/60">MongoDB Atlas · Azure IN</span></div>
+                <div><span className="text-enterprise-muted/60">Auth</span>     → <span className="text-enterprise-muted/60">Firebase JWT · RBAC</span></div>
+                <div><span className="text-enterprise-muted/60">Payments</span> → <span className="text-enterprise-muted/60">Razorpay Model B</span></div>
+              </div>
+            </div>
+
+            {/* Live app status */}
+            <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-4">
+              <p className="text-[10px] text-enterprise-muted font-semibold uppercase tracking-widest mb-3">
+                Live ecosystem
               </p>
-              <div className="flex items-baseline gap-5">
-                <span className="text-5xl font-black text-white">0 min</span>
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold text-green-300/60 line-through">20+ min</span>
-                  <span className="text-xs text-dq-amber font-bold mt-0.5">No queue. No wait.</span>
-                </div>
-              </div>
-              <div className="mt-4 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-dq-amber to-dq-green rounded-full"
-                  style={{ animation: 'grow 1.5s ease-out 0.6s both' }}
-                />
+              <div className="space-y-2">
+                {LIVE_APPS.map((app) => {
+                  const { Icon } = app
+                  return (
+                    <a
+                      key={app.name}
+                      href={app.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between group hover:bg-enterprise-elevated/40 rounded-lg px-2 py-2 -mx-2 transition-colors"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 bg-enterprise-elevated rounded-md flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-3.5 h-3.5 text-enterprise-muted" strokeWidth={1.5} />
+                        </div>
+                        <span className="text-white text-xs font-medium">{app.name}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`w-1.5 h-1.5 ${app.dot} rounded-full animate-pulse flex-shrink-0`} />
+                        <span className="text-enterprise-live text-[10px] font-bold">LIVE ↗</span>
+                      </div>
+                    </a>
+                  )
+                })}
               </div>
             </div>
 
-            {/* Mini stats */}
-            <div className="grid grid-cols-3 gap-3">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center"
-                >
-                  <p className="text-2xl font-black text-white">{s.value}</p>
-                  <p className="text-xs text-green-200 mt-0.5">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* "How checkout works" mini preview */}
-            <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-4">
-              <p className="text-xs text-green-300 font-semibold uppercase tracking-widest mb-3">How it works in 3 steps</p>
-              <div className="space-y-2.5">
-                {[
-                  { step: '1', label: 'Customer scans barcode', note: 'On their own phone' },
-                  { step: '2', label: 'Pays via UPI or card',  note: 'Powered by Razorpay' },
-                  { step: '3', label: 'Shows QR at exit',      note: 'Staff validates in 1 tap' },
-                ].map((s) => (
-                  <div key={s.step} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-dq-green rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-[10px] font-black">{s.step}</span>
+            {/* Infrastructure signals */}
+            <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-4">
+              <p className="text-[10px] text-enterprise-muted font-semibold uppercase tracking-widest mb-3">
+                Infrastructure
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {INFRA_SIGNALS.map(({ Icon, label }) => (
+                  <div key={label} className="flex items-center gap-2">
+                    <div className="w-6 h-6 bg-enterprise-elevated rounded-md flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-3 h-3 text-enterprise-blue" strokeWidth={1.5} />
                     </div>
-                    <div>
-                      <span className="text-white text-xs font-semibold">{s.label}</span>
-                      <span className="text-green-300 text-[10px] ml-1.5">{s.note}</span>
-                    </div>
+                    <span className="text-enterprise-muted text-[11px] leading-tight">{label}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Live ecosystem status */}
-            <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-4">
-              <p className="text-xs text-green-300 font-semibold uppercase tracking-widest mb-3">Live ecosystem</p>
-              <div className="space-y-2">
-                {[
-                  { name: 'Customer App',    href: 'https://dq.dqstore.in',    dot: 'bg-green-400' },
-                  { name: 'Staff Portal',    href: 'https://staff.dqstore.in', dot: 'bg-blue-400'  },
-                  { name: 'Admin Dashboard', href: 'https://app.dqstore.in',   dot: 'bg-amber-400' },
-                ].map((app) => (
-                  <a
-                    key={app.name}
-                    href={app.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between group hover:bg-white/5 rounded-lg px-2 py-1.5 -mx-2 transition-colors"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className={`w-1.5 h-1.5 ${app.dot} rounded-full animate-pulse flex-shrink-0`} />
-                      <span className="text-white text-xs font-medium">{app.name}</span>
-                    </div>
-                    <span className="text-green-400 text-[10px] font-bold group-hover:text-green-300 transition-colors">LIVE ↗</span>
-                  </a>
-                ))}
-              </div>
+            {/* Anchor stats */}
+            <div className="grid grid-cols-4 gap-2">
+              {ANCHOR_STATS.map((s) => (
+                <div key={s.label} className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-3 text-center">
+                  <p className="text-lg font-bold text-white tabular-nums">{s.value}</p>
+                  <p className="text-[10px] text-enterprise-muted mt-0.5 leading-tight">{s.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Soft bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/[0.04] to-transparent" />
+      {/* Bottom fade to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-enterprise-surface/20 to-transparent" />
     </section>
   )
 }

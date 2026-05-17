@@ -9,13 +9,13 @@ const ICONS = [ShoppingBag, Clock, Users2]
 const ICON_COLORS = [
   'bg-red-50 text-red-500',
   'bg-amber-50 text-amber-500',
-  'bg-blue-50 text-blue-500',
+  'bg-enterprise-blue/10 text-enterprise-blue',
 ]
 
 export default function ProblemSection() {
   const { ref, inView } = useInView<HTMLElement>()
   return (
-    <section ref={ref} className="py-20 bg-gray-50">
+    <section ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="The Real Cost of Queues"
@@ -29,15 +29,14 @@ export default function ProblemSection() {
             return (
               <div
                 key={item.stat}
-                className={`group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal${inView ? ' is-visible' : ''}`}
+                className={`group relative overflow-hidden rounded-xl border border-gray-100 bg-white p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-gray-200 transition-all duration-300 reveal${inView ? ' is-visible' : ''}`}
                 style={{ transitionDelay: `${i * 0.12}s` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-dq-green/[0.02] to-transparent pointer-events-none group-hover:from-dq-green/[0.05] transition-all duration-300" />
                 <div className="relative">
                   <div className={`w-12 h-12 ${ICON_COLORS[i]} rounded-xl flex items-center justify-center mb-5 mx-auto`}>
                     <Icon className="w-6 h-6" strokeWidth={1.75} />
                   </div>
-                  <div className="text-5xl font-black text-dq-green mb-3 leading-none tabular-nums">
+                  <div className="text-5xl font-black text-enterprise-blue mb-3 leading-none tabular-nums">
                     {item.stat}
                   </div>
                   <p className="text-gray-800 text-sm font-semibold leading-snug mb-2">{item.label}</p>

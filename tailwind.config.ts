@@ -9,6 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Enterprise canonical tokens (docs/strategic_branding/design-system)
+        enterprise: {
+          navy:      '#0D1B2A',   // bg.primary — main dark background
+          surface:   '#1A2B3C',   // bg.surface — cards, panels
+          elevated:  '#2E3F52',   // bg.elevated — borders, hover
+          blue:      '#2E86FF',   // interactive.primary — CTAs, links
+          'blue-hover': '#1A6FD4',
+          live:      '#00C853',   // status.live
+          error:     '#FF4A4A',   // status.error
+          muted:     '#B0BECC',   // text.secondary
+        },
+        // Legacy DQ tokens — retained for backward compat
         dq: {
           green:     '#16A34A',
           dark:      '#14532D',
@@ -20,6 +32,12 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'dot-grid': "radial-gradient(circle, rgba(46,134,255,0.18) 1px, transparent 1px)",
+      },
+      backgroundSize: {
+        'dot-32': '32px 32px',
       },
     },
   },

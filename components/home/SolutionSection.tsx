@@ -11,11 +11,11 @@ const steps = [
     title: 'Scan',
     description:
       'Customer opens the DQ app and scans product barcodes as they shop — tags, labels, packaged goods. Cart builds in real time. No staff interaction required.',
-    color:   'bg-dq-green',
-    accent:  'text-dq-green',
-    ring:    'ring-dq-green/20',
-    light:   'bg-dq-light text-dq-dark',
-    note:    'Web App Live · Android & iOS coming soon',
+    bg:     'bg-enterprise-blue',
+    ring:   'ring-enterprise-blue/20',
+    accent: 'text-enterprise-blue',
+    chip:   'bg-enterprise-blue/10 text-enterprise-blue',
+    note:   'Web App Live · Android & iOS Q3 2026',
   },
   {
     number: '02',
@@ -23,11 +23,11 @@ const steps = [
     title: 'Pay',
     description:
       'Customer pays via UPI, card, or wallet — directly on their phone. Powered by Razorpay. Payment confirmed in seconds. No POS terminal needed.',
-    color:   'bg-dq-amber',
-    accent:  'text-dq-amber',
-    ring:    'ring-dq-amber/20',
-    light:   'bg-amber-50 text-amber-800',
-    note:    'UPI · Cards · Wallets',
+    bg:     'bg-yellow-500',
+    ring:   'ring-yellow-400/20',
+    accent: 'text-yellow-600',
+    chip:   'bg-yellow-50 text-yellow-700',
+    note:   'UPI · Cards · Wallets',
   },
   {
     number: '03',
@@ -35,18 +35,18 @@ const steps = [
     title: 'Go',
     description:
       'Customer shows their paid QR code at the store exit. Staff validates in one tap — green means cleared, red means hold. No queue, no counter, no friction.',
-    color:   'bg-dq-dark',
-    accent:  'text-dq-dark',
-    ring:    'ring-dq-dark/20',
-    light:   'bg-dq-light text-dq-dark',
-    note:    'Exit QR · Theft-proof by design',
+    bg:     'bg-enterprise-live',
+    ring:   'ring-enterprise-live/20',
+    accent: 'text-enterprise-live',
+    chip:   'bg-enterprise-live/10 text-enterprise-live',
+    note:   'Exit QR · Shrinkage eliminated by architecture',
   },
 ]
 
 export default function SolutionSection() {
   const { ref, inView } = useInView<HTMLElement>()
   return (
-    <section ref={ref} className="py-20 bg-gray-50">
+    <section ref={ref} className="py-20 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="How It Works"
@@ -56,7 +56,7 @@ export default function SolutionSection() {
 
         <div className="mt-14 relative">
           {/* Connector line — desktop */}
-          <div className="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-dq-green via-dq-amber to-dq-dark opacity-20" />
+          <div className="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-enterprise-blue via-yellow-400 to-enterprise-live opacity-20" />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
             {steps.map((step, i) => {
@@ -70,12 +70,12 @@ export default function SolutionSection() {
                   {/* Icon circle */}
                   <div className="relative z-10 mb-6">
                     <div
-                      className={`w-20 h-20 ${step.color} rounded-2xl flex items-center justify-center shadow-lg ring-4 ${step.ring}`}
+                      className={`w-20 h-20 ${step.bg} rounded-2xl flex items-center justify-center shadow-lg ring-4 ${step.ring}`}
                     >
                       <Icon className="w-9 h-9 text-white" strokeWidth={1.75} />
                     </div>
                     <div
-                      className={`absolute -top-2 -right-2 w-6 h-6 ${step.color} rounded-full flex items-center justify-center border-2 border-gray-50`}
+                      className={`absolute -top-2 -right-2 w-6 h-6 ${step.bg} rounded-full flex items-center justify-center border-2 border-[#F8FAFC]`}
                     >
                       <span className="text-white text-[10px] font-black">{i + 1}</span>
                     </div>
@@ -87,7 +87,7 @@ export default function SolutionSection() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-xs">{step.description}</p>
 
-                  <div className={`mt-5 ${step.light} rounded-xl px-4 py-2`}>
+                  <div className={`mt-5 ${step.chip} rounded-xl px-4 py-2`}>
                     <p className="text-xs font-semibold">{step.note}</p>
                   </div>
                 </div>

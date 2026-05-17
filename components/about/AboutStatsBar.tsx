@@ -22,7 +22,7 @@ export default function AboutStatsBar() {
               className={`reveal${inView ? ' is-visible' : ''}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className="text-3xl md:text-4xl font-black text-dq-green tabular-nums">{s.value}</div>
+              <div className="text-3xl md:text-4xl font-black text-enterprise-blue tabular-nums">{s.value}</div>
               <div className="text-sm text-gray-500 mt-1.5 leading-snug">{s.label}</div>
             </div>
           ))}

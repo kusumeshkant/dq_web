@@ -1,10 +1,10 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CONTACT_EMAIL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Terms of Service for using the DQ platform — scan-and-go self-checkout for Indian retail stores.',
+  description: 'Terms of Service for using the DQ platform â€” scan-and-go self-checkout for Indian retail stores.',
   alternates: { canonical: 'https://dqstore.in/terms/' },
 }
 
@@ -13,7 +13,7 @@ export default function TermsPage() {
     <div className="bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="mb-10">
-          <Link href="/" className="text-sm text-dq-green hover:underline">← Back to Home</Link>
+          <Link href="/" className="text-sm text-enterprise-blue hover:underline">â† Back to Home</Link>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-2">Terms of Service</h1>
           <p className="text-gray-400 text-sm">Last updated: April 2026</p>
         </div>
@@ -92,7 +92,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-3">9. Contact</h2>
             <p>
               Questions about these Terms? Email us at:{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-dq-green hover:underline font-medium">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-enterprise-blue hover:underline font-medium">
                 {CONTACT_EMAIL}
               </a>
             </p>

@@ -5,6 +5,8 @@ interface SectionHeadingProps {
   title: string
   subtitle?: string
   align?: 'left' | 'center'
+  variant?: 'light' | 'dark' | 'default'
+  /** @deprecated use variant="dark" */
   light?: boolean
 }
 
@@ -13,17 +15,23 @@ export default function SectionHeading({
   title,
   subtitle,
   align = 'center',
+  variant,
   light = false,
 }: SectionHeadingProps) {
+  const isDark = variant === 'dark' || light
+  const isLight = variant === 'light'
+
   return (
     <div className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center')}>
       {badge && (
         <span
           className={cn(
-            'inline-block mb-4 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase',
-            light
-              ? 'bg-white/15 text-green-100 border border-white/20'
-              : 'bg-dq-light text-dq-dark border border-dq-muted'
+            'inline-block mb-4 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase',
+            isDark
+              ? 'bg-enterprise-blue/10 text-enterprise-blue border border-enterprise-blue/20'
+              : isLight
+              ? 'bg-white/15 text-white/80 border border-white/20'
+              : 'bg-enterprise-blue/8 text-enterprise-blue border border-enterprise-blue/15'
           )}
         >
           {badge}
@@ -32,7 +40,7 @@ export default function SectionHeading({
       <h2
         className={cn(
           'text-3xl md:text-4xl font-bold leading-tight tracking-tight',
-          light ? 'text-white' : 'text-gray-900'
+          isDark ? 'text-white' : 'text-gray-900'
         )}
       >
         {title}
@@ -41,7 +49,7 @@ export default function SectionHeading({
         <p
           className={cn(
             'mt-4 text-base sm:text-lg leading-relaxed',
-            light ? 'text-green-200' : 'text-gray-600'
+            isDark ? 'text-enterprise-muted' : 'text-gray-600'
           )}
         >
           {subtitle}

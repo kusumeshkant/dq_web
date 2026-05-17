@@ -1,52 +1,99 @@
-import Button from '@/components/ui/Button'
+import Link from 'next/link'
+import { Store, TrendingUp } from 'lucide-react'
 
 export default function CtaBanner() {
   return (
-    <section className="relative py-24 bg-gradient-to-br from-dq-dark via-green-800 to-dq-green overflow-hidden">
-      {/* Blobs */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-80 h-80 bg-white rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-dq-amber rounded-full blur-3xl" />
-      </div>
+    <section className="relative py-20 lg:py-28 bg-enterprise-navy overflow-hidden">
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.5) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+        }}
+      />
+      {/* Accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-enterprise-blue/40 to-transparent" />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-green-200 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide">
-          <span className="w-1.5 h-1.5 bg-dq-amber rounded-full animate-pulse" />
-          30-Day Free Trial · No Credit Card · No Hardware
-        </span>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight">
-          Every day with a billing queue<br className="hidden sm:block" /> is a day of lost revenue.
-        </h2>
-
-        <p className="mt-5 text-base sm:text-lg text-green-200 max-w-xl mx-auto leading-relaxed">
-          Your 30-day free trial starts the moment you book a demo. No setup fee. No credit card. Go live in under 1 hour — or we&apos;ll onboard you personally.
-        </p>
-
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            href="/contact"
-            size="lg"
-            className="bg-white text-dq-dark hover:bg-green-50 shadow-2xl shadow-black/20 animate-pulse-cta font-bold"
-          >
-            Book a Free Demo →
-          </Button>
-          <a
-            href="https://dq.dqstore.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-200 px-7 py-3.5 text-base sm:text-lg bg-dq-amber/20 border-2 border-dq-amber/60 text-dq-amber hover:bg-dq-amber/30 hover:border-dq-amber active:scale-[0.98] select-none"
-          >
-            Launch Web App ↗
-          </a>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-white leading-[1.1] tracking-tight">
+            Ready to add intelligence<br className="hidden sm:block" />
+            to every transaction?
+          </h2>
+          <p className="mt-4 text-enterprise-muted text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+            Two paths. Same platform. Choose the conversation that fits your role.
+          </p>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-green-300">
-          <span className="flex items-center gap-1.5"><span className="text-dq-amber">✓</span> No setup fee</span>
-          <span className="flex items-center gap-1.5"><span className="text-dq-amber">✓</span> Live in under 1 hour</span>
-          <span className="flex items-center gap-1.5"><span className="text-dq-amber">✓</span> Cancel anytime</span>
-          <span className="flex items-center gap-1.5"><span className="text-dq-amber">✓</span> Personal onboarding</span>
+        {/* Two-track CTA cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+
+          {/* Track 1: Store owner */}
+          <div className="bg-enterprise-surface border border-enterprise-elevated hover:border-enterprise-blue/40 rounded-xl p-7 flex flex-col gap-5 transition-all duration-300 group">
+            <div className="w-11 h-11 bg-enterprise-blue/10 rounded-xl flex items-center justify-center">
+              <Store className="w-5 h-5 text-enterprise-blue" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-lg leading-snug">For store owners &amp; GMs</h3>
+              <p className="text-enterprise-muted text-sm mt-2 leading-relaxed">
+                See DQ running live in your store category.
+                48-hour deployment after demo. No hardware. No IT team.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200 shadow-[0_4px_16px_rgba(46,134,255,0.3)] hover:shadow-[0_6px_24px_rgba(46,134,255,0.4)] mt-auto"
+            >
+              Request a Store Demo →
+            </Link>
+            <p className="text-[11px] text-enterprise-muted/60 -mt-2">
+              Onboarding in 48 hours · No commitment required
+            </p>
+          </div>
+
+          {/* Track 2: Investor / Partner */}
+          <div className="bg-enterprise-surface border border-enterprise-elevated hover:border-enterprise-elevated/80 rounded-xl p-7 flex flex-col gap-5 transition-all duration-300 group">
+            <div className="w-11 h-11 bg-enterprise-elevated rounded-xl flex items-center justify-center">
+              <TrendingUp className="w-5 h-5 text-enterprise-muted" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-lg leading-snug">For investors &amp; enterprise partners</h3>
+              <p className="text-enterprise-muted text-sm mt-2 leading-relaxed">
+                Platform architecture, unit economics, and four-layer vision available on request.
+                Full technical and commercial overview deck.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 border border-enterprise-elevated hover:border-enterprise-muted/50 text-enterprise-muted hover:text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200 mt-auto"
+            >
+              Request Platform Overview →
+            </Link>
+            <p className="text-[11px] text-enterprise-muted/60 -mt-2">
+              Architecture · Unit economics · Four-layer vision
+            </p>
+          </div>
+
         </div>
+
+        {/* Bottom trust row */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-enterprise-muted/70">
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 bg-enterprise-live rounded-full" />
+            All three apps live and operational
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 bg-enterprise-blue rounded-full" />
+            Azure production infrastructure
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 bg-enterprise-muted/40 rounded-full" />
+            Razorpay Model B — RBI compliant
+          </span>
+        </div>
+
       </div>
     </section>
   )

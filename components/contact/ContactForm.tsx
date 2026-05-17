@@ -86,8 +86,8 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-12">
-        <div className="w-16 h-16 bg-dq-light rounded-full flex items-center justify-center mx-auto mb-5">
-          <svg className="w-8 h-8 text-dq-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+        <div className="w-16 h-16 bg-enterprise-blue/10 rounded-full flex items-center justify-center mx-auto mb-5">
+          <svg className="w-8 h-8 text-enterprise-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -95,7 +95,7 @@ export default function ContactForm() {
         <p className="text-gray-600 text-sm mb-1">We&apos;ll call you within 24 hours (Mon–Sat, 10am–7pm IST).</p>
         <p className="text-gray-400 text-xs mb-6">
           Or email us at{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-dq-green font-medium">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-enterprise-blue font-medium">
             {CONTACT_EMAIL}
           </a>{' '}
           — Mon–Sat, 10am–7pm IST
@@ -177,20 +177,20 @@ export default function ContactForm() {
             </svg>
             Sending…
           </span>
-        ) : 'Book Free Demo →'}
+        ) : 'Request a Demo →'}
       </Button>
 
       <div className="flex items-center justify-center gap-4 pt-1 flex-wrap">
         <p className="text-xs text-gray-400 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 bg-dq-green rounded-full inline-block" />
+          <span className="w-1.5 h-1.5 bg-enterprise-blue rounded-full inline-block" />
           Response within 24 hours
         </p>
         <p className="text-xs text-gray-400 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 bg-dq-green rounded-full inline-block" />
+          <span className="w-1.5 h-1.5 bg-enterprise-blue rounded-full inline-block" />
           No commitment required
         </p>
         <p className="text-xs text-gray-400 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 bg-dq-green rounded-full inline-block" />
+          <span className="w-1.5 h-1.5 bg-enterprise-blue rounded-full inline-block" />
           Mon–Sat, 10am–7pm IST
         </p>
       </div>
@@ -200,7 +200,7 @@ export default function ContactForm() {
 
 /* ── Shared field input classes ── */
 const inputClass =
-  'w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-dq-green focus:border-transparent transition bg-white'
+  'w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-enterprise-blue focus:border-transparent transition bg-white'
 
 interface FieldProps {
   label:       string

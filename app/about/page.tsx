@@ -20,13 +20,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-dq-dark to-green-800 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-enterprise-navy py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-enterprise-blue/40 to-transparent" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="About DQ"
             title="We built DQ because we were tired of waiting in line."
-            subtitle="Our mission is simple: make the checkout queue extinct in Indian retail."
-            light
+            subtitle="Our mission is simple: make the checkout queue extinct in Indian specialty retail."
+            variant="dark"
           />
         </div>
       </section>

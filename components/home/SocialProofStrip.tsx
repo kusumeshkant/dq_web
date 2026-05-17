@@ -1,68 +1,68 @@
-import { ShieldCheck, Smartphone, Zap, Globe2, Package, RotateCcw } from 'lucide-react'
+import { Server, Shield, Lock, Activity, Zap, GitBranch } from 'lucide-react'
 
-const proofs = [
+const SIGNALS = [
   {
-    Icon: ShieldCheck,
-    label: 'Razorpay-secured',
-    sub:   'UPI · Cards · Wallets',
-    color: 'text-dq-green',
-    bg:    'bg-dq-light',
+    Icon: Server,
+    label: 'Azure — Central India',
+    sub: 'Production cloud hosting',
+    color: 'text-enterprise-blue',
+    bg: 'bg-enterprise-blue/10',
   },
   {
-    Icon: Smartphone,
-    label: '3 live web apps',
-    sub:   'Customer · Staff · Admin',
-    color: 'text-blue-600',
-    bg:    'bg-blue-50',
+    Icon: Shield,
+    label: 'Razorpay Model B',
+    sub: 'No RBI PA License needed',
+    color: 'text-enterprise-live',
+    bg: 'bg-enterprise-live/10',
+  },
+  {
+    Icon: Lock,
+    label: 'Firebase Auth + RBAC',
+    sub: '4-tier role-based access',
+    color: 'text-purple-400',
+    bg: 'bg-purple-400/10',
+  },
+  {
+    Icon: Activity,
+    label: '12-Phase Observability',
+    sub: 'Correlation IDs · Crash trace',
+    color: 'text-enterprise-blue',
+    bg: 'bg-enterprise-blue/10',
   },
   {
     Icon: Zap,
-    label: 'Live in under 1 hour',
-    sub:   'No IT team needed',
-    color: 'text-dq-amber',
-    bg:    'bg-amber-50',
+    label: 'Apollo GraphQL API',
+    sub: 'Type-safe · API-ready',
+    color: 'text-yellow-400',
+    bg: 'bg-yellow-400/10',
   },
   {
-    Icon: Globe2,
-    label: '6 Indian languages',
-    sub:   'Hindi to Bengali',
-    color: 'text-purple-600',
-    bg:    'bg-purple-50',
-  },
-  {
-    Icon: Package,
-    label: '₹0 hardware cost',
-    sub:   'Use phones you already own',
-    color: 'text-gray-700',
-    bg:    'bg-gray-100',
-  },
-  {
-    Icon: RotateCcw,
-    label: '30-day free trial',
-    sub:   'Cancel anytime',
-    color: 'text-rose-600',
-    bg:    'bg-rose-50',
+    Icon: GitBranch,
+    label: 'DEV → UAT → PROD',
+    sub: 'Multi-environment pipeline',
+    color: 'text-enterprise-muted',
+    bg: 'bg-enterprise-elevated',
   },
 ]
 
-export default function SocialProofStrip() {
+export default function AuthorityStrip() {
   return (
-    <section className="bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-0 lg:divide-x lg:divide-gray-100">
-          {proofs.map((p) => {
-            const { Icon } = p
+    <section className="bg-enterprise-surface border-b border-enterprise-elevated">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-0 lg:divide-x lg:divide-enterprise-elevated">
+          {SIGNALS.map((s) => {
+            const { Icon } = s
             return (
               <div
-                key={p.label}
-                className="flex items-center gap-2.5 lg:px-5 lg:first:pl-0 lg:last:pr-0"
+                key={s.label}
+                className="flex items-center gap-2.5 lg:px-4 xl:px-5 lg:first:pl-0 lg:last:pr-0"
               >
-                <div className={`w-8 h-8 ${p.bg} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                  <Icon className={`w-4 h-4 ${p.color}`} strokeWidth={1.75} />
+                <div className={`w-8 h-8 ${s.bg} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                  <Icon className={`w-4 h-4 ${s.color}`} strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs font-semibold text-gray-800 leading-snug">{p.label}</p>
-                  <p className="text-[10px] text-gray-400 leading-snug">{p.sub}</p>
+                  <p className="text-xs font-semibold text-white leading-snug truncate">{s.label}</p>
+                  <p className="text-[10px] text-enterprise-muted leading-snug truncate">{s.sub}</p>
                 </div>
               </div>
             )

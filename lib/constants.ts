@@ -1,10 +1,10 @@
 export const NAV_LINKS = [
-  { label: 'Home',          href: '/' },
-  { label: 'For Stores',    href: '/for-stores' },
-  { label: 'How It Works',  href: '/how-it-works' },
-  { label: 'Pricing',       href: '/pricing' },
-  { label: 'About',         href: '/about' },
-  { label: 'Contact',       href: '/contact' },
+  { label: 'Home',        href: '/' },
+  { label: 'Platform',    href: '/how-it-works' },
+  { label: 'Solutions',   href: '/for-stores' },
+  { label: 'Pricing',     href: '/pricing' },
+  { label: 'About',       href: '/about' },
+  { label: 'Contact',     href: '/contact' },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -21,7 +21,7 @@ export const PRICING_PLANS = [
     annual: '₹29,990/year — save ₹5,998',
     description: 'Perfect for a single store getting started.',
     bestFor: 'Best for single-outlet stores testing DQ',
-    cta: 'Start Free Trial',
+    cta: 'Request Access',
     highlight: false,
     features: [
       'Customer App (unlimited users)',
@@ -43,7 +43,7 @@ export const PRICING_PLANS = [
     annual: '₹59,990/year — save ₹11,998',
     description: 'For stores ready to scale with advanced tools.',
     bestFor: 'Best for established stores with repeat customers',
-    cta: 'Start Free Trial',
+    cta: 'Request Access',
     highlight: true,
     features: [
       'Everything in Starter',
@@ -65,7 +65,7 @@ export const PRICING_PLANS = [
     annual: 'Talk to us',
     description: 'Multi-outlet chains and large-format retail.',
     bestFor: 'Best for chains, malls & large-format retail',
-    cta: 'Talk to Us',
+    cta: 'Talk to Enterprise Team',
     highlight: false,
     features: [
       'Everything in Growth',

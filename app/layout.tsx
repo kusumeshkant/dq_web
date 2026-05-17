@@ -21,26 +21,26 @@ const jsonLd = [
     logo: 'https://dqstore.in/logos/favicon.svg',
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'dqinfo@dqstore.in',
+      email: 'kusumeshkantsharma@gmail.com',
       contactType: 'sales',
       availableLanguage: ['Hindi', 'English', 'Tamil', 'Telugu', 'Kannada', 'Bengali'],
     },
-    description: 'Mobile self-checkout platform for fashion, lifestyle, jewellery, and branded retail stores in India.',
+    description: 'Checkout intelligence platform for India\'s specialty retail — fashion, footwear, jewellery, and lifestyle chains. Every transaction compounds platform intelligence.',
     sameAs: ['https://dqstore.in'],
   },
   {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'DQ — Scan & Go Checkout',
+    name: 'DQ — Checkout Intelligence Platform',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     offers: {
       '@type': 'Offer',
       price: '2999',
       priceCurrency: 'INR',
-      priceValidUntil: '2026-12-31',
+      priceValidUntil: '2027-12-31',
     },
-    description: 'Mobile self-checkout app for fashion and lifestyle retail stores in India. Customers scan products, pay via UPI or card, and exit with a QR code.',
+    description: 'Checkout intelligence platform for India\'s specialty retail. Three-app ecosystem — Customer Checkout, Staff Operations, Admin Analytics — deployed in 48 hours with zero hardware.',
     url: 'https://dqstore.in',
   },
 ]
@@ -49,19 +49,19 @@ const OG_IMAGE = {
   url: '/og-image.svg',
   width: 1200,
   height: 630,
-  alt: 'DQ — Mobile self-checkout for fashion and lifestyle retail stores in India',
+  alt: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
 }
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dqstore.in'),
   title: {
-    default: 'DQ — Mobile Self-Checkout for Fashion & Lifestyle Stores',
+    default: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
     template: '%s — DQ',
   },
   description:
-    'DQ is a mobile self-checkout platform built for fashion, lifestyle, jewellery, and specialty retail stores in India. Customers scan products, pay via UPI or card, and exit with a QR code — no counter, no queue, no lost sale. No hardware. Live in under 1 hour. From ₹2,999/month.',
+    'DQ is a checkout intelligence platform for India\'s specialty retail — fashion, footwear, jewellery, and lifestyle chains. Three production apps. Zero hardware. 48-hour deployment. Every transaction compounds platform intelligence. From ₹2,999/month.',
   keywords:
-    'scan and go fashion store India, self checkout fashion retail, retail queue management India, DQ store checkout, no queue fashion store, mobile checkout India, branded retail technology, jewellery store checkout, lifestyle store billing',
+    'checkout intelligence platform India, specialty retail checkout India, scan and go retail India, retail operations analytics India, fashion store checkout system, DQ checkout platform, queue elimination retail India, retail SaaS India, operational intelligence retail',
   icons: {
     icon: [
       { url: '/logos/favicon.svg', type: 'image/svg+xml' },
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
     canonical: 'https://dqstore.in/',
   },
   openGraph: {
-    title: 'DQ — Mobile Self-Checkout for Fashion & Lifestyle Stores',
+    title: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
     description:
-      'Give your fashion or lifestyle store a smarter checkout. Customers scan, pay on their phone, and walk out — no counter congestion. No hardware. Live in under 1 hour. From ₹2,999/month.',
+      'DQ turns every retail transaction into structured operational intelligence. Three production apps. Zero hardware. 48-hour deployment. Intelligence at Every Transaction.',
     siteName: 'DQ',
     locale: 'en_IN',
     type: 'website',
@@ -85,8 +85,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DQ — No-Queue Checkout for Fashion Retail',
-    description: 'Mobile self-checkout for fashion, lifestyle & branded retail stores. No hardware. Live in under 1 hour. From ₹2,999/month.',
+    title: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
+    description: 'Checkout intelligence platform for fashion, footwear, and lifestyle chains in India. Zero hardware. 48-hour deployment. Every transaction compounds platform intelligence.',
     images: [OG_IMAGE.url],
   },
 }
@@ -103,7 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans bg-white text-gray-900 antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-dq-dark focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-enterprise-navy focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg"
         >
           Skip to content
         </a>

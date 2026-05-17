@@ -47,8 +47,8 @@ export default function NavbarClient() {
                 href={link.href}
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-150 ${
                   isActive
-                    ? 'text-dq-green bg-dq-light font-semibold'
-                    : 'text-gray-600 hover:text-dq-green hover:bg-gray-50'
+                    ? 'text-[#2E86FF] bg-blue-50 font-semibold'
+                    : 'text-gray-600 hover:text-[#2E86FF] hover:bg-gray-50'
                 }`}
               >
                 {link.label}
@@ -58,15 +58,15 @@ export default function NavbarClient() {
         </nav>
         <div className="ml-3 flex items-center gap-2">
           <a
-            href="https://dq.dqstore.in"
+            href="https://app.dqstore.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 text-sm font-semibold rounded-xl border-2 border-dq-green text-dq-green hover:bg-dq-light active:scale-[0.98] transition-all duration-200 whitespace-nowrap"
+            className="px-4 py-2 text-sm font-semibold rounded-lg border border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-800 active:scale-[0.98] transition-all duration-200 whitespace-nowrap"
           >
-            Launch App ↗
+            Sign In ↗
           </a>
-          <Button href="/contact" size="sm" className="font-semibold">
-            Book Free Demo
+          <Button href="/contact" size="sm" className="font-semibold bg-[#2E86FF] hover:bg-[#1A6FD4] text-white border-0 rounded-lg shadow-[0_2px_8px_rgba(46,134,255,0.3)]">
+            Request Demo
           </Button>
         </div>
       </div>
@@ -101,8 +101,8 @@ export default function NavbarClient() {
                   onClick={() => setOpen(false)}
                   className={`px-4 py-3 text-sm font-medium rounded-xl transition-all duration-150 ${
                     isActive
-                      ? 'text-dq-green bg-dq-light font-semibold'
-                      : 'text-gray-700 hover:text-dq-green hover:bg-gray-50'
+                      ? 'text-[#2E86FF] bg-blue-50 font-semibold'
+                      : 'text-gray-700 hover:text-[#2E86FF] hover:bg-gray-50'
                   }`}
                 >
                   {link.label}
@@ -111,17 +111,16 @@ export default function NavbarClient() {
             })}
             <div className="pt-3 mt-2 border-t border-gray-100 space-y-2">
               <a
-                href="https://dq.dqstore.in"
+                href="https://app.dqstore.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-xl border-2 border-dq-green text-dq-green hover:bg-dq-light active:scale-[0.98] transition-all duration-200"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-lg border border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50 active:scale-[0.98] transition-all duration-200"
               >
-                Launch Web App ↗
+                Sign In ↗
               </a>
-              <Button href="/contact" size="sm" className="w-full justify-center font-semibold">
-                Book Free Demo
+              <Button href="/contact" size="sm" className="w-full justify-center font-semibold bg-[#2E86FF] hover:bg-[#1A6FD4] text-white border-0 rounded-lg">
+                Request a Demo
               </Button>
-              <p className="text-center text-xs text-gray-400">30-day free trial · No credit card</p>
             </div>
           </nav>
         </div>
