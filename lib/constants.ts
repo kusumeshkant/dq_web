@@ -183,7 +183,7 @@ export const APP_URLS = {
   admin:    'https://app.dqstore.in',
 } as const
 
-export const CONTACT_EMAIL   = 'kusumeshkantsharma@gmail.com'
+export const CONTACT_EMAIL   = 'support@dqstore.in'
 export const WHATSAPP_NUMBER = '918754886595'
 export const WEB3FORMS_KEY   = '76c6c6dd-e2aa-4c97-b1a5-f1fca47d329b'
 

@@ -21,7 +21,7 @@ const jsonLd = [
     logo: 'https://dqstore.in/logos/favicon.svg',
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'kusumeshkantsharma@gmail.com',
+      email: 'support@dqstore.in',
       contactType: 'sales',
       availableLanguage: ['Hindi', 'English', 'Tamil', 'Telugu', 'Kannada', 'Bengali'],
     },
