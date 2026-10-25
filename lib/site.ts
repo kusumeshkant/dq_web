@@ -255,7 +255,7 @@ export const BUILD_STATUS = {
     'Owner analytics: peak hours and days, unpaid baskets, low-stock list',
   ],
   next: [
-    'Shopper app for iPhone and web',
+    'Shopper app for iPhone',
     'The features our founding stores ask for most',
   ],
 } as const

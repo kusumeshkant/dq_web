@@ -9,7 +9,7 @@ const FLOW = [
   { Icon: ShieldCheck, title: 'Verify', desc: 'Staff check the pass against a paid order.' },
 ]
 
-const TRUST = [CLAIMS.channelShort, CLAIMS.hardware, CLAIMS.till, CLAIMS.cardDataShort]
+const TRUST = [CLAIMS.channelShort, CLAIMS.hardware, CLAIMS.till]
 
 export default function HeroSection() {
   return (
