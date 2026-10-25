@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ScanLine, Wallet, QrCode, ShieldCheck } from 'lucide-react'
-import { CLAIMS, CTA, FACTS, OFFER } from '@/lib/site'
+import { CLAIMS, CTA, FACTS, HINDI, OFFER } from '@/lib/site'
 
 const FLOW = [
   { Icon: ScanLine,    title: 'Scan',   desc: 'Shoppers scan product tags on their own phone.' },
@@ -42,6 +42,10 @@ export default function HeroSection() {
             <p className="mt-6 text-base sm:text-lg text-enterprise-muted leading-relaxed max-w-[540px]">
               DQ adds phone self-checkout to your store. It runs alongside your existing till,
               with no new hardware. {CLAIMS.setup}.
+            </p>
+
+            <p lang="hi" className="font-hi mt-4 text-base text-enterprise-link leading-relaxed max-w-[540px]">
+              {HINDI.headline}
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">

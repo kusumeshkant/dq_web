@@ -1,13 +1,12 @@
 // Product / offer claims live in lib/site.ts. This file holds navigation,
 // contact details and form options only.
 
+// The logo links home; /contact is reached through the Apply button.
 export const NAV_LINKS = [
-  { label: 'Home',        href: '/' },
-  { label: 'Platform',    href: '/how-it-works' },
-  { label: 'Solutions',   href: '/for-stores' },
-  { label: 'Pricing',     href: '/pricing' },
-  { label: 'About',       href: '/about' },
-  { label: 'Contact',     href: '/contact' },
+  { label: 'How it works', href: '/how-it-works' },
+  { label: 'For stores',   href: '/for-stores' },
+  { label: 'Pricing',      href: '/pricing' },
+  { label: 'About',        href: '/about' },
 ]
 
 export const PROBLEM_POINTS = [

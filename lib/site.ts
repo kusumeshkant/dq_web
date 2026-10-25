@@ -114,6 +114,74 @@ export const FACTS = [
   { value: '90 days', label: 'Free pilot' },
 ] as const
 
+/** What a store needs before it starts (06 §4 "What you need"). No settlement wording. */
+export const REQUIREMENTS = {
+  have: [
+    { title: 'Products with barcodes or tags', desc: 'The tags you already use for billing.' },
+    { title: 'Your product list in Excel',     desc: 'Barcode, name, price and stock for each product.' },
+    { title: 'One staff phone at the exit',    desc: 'For the staff app. Any phone your team already has.' },
+    { title: 'Internet in the store',          desc: 'Wi-Fi or mobile data for staff and shoppers.' },
+  ],
+  notNeeded: [
+    'No new hardware — no scanners, kiosks or card machines',
+    'No IT team',
+    'No change to your existing billing software',
+  ],
+} as const
+
+/** Hindi lines (06 §3–4). Rendered with lang="hi". */
+export const HINDI = {
+  headline: 'ग्राहक ख़ुद स्कैन करें, फ़ोन पर पेमेंट करें, और निकल जाएँ — बिलिंग की लाइन नहीं।',
+  sub:      'DQ आपके मौजूदा बिलिंग काउंटर के साथ चलता है — कोई नई मशीन नहीं।',
+  control:  'डिस्काउंट पर पूरा कंट्रोल — आपके हाथ में।',
+} as const
+
+/** Store-owner FAQ (06 §4 objections), shared by home and /for-stores. */
+export const STORE_FAQ = [
+  {
+    q: 'How do shoppers use DQ?',
+    a: `Shoppers use DQ on their own phone: they scan product tags, pay in the app and show an exit pass. Anyone who prefers the counter can still use it — ${CLAIMS.till.toLowerCase()}.`,
+  },
+  {
+    q: 'What about theft?',
+    a: 'Every shopper shows an exit pass at the door — a QR code plus a short code. It is linked to a paid order, and staff check it in one tap. No paid order means no cleared exit.',
+  },
+  {
+    q: 'Do I need hardware?',
+    a: 'No. Your staff use their own phone for the staff app, and shoppers use theirs.',
+  },
+  {
+    q: 'What if the internet drops?',
+    a: 'DQ needs an internet connection. If it drops, shoppers can pay at your counter as usual.',
+  },
+  {
+    q: 'Will it replace my billing software?',
+    a: 'No. DQ runs alongside it. Many stores keep one counter for shoppers who prefer traditional billing.',
+  },
+  {
+    q: 'How long does setup take?',
+    a: `${CLAIMS.setup}. Preparing that list is the main job, and we help you with it.`,
+  },
+  {
+    q: 'Can my staff give discounts?',
+    a: `Only within the limit you approve. Staff ask for a limit with a reason, and you can approve it or set a lower one. ${CLAIMS.discountLog}. ${CLAIMS.priceLock}.`,
+  },
+] as const
+
+/** About page: what exists today vs what comes next. No dates. */
+export const BUILD_STATUS = {
+  today: [
+    'Shopper app: scan barcodes, cart, exit pass',
+    'Staff app: live order feed, exit-pass checks, discount codes within limits',
+    'Owner dashboard: Excel upload, discount approvals and log',
+    'Owner analytics: peak hours and days, unpaid baskets, low-stock list',
+  ],
+  next: [
+    'Shopper payments on more phones and browsers',
+    'The features our founding stores ask for most',
+  ],
+} as const
+
 export const PRICING_FAQ = [
   { q: 'What does the pilot cost?', a: `Nothing. Founding partners use DQ free for ${OFFER.pilotDays} days. ${OFFER.terms}` },
   { q: 'What happens after the pilot?', a: OFFER.afterPilot },

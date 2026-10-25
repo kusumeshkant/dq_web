@@ -46,10 +46,10 @@ export default function AnalyticsSection() {
 
         <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="inline-block mb-4 px-3 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-slate-50 text-ink-body border border-gray-200">
-            Owner dashboard
+            See your store
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight tracking-tight">
-            See your store clearly.
+            Know your busiest hour, and who&apos;s giving discounts.
           </h2>
           <p className="mt-4 text-ink-body text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Every DQ checkout is recorded, so the owner dashboard can show you what your billing counter never did.

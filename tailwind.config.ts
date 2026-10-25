@@ -50,6 +50,10 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        // Hindi lines use the phone's own Devanagari font (Android: Noto Sans
+        // Devanagari, iOS: Kohinoor Devanagari, Windows: Nirmala UI). A web
+        // font here cost ~146 KB and delayed the hero on mobile.
+        hi:   ['"Noto Sans Devanagari"', '"Kohinoor Devanagari"', '"Nirmala UI"', 'Mangal', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'dot-grid': "radial-gradient(circle, rgba(46,134,255,0.18) 1px, transparent 1px)",

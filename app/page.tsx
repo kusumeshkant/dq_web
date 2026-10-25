@@ -1,23 +1,26 @@
-import HeroSection       from '@/components/home/HeroSection'
-import ProblemSection    from '@/components/home/ProblemSection'
-import SolutionSection   from '@/components/home/SolutionSection'
-import AppsSection       from '@/components/home/AppsSection'
-import AnalyticsSection  from '@/components/home/AnalyticsSection'
-import IndustriesSection from '@/components/home/IndustriesSection'
-import WhyDQSection      from '@/components/home/WhyDQSection'
-import CtaBanner         from '@/components/home/CtaBanner'
+import HeroSection         from '@/components/home/HeroSection'
+import ProblemSection      from '@/components/home/ProblemSection'
+import SolutionSection     from '@/components/home/SolutionSection'
+import KeepTillSection     from '@/components/home/KeepTillSection'
+import OwnerControlSection from '@/components/home/OwnerControlSection'
+import AnalyticsSection    from '@/components/home/AnalyticsSection'
+import RequirementsSection from '@/components/shared/RequirementsSection'
+import OfferSection        from '@/components/home/OfferSection'
+import ObjectionsSection   from '@/components/for-stores/ObjectionsSection'
 
+// Section order: docs/website_analysis/06_proposed_ia_and_copy.md §2
 export default function HomePage() {
   return (
     <>
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
-      <AppsSection />
+      <KeepTillSection />
+      <OwnerControlSection />
       <AnalyticsSection />
-      <IndustriesSection />
-      <WhyDQSection />
-      <CtaBanner />
+      <RequirementsSection tone="gray" />
+      <OfferSection />
+      <ObjectionsSection title="Questions store owners ask" limit={6} />
     </>
   )
 }

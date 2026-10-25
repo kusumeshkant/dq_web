@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import FlowSection   from '@/components/how-it-works/FlowSection'
 import SectionHeading from '@/components/ui/SectionHeading'
 import CtaBanner     from '@/components/home/CtaBanner'
+import JourneyMap    from '@/components/how-it-works/JourneyMap'
+import AppsSection   from '@/components/home/AppsSection'
 import { CLAIMS, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -55,6 +57,9 @@ export default function HowItWorksPage() {
           />
         </div>
       </section>
+
+      <JourneyMap />
+      <AppsSection />
 
       <div className="bg-white">
         <FlowSection
