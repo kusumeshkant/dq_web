@@ -56,7 +56,8 @@ const OG_IMAGE = {
   alt: `${BRAND} — ${CLAIMS.category}. No billing queue.`,
 }
 
-const TITLE = `${BRAND} — ${CLAIMS.category} in India`
+// ≤ 65 chars so search results don't truncate it.
+const TITLE = `${BRAND} — ${CLAIMS.category}`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -10,7 +10,7 @@ import { CLAIMS, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'How It Works',
-  description: 'See the full DQ flow — shoppers scan and pay in the DQ Android app, staff check every exit pass and give discounts within your limit, and owners see sales, peak hours and discounts.',
+  description: 'See the full DQ flow: shoppers scan and pay in the DQ Android app, staff check exit passes and give discounts within your limit, owners see sales.',
   alternates: { canonical: `${SITE_URL}/how-it-works/` },
   openGraph: {
     title: 'How DQ Works — Scan, Pay, Walk Out',

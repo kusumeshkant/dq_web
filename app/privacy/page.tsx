@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How DQ collects, uses, and protects your data. We never sell your data. Payments are secured by Razorpay.',
   alternates: { canonical: 'https://dqstore.in/privacy/' },
+  openGraph: {
+    title: 'DQ Privacy Policy',
+    description: 'How DQ collects, uses, and protects your data. We never sell your data. Payments are secured by Razorpay.',
+    url: 'https://dqstore.in/privacy/',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
 }
 
 export default function PrivacyPage() {

@@ -8,7 +8,7 @@ import CtaBanner       from '@/components/home/CtaBanner'
 import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'About DQ',
+  title: 'About',
   description: 'DQ was built to take the billing queue out of Indian fashion and lifestyle stores. The apps are built and we are onboarding a small group of founding stores.',
   alternates: { canonical: `${SITE_URL}/about/` },
   openGraph: {

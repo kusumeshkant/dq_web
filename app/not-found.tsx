@@ -6,6 +6,9 @@ import { CTA } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Page not found',
   robots: { index: false },
+  // A 404 must not claim the home page as its canonical URL.
+  alternates: { canonical: null },
+  openGraph: { url: undefined },
 }
 
 export default function NotFound() {

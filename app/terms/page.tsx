@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'Terms of Service for using the DQ platform — scan-and-go self-checkout for Indian retail stores.',
   alternates: { canonical: 'https://dqstore.in/terms/' },
+  openGraph: {
+    title: 'DQ Terms of Service',
+    description: 'Terms of Service for using the DQ platform — scan-and-go self-checkout for Indian retail stores.',
+    url: 'https://dqstore.in/terms/',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
 }
 
 export default function TermsPage() {

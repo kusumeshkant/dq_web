@@ -9,7 +9,7 @@ import { CLAIMS, OFFER, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'For Store Owners',
-  description: `Give your fashion or lifestyle store scan-and-go checkout. ${CLAIMS.hardware}. ${CLAIMS.setup}. ${OFFER.headline} for founding stores.`,
+  description: `Scan-and-go checkout for fashion and lifestyle stores. ${CLAIMS.hardware}. ${CLAIMS.setup}. ${OFFER.headline}.`,
   alternates: { canonical: `${SITE_URL}/for-stores/` },
   openGraph: {
     title: 'DQ for Store Owners — scan-and-go self-checkout',
