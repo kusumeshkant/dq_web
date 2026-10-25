@@ -102,6 +102,7 @@ export default function HeroSection() {
                   </li>
                 ))}
               </ol>
+              <p className="px-5 pb-4 -mt-1 text-xs text-enterprise-muted">{CLAIMS.illustrative}</p>
             </div>
 
             <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-5">

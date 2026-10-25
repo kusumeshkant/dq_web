@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 }
 
 const customerSteps = [
-  { number: '1', title: 'Open DQ on your phone and sign in', desc: `The shopper app is available in ${CLAIMS.languages}.` },
+  { number: '1', title: 'Open DQ on your phone and sign in', desc: `Shopper app languages: ${CLAIMS.languages}.` },
   { number: '2', title: 'Choose the store you’re in', desc: 'Pick the store in the app when you walk in.' },
   { number: '3', title: 'Scan products as you shop', desc: 'Point the camera at the barcode. The product is added to your cart and stock is checked.' },
   { number: '4', title: 'Pay in the app', desc: `${CLAIMS.payments}.` },
@@ -68,6 +68,7 @@ export default function HowItWorksPage() {
           subtitle="No training needed. Scan, pay, go."
           steps={customerSteps}
           accentClass="bg-enterprise-action"
+          caption={CLAIMS.illustrative}
         />
 
         <div className="bg-gray-50">
@@ -77,6 +78,7 @@ export default function HowItWorksPage() {
             subtitle="Less time at the counter. More time helping shoppers."
             steps={staffSteps}
             accentClass="bg-enterprise-amber"
+            caption={CLAIMS.illustrative}
           />
         </div>
 

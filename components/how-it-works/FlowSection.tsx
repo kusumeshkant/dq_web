@@ -12,9 +12,10 @@ interface FlowSectionProps {
   subtitle: string
   steps: Step[]
   accentClass: string
+  caption?: string
 }
 
-export default function FlowSection({ badge, title, subtitle, steps, accentClass }: FlowSectionProps) {
+export default function FlowSection({ badge, title, subtitle, steps, accentClass, caption }: FlowSectionProps) {
   return (
     <section className="py-16 border-b border-gray-100 last:border-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +42,7 @@ export default function FlowSection({ badge, title, subtitle, steps, accentClass
             </li>
           ))}
         </ol>
+        {caption && <p className="mt-8 text-center text-sm text-ink-muted">{caption}</p>}
       </div>
     </section>
   )

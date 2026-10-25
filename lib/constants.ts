@@ -47,3 +47,9 @@ export const DAILY_ORDER_RANGES = [
   '150–500 bills/day',
   '500+ bills/day',
 ]
+
+export const BARCODE_OPTIONS = [
+  'Yes — all products',
+  'Some products',
+  'No',
+]

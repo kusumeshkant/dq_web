@@ -1,8 +1,8 @@
 'use client'
 
-import { useId, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
-import { CONTACT_EMAIL, WHATSAPP_NUMBER, WEB3FORMS_KEY, STORE_TYPES, DAILY_ORDER_RANGES } from '@/lib/constants'
+import { CONTACT_EMAIL, WHATSAPP_NUMBER, WEB3FORMS_KEY, STORE_TYPES, DAILY_ORDER_RANGES, BARCODE_OPTIONS } from '@/lib/constants'
 import { CTA } from '@/lib/site'
 import Button from '@/components/ui/Button'
 
@@ -13,21 +13,30 @@ interface FormData {
   city:        string
   mobile:      string
   email:       string
+  barcodes:    string
   dailyOrders: string
+  software:    string
 }
 
 type FieldName = keyof FormData
 type Errors = Partial<Record<FieldName, string>>
 
 const INITIAL: FormData = {
-  name: '', storeName: '', storeType: '', city: '', mobile: '', email: '', dailyOrders: '',
+  name: '', storeName: '', storeType: '', city: '', mobile: '', email: '', barcodes: '', dailyOrders: '', software: '',
 }
 
 // Order matters: it is the order fields appear in, used to focus the first error.
-const FIELD_ORDER: FieldName[] = ['name', 'storeName', 'storeType', 'city', 'mobile', 'email', 'dailyOrders']
+const FIELD_ORDER: FieldName[] = ['name', 'storeName', 'storeType', 'city', 'mobile', 'email', 'barcodes', 'dailyOrders', 'software']
+
+// Hidden attribution fields, read from the landing URL. Never shown to the user.
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const
+type AttributionKey = (typeof UTM_KEYS)[number] | 'page' | 'referrer'
+type Attribution = Partial<Record<AttributionKey, string>>
 
 const INDIA_PHONE_RE = /^(\+91|91)?[6-9]\d{9}$/
 const EMAIL_RE       = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const WA_APPLY = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi, I'd like to apply as a DQ founding store.")}`
 
 function validate(form: FormData): Errors {
   const errors: Errors = {}
@@ -36,22 +45,35 @@ function validate(form: FormData): Errors {
   if (!form.storeType)        errors.storeType = 'Choose your store type'
   if (!form.city.trim())      errors.city      = 'Enter your city'
   const digits = form.mobile.replace(/\s|-/g, '')
-  if (!digits)                         errors.mobile = 'Enter your mobile number'
+  if (!digits)                           errors.mobile = 'Enter your mobile number'
   else if (!INDIA_PHONE_RE.test(digits)) errors.mobile = 'Enter a valid 10-digit Indian mobile number'
-  if (!form.email.trim())              errors.email = 'Enter your email address'
+  if (!form.email.trim())                     errors.email = 'Enter your email address'
   else if (!EMAIL_RE.test(form.email.trim())) errors.email = 'Enter a valid email address'
+  if (!form.barcodes)         errors.barcodes  = 'Tell us whether your products have barcodes'
   return errors
 }
 
 export default function ContactForm() {
-  const [form, setForm]           = useState<FormData>(INITIAL)
-  const [errors, setErrors]       = useState<Errors>({})
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading]     = useState(false)
-  const [error, setError]         = useState('')
-  const formRef                   = useRef<HTMLFormElement>(null)
-  const uid                       = useId()
+  const [form, setForm]               = useState<FormData>(INITIAL)
+  const [errors, setErrors]           = useState<Errors>({})
+  const [attribution, setAttribution] = useState<Attribution>({})
+  const [submitted, setSubmitted]     = useState(false)
+  const [loading, setLoading]         = useState(false)
+  const [error, setError]             = useState('')
+  const formRef                       = useRef<HTMLFormElement>(null)
+  const uid                           = useId()
   const idFor = (name: FieldName) => `${uid}-${name}`
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const found: Attribution = { page: window.location.pathname }
+    if (document.referrer) found.referrer = document.referrer.slice(0, 200)
+    for (const k of UTM_KEYS) {
+      const v = params.get(k)
+      if (v) found[k] = v.slice(0, 120)
+    }
+    setAttribution(found)
+  }, [])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, value } = e.target
@@ -71,6 +93,8 @@ export default function ContactForm() {
     setLoading(true)
     setError('')
 
+    const attributionLines = Object.entries(attribution).map(([k, v]) => `${k}: ${v}`)
+
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -81,6 +105,7 @@ export default function ContactForm() {
           from_name:  'DQ Store Website',
           name:       form.name,
           email:      form.email,
+          ...attribution,
           message: [
             `Name: ${form.name}`,
             `Store Name: ${form.storeName}`,
@@ -88,7 +113,11 @@ export default function ContactForm() {
             `City: ${form.city}`,
             `Mobile: ${form.mobile}`,
             `Email: ${form.email}`,
+            `Products have barcodes: ${form.barcodes}`,
             `Bills per day: ${form.dailyOrders || 'Not specified'}`,
+            `Current billing software: ${form.software || 'Not specified'}`,
+            '',
+            ...attributionLines,
           ].join('\n'),
         }),
       })
@@ -162,7 +191,16 @@ export default function ContactForm() {
         <Field label="Email address" type="email" required placeholder="rajesh@trendsstore.com" autoComplete="email" {...common('email')} />
       </div>
 
-      <SelectField label="Approx. bills per day (optional)" required={false} options={DAILY_ORDER_RANGES} {...common('dailyOrders')} />
+      <SelectField label="Do your products have barcodes or tags?" required options={BARCODE_OPTIONS} {...common('barcodes')} />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <SelectField label="Approx. bills per day (optional)" required={false} options={DAILY_ORDER_RANGES} {...common('dailyOrders')} />
+        <Field label="Current billing software (optional)" placeholder="e.g. Tally, Marg, GoFrugal" {...common('software')} />
+      </div>
+
+      {Object.entries(attribution).map(([k, v]) => (
+        <input key={k} type="hidden" name={k} value={v} />
+      ))}
 
       {error && (
         <p role="alert" className="text-sm text-danger bg-red-50 border border-red-100 rounded-xl px-4 py-3 flex items-start gap-2">
@@ -182,6 +220,13 @@ export default function ContactForm() {
           </span>
         ) : `${CTA.primary} →`}
       </Button>
+
+      <p className="text-center text-sm text-ink-body">
+        Prefer WhatsApp?{' '}
+        <a href={WA_APPLY} target="_blank" rel="noopener noreferrer" className="font-semibold text-whatsapp-deep hover:underline underline-offset-2">
+          Apply on WhatsApp instead
+        </a>
+      </p>
 
       <ul className="flex items-center justify-center gap-4 pt-1 flex-wrap text-sm text-ink-muted">
         <li>Response within 24 hours</li>
@@ -258,7 +303,7 @@ function Field({ id, label, name, value, onChange, type = 'text', required, plac
 
 interface SelectFieldProps extends BaseFieldProps {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
-  options:  string[]
+  options:  readonly string[]
 }
 
 function SelectField({ id, label, name, value, onChange, options, required, error, errorId }: SelectFieldProps) {

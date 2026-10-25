@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { CLAIMS } from '@/lib/site'
 
 // Cross-journey overview (03_user_flows.md): who does what, and where the
 // three apps hand over to each other.
@@ -50,6 +51,7 @@ export default function JourneyMap() {
             </div>
           ))}
         </div>
+        <p className="mt-6 text-center text-sm text-ink-muted">{CLAIMS.illustrative}</p>
       </div>
     </section>
   )

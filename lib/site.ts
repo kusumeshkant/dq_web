@@ -22,6 +22,8 @@ export const CLAIMS = {
 
   /** Status — replaces Live / Operational / All Systems Live (C-01) */
   status: 'Now onboarding founding stores',
+  /** Shown under every phone/app flow. Shopper channel (web/Android) is undecided — say nothing about it. */
+  illustrative: 'Illustrative flow. Pilot stores are set up with the founder.',
   pilotNote: 'DQ is in its founding-partner pilot.',
 
   /** Payments — replaces "UPI, cards, or wallets" + RBI-compliant (C-02, C-06) */
@@ -78,7 +80,7 @@ export const APPS = [
       'Scan product barcodes to build a cart',
       CLAIMS.payments,
       'Exit pass: a QR code plus a short typeable code',
-      `Available in ${CLAIMS.languages}`,
+      `Shopper app languages: ${CLAIMS.languages}`,
     ],
   },
   {
@@ -144,7 +146,7 @@ export const STORE_FAQ = [
   },
   {
     q: 'What about theft?',
-    a: 'Every shopper shows an exit pass at the door — a QR code plus a short code. It is linked to a paid order, and staff check it in one tap. No paid order means no cleared exit.',
+    a: 'Every shopper shows an exit pass at the door — a QR code plus a short code. It proves the shopper paid for an order, and staff check it in one tap. It does not check what is in the bag, so your staff can still spot-check a basket against the order, just as they would today.',
   },
   {
     q: 'Do I need hardware?',
@@ -172,7 +174,7 @@ export const STORE_FAQ = [
 export const BUILD_STATUS = {
   today: [
     'Shopper app: scan barcodes, cart, exit pass',
-    'Staff app: live order feed, exit-pass checks, discount codes within limits',
+    'Staff app: exit-pass checks and discount codes within owner-set limits — in the pilot build',
     'Owner dashboard: Excel upload, discount approvals and log',
     'Owner analytics: peak hours and days, unpaid baskets, low-stock list',
   ],

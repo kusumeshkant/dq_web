@@ -5,7 +5,7 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import { useInView } from '@/hooks/useInView'
 import { OFFER } from '@/lib/site'
 
-// Replaces the investor-facing "Why now / moat" content (C-46, C-48–C-50).
+// How we work with pilot stores. Replaced the investor-facing "Why now" / moat content (C-46, C-48–C-50).
 const POINTS = [
   {
     Icon: Wrench,
@@ -24,7 +24,7 @@ const POINTS = [
   },
 ]
 
-export default function WhyNowSection() {
+export default function FoundingStoresSection() {
   const { ref, inView } = useInView<HTMLElement>()
   return (
     <section ref={ref} className="py-20 bg-slate-50">
