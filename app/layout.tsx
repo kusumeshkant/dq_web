@@ -5,6 +5,8 @@ import Navbar        from '@/components/layout/Navbar'
 import Footer        from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'
 import MobileCtaBar  from '@/components/layout/MobileCtaBar'
+import { CONTACT_EMAIL } from '@/lib/constants'
+import { BRAND, CLAIMS, SITE_URL } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -12,56 +14,56 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const DESCRIPTION =
+  `Let shoppers scan, pay on their phone and walk out — no billing queue. ${CLAIMS.till}, ${CLAIMS.hardware.toLowerCase()}. ${CLAIMS.status}.`
+
 const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'DQ',
-    url: 'https://dqstore.in',
-    logo: 'https://dqstore.in/logos/favicon.svg',
+    name: BRAND,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logos/favicon.svg`,
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'support@dqstore.in',
+      email: CONTACT_EMAIL,
       contactType: 'sales',
-      availableLanguage: ['Hindi', 'English', 'Tamil', 'Telugu', 'Kannada', 'Bengali'],
+      availableLanguage: ['English', 'Hindi'],
     },
-    description: 'Checkout intelligence platform for India\'s specialty retail — fashion, footwear, jewellery, and lifestyle chains. Every transaction compounds platform intelligence.',
-    sameAs: ['https://dqstore.in'],
+    description: `${CLAIMS.category} in India.`,
   },
   {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'DQ — Checkout Intelligence Platform',
+    name: BRAND,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
-    offers: {
-      '@type': 'Offer',
-      price: '2999',
-      priceCurrency: 'INR',
-      priceValidUntil: '2027-12-31',
-    },
-    description: 'Checkout intelligence platform for India\'s specialty retail. Three-app ecosystem — Customer Checkout, Staff Operations, Admin Analytics — deployed in 48 hours with zero hardware.',
-    url: 'https://dqstore.in',
+    description: `${CLAIMS.category}. Shopper, staff and owner apps. ${CLAIMS.hardware}. ${CLAIMS.setup}.`,
+    url: SITE_URL,
   },
 ]
 
+// Inline, synchronous: marks JS as available before first paint so that
+// `.js .reveal` can hide below-the-fold content for the scroll animation
+// while the no-JS page stays fully visible.
+const JS_FLAG = "document.documentElement.classList.add('js')"
+
 const OG_IMAGE = {
-  url: '/og-image.svg',
+  url: '/og-image.png',
   width: 1200,
   height: 630,
-  alt: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
+  alt: `${BRAND} — ${CLAIMS.category}. No billing queue.`,
 }
 
+const TITLE = `${BRAND} — ${CLAIMS.category} in India`
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dqstore.in'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
+    default: TITLE,
     template: '%s — DQ',
   },
-  description:
-    'DQ is a checkout intelligence platform for India\'s specialty retail — fashion, footwear, jewellery, and lifestyle chains. Three production apps. Zero hardware. 48-hour deployment. Every transaction compounds platform intelligence. From ₹2,999/month.',
-  keywords:
-    'checkout intelligence platform India, specialty retail checkout India, scan and go retail India, retail operations analytics India, fashion store checkout system, DQ checkout platform, queue elimination retail India, retail SaaS India, operational intelligence retail',
+  description: DESCRIPTION,
   icons: {
     icon: [
       { url: '/logos/favicon.svg', type: 'image/svg+xml' },
@@ -71,30 +73,30 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   alternates: {
-    canonical: 'https://dqstore.in/',
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
-    title: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
-    description:
-      'DQ turns every retail transaction into structured operational intelligence. Three production apps. Zero hardware. 48-hour deployment. Intelligence at Every Transaction.',
-    siteName: 'DQ',
+    title: TITLE,
+    description: DESCRIPTION,
+    siteName: BRAND,
     locale: 'en_IN',
     type: 'website',
-    url: 'https://dqstore.in/',
+    url: `${SITE_URL}/`,
     images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DQ — Checkout Intelligence Platform for India\'s Specialty Retail',
-    description: 'Checkout intelligence platform for fashion, footwear, and lifestyle chains in India. Zero hardware. 48-hour deployment. Every transaction compounds platform intelligence.',
+    title: TITLE,
+    description: DESCRIPTION,
     images: [OG_IMAGE.url],
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: JS_FLAG }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd, null, 0) }}

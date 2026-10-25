@@ -1,56 +1,55 @@
 import Button from '@/components/ui/Button'
+import { CLAIMS, CTA, OFFER } from '@/lib/site'
+
+const TRUST = [CLAIMS.hardware, CLAIMS.till, OFFER.headline, OFFER.termsShort]
 
 export default function StoresHero() {
   return (
     <section className="relative bg-enterprise-navy py-20 md:py-28 overflow-hidden">
-      {/* Dot grid */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
           backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.6) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
         }}
+        aria-hidden="true"
       />
-      {/* Accent line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-enterprise-blue/40 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-enterprise-blue/40 to-transparent" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <span className="inline-block mb-6 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase bg-enterprise-blue/10 text-enterprise-blue border border-enterprise-blue/20">
-            For Store Owners &amp; GMs
+          <span className="inline-block mb-6 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-enterprise-blue/10 text-enterprise-link border border-enterprise-blue/20">
+            For store owners &amp; managers
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Turn every customer&apos;s phone into a{' '}
-            <span className="text-enterprise-blue">checkout terminal.</span>
+            <span className="text-enterprise-link">checkout terminal.</span>
           </h1>
           <p className="mt-6 text-lg text-enterprise-muted leading-relaxed max-w-2xl">
-            DQ gives your store scan-and-go checkout, real-time staff order management,
-            and a full analytics dashboard — with no hardware and no IT team.{' '}
-            <span className="text-white font-semibold">From ₹2,999/month.</span>
+            DQ gives your store scan-and-go checkout, a staff app for exits and discounts,
+            and an owner dashboard — with no new hardware and no IT team.{' '}
+            <span className="text-white font-semibold">{CLAIMS.setup}.</span>
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <Button
-              href="/contact"
-              size="lg"
-              className="bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold border-0 shadow-[0_4px_16px_rgba(46,134,255,0.35)]"
-            >
-              Request a Demo →
+            <Button href="/contact" size="lg" className="rounded-lg">
+              {CTA.primary} →
             </Button>
             <Button
               href="/pricing"
               size="lg"
               variant="outline"
-              className="border-enterprise-elevated text-enterprise-muted hover:border-enterprise-muted/40 hover:text-white"
+              className="rounded-lg border-enterprise-elevated text-enterprise-muted hover:bg-transparent hover:border-enterprise-muted hover:text-white"
             >
-              View Pricing
+              See the offer
             </Button>
           </div>
-          <p className="mt-5 text-xs text-enterprise-muted/70 flex flex-wrap gap-x-5 gap-y-1.5">
-            <span className="flex items-center gap-1.5"><span className="w-1 h-1 bg-enterprise-live rounded-full" />All three apps live</span>
-            <span className="flex items-center gap-1.5"><span className="w-1 h-1 bg-enterprise-blue rounded-full" />No hardware required</span>
-            <span className="flex items-center gap-1.5"><span className="w-1 h-1 bg-enterprise-muted/40 rounded-full" />48-hour deployment</span>
-            <span className="flex items-center gap-1.5"><span className="w-1 h-1 bg-enterprise-muted/40 rounded-full" />Cancel anytime</span>
-          </p>
+          <ul className="mt-5 text-sm text-enterprise-muted flex flex-wrap gap-x-5 gap-y-1.5">
+            {TRUST.map((t) => (
+              <li key={t} className="flex items-center gap-1.5">
+                <span className="text-enterprise-link font-bold" aria-hidden="true">✓</span>{t}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

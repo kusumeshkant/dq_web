@@ -2,53 +2,55 @@ import type { Metadata } from 'next'
 import FlowSection   from '@/components/how-it-works/FlowSection'
 import SectionHeading from '@/components/ui/SectionHeading'
 import CtaBanner     from '@/components/home/CtaBanner'
+import { CLAIMS, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'How It Works',
-  description: 'See the full DQ flow — customers scan products and pay on their phone, staff validates at exit, admins monitor everything in real time. Simple for everyone.',
-  alternates: { canonical: 'https://dqstore.in/how-it-works/' },
+  description: 'See the full DQ flow — shoppers scan and pay on their phone, staff check every exit pass and give discounts within your limit, and owners see sales, peak hours and discounts.',
+  alternates: { canonical: `${SITE_URL}/how-it-works/` },
   openGraph: {
     title: 'How DQ Works — Scan, Pay, Walk Out',
-    description: 'Three apps. One seamless experience. Customers scan and pay on their phone. Staff validates at exit. Admins monitor everything.',
-    url: 'https://dqstore.in/how-it-works/',
-    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
+    description: 'Three apps. Shoppers scan and pay on their phone. Staff check the exit pass. Owners see every sale and discount.',
+    url: `${SITE_URL}/how-it-works/`,
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
 }
 
 const customerSteps = [
-  { number: '1', title: 'Download DQ & Sign Up', desc: 'Free app on Android and iOS. Takes 30 seconds.' },
-  { number: '2', title: 'Walk into a DQ store & select it in the app', desc: 'App shows nearby DQ-enabled stores. Tap to confirm yours.' },
-  { number: '3', title: 'Scan products as you shop', desc: 'Point camera at any barcode. Product added to cart instantly. Stock validated in real time.' },
-  { number: '4', title: 'Tap Checkout & pay', desc: 'Pay via UPI, card, or wallet through Razorpay. Takes under 10 seconds.' },
-  { number: '5', title: 'Show QR code at exit & walk out', desc: 'Staff scans your QR. Green light. You\'re done.' },
+  { number: '1', title: 'Open DQ on your phone and sign in', desc: `The shopper app is available in ${CLAIMS.languages}.` },
+  { number: '2', title: 'Choose the store you’re in', desc: 'Pick the store in the app when you walk in.' },
+  { number: '3', title: 'Scan products as you shop', desc: 'Point the camera at the barcode. The product is added to your cart and stock is checked.' },
+  { number: '4', title: 'Pay in the app', desc: `${CLAIMS.payments}.` },
+  { number: '5', title: 'Show your exit pass and walk out', desc: 'A QR code plus a short typeable code. Staff check it against your paid order and you’re done.' },
 ]
 
 const staffSteps = [
-  { number: '1', title: 'Open Staff App & log in', desc: 'Your store credentials, provided by your manager.' },
-  { number: '2', title: 'See live orders as they arrive', desc: 'Push notification the moment a customer pays. No refresh needed.' },
-  { number: '3', title: 'Tap an order → see full item list → update status', desc: 'Pending → Preparing → Ready → Completed in one tap each.' },
-  { number: '4', title: 'At exit — scan customer\'s QR', desc: 'Green = paid, let them go. Red = issue, handle it.' },
+  { number: '1', title: 'Log in to the staff app', desc: 'With the staff login your store owner sets up for you.' },
+  { number: '2', title: 'See paid orders as they arrive', desc: 'A live feed of orders, with the full item list for each one.' },
+  { number: '3', title: 'Check every exit pass', desc: 'Scan or type the shopper’s exit pass. It must match a paid order.' },
+  { number: '4', title: 'Give discounts within your limit', desc: 'Create a one-time discount code up to the limit your owner approved. It expires after 15 minutes.' },
+  { number: '5', title: 'Need a higher limit? Ask for it', desc: 'Send a request with a reason. Your owner decides.' },
 ]
 
 const adminSteps = [
-  { number: '1', title: 'Log in to Admin App', desc: 'Android, iOS, or tablet — install once, manage from anywhere.' },
-  { number: '2', title: 'Upload inventory from Excel', desc: 'One file, one click. Entire catalogue live in minutes.' },
-  { number: '3', title: 'Monitor orders in real time', desc: 'See every order as it happens. Filter by status.' },
-  { number: '4', title: 'Track revenue and analytics daily', desc: 'Revenue trends, top products, low stock alerts — all in one place.' },
+  { number: '1', title: 'Set up your store in 3 screens', desc: 'Store details, product upload and your store code.' },
+  { number: '2', title: 'Upload your products from Excel', desc: 'Map your columns once: barcode, name, price and stock.' },
+  { number: '3', title: 'Approve staff discount limits', desc: `Approve what staff ask for, or set a lower limit. ${CLAIMS.discountLog}.` },
+  { number: '4', title: 'Track sales and peak hours', desc: 'Peak hours and days, baskets started but not paid, top products and week-on-week sales.' },
 ]
 
 export default function HowItWorksPage() {
   return (
     <>
-      {/* Header */}
       <section className="relative bg-enterprise-navy py-16 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-enterprise-blue/40 to-transparent" />
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-enterprise-blue/40 to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            badge="How It Works"
-            title="Simple for everyone. Powerful underneath."
-            subtitle="Three different users. Three different apps. One seamless experience."
+            as="h1"
+            badge="How it works"
+            title="Simple for everyone. In control for you."
+            subtitle="Three people, three apps, one checkout: the shopper, your staff and you."
             variant="dark"
           />
         </div>
@@ -56,32 +58,29 @@ export default function HowItWorksPage() {
 
       <div className="bg-white">
         <FlowSection
-          badge="For Customers"
-          title="From scan to exit in under 5 minutes"
-          subtitle="No training. No confusion. Just scan, pay, go."
+          badge="For shoppers"
+          title="Shop, scan, pay, walk out"
+          subtitle="No training needed. Scan, pay, go."
           steps={customerSteps}
-          accentColor="#2E86FF"
-          accentClass="bg-enterprise-blue"
+          accentClass="bg-enterprise-action"
         />
 
         <div className="bg-gray-50">
           <FlowSection
-            badge="For Store Staff"
-            title="Real-time orders. One-tap status updates."
-            subtitle="Less running around. More time helping customers."
+            badge="For store staff"
+            title="Every exit checked. Discounts within limits."
+            subtitle="Less time at the counter. More time helping shoppers."
             steps={staffSteps}
-            accentColor="#EAB308"
-            accentClass="bg-yellow-500"
+            accentClass="bg-enterprise-amber"
           />
         </div>
 
         <FlowSection
-          badge="For Store Admins"
-          title="Full control from your phone or laptop"
-          subtitle="Inventory, orders, and analytics — always at your fingertips."
+          badge="For store owners"
+          title="Run your store from the owner dashboard"
+          subtitle="Products, discounts and sales — in one place."
           steps={adminSteps}
-          accentColor="#2563EB"
-          accentClass="bg-blue-600"
+          accentClass="bg-enterprise-action-hover"
         />
       </div>
 

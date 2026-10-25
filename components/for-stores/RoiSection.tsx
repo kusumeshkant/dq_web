@@ -4,13 +4,11 @@ import { useState, useId } from 'react'
 import Link from 'next/link'
 import { TrendingUp } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
-import Button from '@/components/ui/Button'
 import { useInView } from '@/hooks/useInView'
 
 /* ── Constants ── */
-const DQ_MONTHLY_COST = 2999
-const BASKET_PRESETS  = [300, 600, 1_000, 2_000] as const
-type  BasketPreset    = typeof BASKET_PRESETS[number]
+const BASKET_PRESETS = [300, 600, 1_000, 2_000] as const
+type  BasketPreset   = typeof BASKET_PRESETS[number]
 
 /* ── Number formatters ── */
 function fmtINR(n: number): string {
@@ -18,121 +16,107 @@ function fmtINR(n: number): string {
     const lakhs = n / 1_00_000
     return `₹${lakhs % 1 === 0 ? lakhs.toFixed(0) : lakhs.toFixed(1)} Lakh`
   }
-  return `₹${n.toLocaleString('en-IN')}`
+  return `₹${Math.round(n).toLocaleString('en-IN')}`
 }
 
-function fmtINRShort(n: number): string {
-  if (n >= 1_00_00_000) return `₹${(n / 1_00_00_000).toFixed(1)}Cr`
-  if (n >= 1_00_000)    return `₹${(n / 1_00_000).toFixed(1)}L`
-  return `₹${(n / 1000).toFixed(0)}K`
-}
-
-/* ── Helpers ── */
 function basketLabel(v: number): string {
   return v >= 1000 ? `₹${v / 1000}K` : `₹${v}`
 }
 
 export default function RoiSection() {
-  const [lost,   setLost]   = useState(5)
-  const [basket, setBasket] = useState<BasketPreset>(600)
-  const sliderId            = useId()
-  const { ref, inView }     = useInView<HTMLElement>()
+  const [lost,     setLost]     = useState(5)
+  const [adoption, setAdoption] = useState(20)
+  const [basket,   setBasket]   = useState<BasketPreset>(600)
+  const lostId                  = useId()
+  const adoptionId              = useId()
+  const basketLabelId           = useId()
+  const { ref, inView }         = useInView<HTMLElement>()
 
-  /* ── Live calculations ── */
-  const pct           = ((lost - 1) / (50 - 1)) * 100
-  const monthly       = lost * basket * 30
-  const yearly        = monthly * 12
-  const roi           = Math.round(monthly / DQ_MONTHLY_COST)
-  const breakEvenDays = Math.max(1, Math.ceil(DQ_MONTHLY_COST / (lost * basket)))
-  const recoveryBarW  = Math.min((monthly / (monthly + DQ_MONTHLY_COST)) * 100, 98)
+  /* ── Live calculations — no DQ price is assumed (pricing is not final) ── */
+  const lostPct     = ((lost - 1) / (50 - 1)) * 100
+  const adoptPct    = ((adoption - 5) / (60 - 5)) * 100
+  const recovered   = lost * (adoption / 100)
+  const monthly     = recovered * basket * 30
 
   return (
-    <section
-      ref={ref}
-      className={`py-20 bg-[#F8FAFC] reveal${inView ? ' is-visible' : ''}`}
-    >
+    <section ref={ref} className={`py-20 bg-slate-50 reveal${inView ? ' is-visible' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="The ROI Argument"
-          title="How much are queues actually costing you?"
-          subtitle="Adjust the numbers to match your store. See what DQ could recover — instantly."
+          badge="Estimate"
+          title="How much are queues costing you?"
+          subtitle="Adjust the numbers to match your store. This is an estimate, not a promise."
         />
 
         <div className="mt-14 max-w-3xl mx-auto">
           <div className="rounded-2xl border border-gray-200 shadow-xl shadow-gray-100/60 overflow-hidden bg-white">
 
-            {/* ── Header ── */}
-            <div className="bg-enterprise-navy px-6 py-4 flex items-center justify-between border-b border-enterprise-elevated">
-              <div className="flex items-center gap-2.5">
-                <TrendingUp className="w-4 h-4 text-enterprise-blue" strokeWidth={2} />
-                <span className="text-white font-bold text-sm">DQ ROI Calculator</span>
-              </div>
-              <span className="text-[11px] text-enterprise-muted bg-enterprise-elevated border border-enterprise-elevated px-2.5 py-1 rounded-full font-medium">
-                Adjust for your store
-              </span>
+            <div className="bg-enterprise-navy px-6 py-4 flex items-center gap-2.5 border-b border-enterprise-elevated">
+              <TrendingUp className="w-4 h-4 text-enterprise-link" strokeWidth={2} aria-hidden="true" />
+              <h3 className="text-white font-bold text-sm">Lost-sales estimate</h3>
             </div>
 
             <div className="p-6 sm:p-8 lg:p-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
 
-                {/* ── LEFT: Inputs ── */}
                 <div className="space-y-8">
-
-                  {/* Slider */}
                   <div>
-                    <label
-                      htmlFor={sliderId}
-                      className="block text-sm font-semibold text-gray-800 mb-1"
-                    >
-                      Customers lost to queues per day
+                    <label htmlFor={lostId} className="block text-sm font-semibold text-gray-800 mb-1">
+                      Shoppers lost to the queue per day
                     </label>
-                    <p className="text-xs text-gray-400 mb-5 leading-relaxed">
-                      Customers who see a long queue and walk out without buying.
+                    <p className="text-sm text-ink-muted mb-5 leading-relaxed">
+                      Shoppers who see a long line and leave without buying.
                     </p>
-
                     <input
-                      id={sliderId}
-                      type="range"
-                      min={1}
-                      max={50}
-                      step={1}
-                      value={lost}
+                      id={lostId}
+                      type="range" min={1} max={50} step={1} value={lost}
                       onChange={e => setLost(Number(e.target.value))}
                       className="roi-slider w-full"
-                      style={{ '--slider-pct': `${pct}%` } as React.CSSProperties}
-                      aria-label="Customers lost per day due to queues"
+                      style={{ '--slider-pct': `${lostPct}%` } as React.CSSProperties}
+                      aria-valuetext={`${lost} shoppers per day`}
                     />
-
                     <div className="flex items-center justify-between mt-3">
-                      <span className="text-xs text-gray-400">1/day</span>
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-3xl font-black text-enterprise-blue tabular-nums leading-none">
-                          {lost}
-                        </span>
-                        <span className="text-sm text-gray-500 font-medium">customers/day</span>
-                      </div>
-                      <span className="text-xs text-gray-400">50/day</span>
+                      <span className="text-sm text-ink-muted" aria-hidden="true">1</span>
+                      <span className="text-3xl font-black text-enterprise-action tabular-nums leading-none">{lost}</span>
+                      <span className="text-sm text-ink-muted" aria-hidden="true">50</span>
                     </div>
                   </div>
 
-                  {/* Basket preset buttons */}
                   <div>
-                    <p className="text-sm font-semibold text-gray-800 mb-1">
-                      Average basket size
+                    <label htmlFor={adoptionId} className="block text-sm font-semibold text-gray-800 mb-1">
+                      Of those, how many would use DQ instead?
+                    </label>
+                    <p className="text-sm text-ink-muted mb-5 leading-relaxed">
+                      Not every shopper will check out on their phone. Start low.
                     </p>
-                    <p className="text-xs text-gray-400 mb-4">
-                      Typical spend per customer visit in your store.
-                    </p>
+                    <input
+                      id={adoptionId}
+                      type="range" min={5} max={60} step={5} value={adoption}
+                      onChange={e => setAdoption(Number(e.target.value))}
+                      className="roi-slider w-full"
+                      style={{ '--slider-pct': `${adoptPct}%` } as React.CSSProperties}
+                      aria-valuetext={`${adoption} percent`}
+                    />
+                    <div className="flex items-center justify-between mt-3">
+                      <span className="text-sm text-ink-muted" aria-hidden="true">5%</span>
+                      <span className="text-3xl font-black text-enterprise-action tabular-nums leading-none">{adoption}%</span>
+                      <span className="text-sm text-ink-muted" aria-hidden="true">60%</span>
+                    </div>
+                  </div>
+
+                  <div role="group" aria-labelledby={basketLabelId}>
+                    <p id={basketLabelId} className="text-sm font-semibold text-gray-800 mb-1">Average basket size</p>
+                    <p className="text-sm text-ink-muted mb-4">Typical spend per shopper visit.</p>
                     <div className="grid grid-cols-4 gap-2">
                       {BASKET_PRESETS.map(v => (
                         <button
                           key={v}
                           type="button"
                           onClick={() => setBasket(v)}
-                          className={`py-2.5 px-1 rounded-xl text-sm font-semibold border-2 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-enterprise-blue focus-visible:ring-offset-2 ${
+                          aria-pressed={basket === v}
+                          className={`py-2.5 px-1 rounded-xl text-sm font-semibold border-2 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-enterprise-action focus-visible:ring-offset-2 ${
                             basket === v
-                              ? 'border-enterprise-blue bg-enterprise-blue/5 text-enterprise-blue shadow-sm'
-                              : 'border-gray-200 text-gray-600 hover:border-enterprise-blue/30 hover:bg-gray-50'
+                              ? 'border-enterprise-action bg-blue-50 text-enterprise-action'
+                              : 'border-gray-300 text-ink-body hover:border-enterprise-action/40 hover:bg-gray-50'
                           }`}
                         >
                           {basketLabel(v)}
@@ -140,106 +124,39 @@ export default function RoiSection() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Formula transparency */}
-                  <div className="bg-gray-50 rounded-xl px-4 py-3.5 border border-gray-100">
-                    <p className="text-xs text-gray-500 font-mono leading-relaxed">
-                      {lost} customers × {basketLabel(basket)} × 30 days
-                      <br />
-                      <span className="text-enterprise-blue font-bold">
-                        = {fmtINR(monthly)} / month potential
-                      </span>
-                    </p>
-                  </div>
                 </div>
 
-                {/* ── RIGHT: Results ── */}
                 <div className="flex flex-col gap-4">
-
-                  {/* Hero result card */}
                   <div className="bg-enterprise-navy rounded-2xl p-6 text-center border border-enterprise-elevated">
-                    <p className="text-enterprise-muted text-[10px] font-semibold uppercase tracking-[0.15em] mb-2">
-                      Monthly Recovery Potential
+                    <p className="text-enterprise-muted text-xs font-semibold uppercase tracking-[0.15em] mb-2">
+                      Sales you could keep each month
                     </p>
-                    <div
-                      className="text-4xl sm:text-5xl font-black text-white tabular-nums leading-none"
-                      aria-live="polite"
-                      aria-atomic="true"
-                    >
+                    <p className="text-4xl sm:text-5xl font-black text-white tabular-nums leading-none" aria-live="polite" aria-atomic="true">
                       {fmtINR(monthly)}
-                    </div>
-                    <p className="text-enterprise-muted text-xs mt-2 font-medium">
-                      {fmtINRShort(yearly)} per year upside
                     </p>
                   </div>
 
-                  {/* ROI + Break-even */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-enterprise-blue/5 border border-enterprise-blue/20 rounded-xl p-4 text-center">
-                      <div
-                        className="text-2xl font-black text-enterprise-blue tabular-nums"
-                        aria-live="polite"
-                      >
-                        {roi}x
-                      </div>
-                      <p className="text-xs text-gray-600 font-medium mt-1 leading-snug">
-                        return on DQ cost
-                      </p>
-                    </div>
-                    <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-center">
-                      <div
-                        className="text-2xl font-black text-amber-700 tabular-nums"
-                        aria-live="polite"
-                      >
-                        {breakEvenDays === 1 ? '< 1' : breakEvenDays}d
-                      </div>
-                      <p className="text-xs text-amber-800 font-medium mt-1 leading-snug">
-                        to break even
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Cost vs Recovery bar */}
-                  <div className="bg-gray-50 border border-gray-100 rounded-xl p-4 space-y-2.5">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-500 text-xs">DQ monthly cost</span>
-                      <span className="font-bold text-gray-700 text-xs">₹2,999</span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-500 text-xs">Recovery potential</span>
-                      <span className="font-bold text-enterprise-blue text-xs">{fmtINR(monthly)}</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden mt-1">
-                      <div
-                        className="h-full bg-enterprise-blue rounded-full transition-all duration-500 ease-out"
-                        style={{ width: `${recoveryBarW}%` }}
-                        role="presentation"
-                      />
-                    </div>
-                    <p className="text-[10px] text-gray-400 text-right leading-snug">
-                      DQ cost vs potential recovery
+                  <div className="bg-gray-50 rounded-xl px-4 py-3.5 border border-gray-200">
+                    <p className="text-sm text-ink-body font-mono leading-relaxed">
+                      {lost} shoppers × {adoption}% × {basketLabel(basket)} × 30 days
                     </p>
+                    <p className="text-sm text-enterprise-action font-bold font-mono mt-1">= {fmtINR(monthly)} / month</p>
                   </div>
 
-                  {/* CTA */}
-                  <Button href="/contact" size="md" className="w-full justify-center bg-enterprise-blue hover:bg-enterprise-blue-hover text-white border-0 shadow-[0_2px_8px_rgba(46,134,255,0.3)]">
-                    Get a personalised estimate →
-                  </Button>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 bg-enterprise-action hover:bg-enterprise-action-hover text-white font-semibold px-6 py-2.5 rounded-xl transition-all"
+                  >
+                    Talk to us about your store →
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Disclaimer + link */}
-          <p className="text-center text-xs text-gray-400 mt-5 leading-relaxed px-2">
-            Indicative estimate based on your inputs. Actual results depend on store traffic,
-            queue patterns, and customer adoption rate.{' '}
-            <Link
-              href="/contact"
-              className="text-enterprise-blue hover:underline underline-offset-2 font-medium"
-            >
-              Talk to us for a personalised ROI analysis →
-            </Link>
+          <p className="text-center text-sm text-ink-muted mt-5 leading-relaxed px-2">
+            Indicative estimate based on your inputs. Actual results depend on footfall,
+            queue patterns and how many shoppers choose to check out on their phone.
           </p>
         </div>
       </div>

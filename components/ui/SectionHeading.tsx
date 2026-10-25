@@ -6,6 +6,8 @@ interface SectionHeadingProps {
   subtitle?: string
   align?: 'left' | 'center'
   variant?: 'light' | 'dark' | 'default'
+  /** Use "h1" for page heroes — every page needs exactly one h1. */
+  as?: 'h1' | 'h2'
   /** @deprecated use variant="dark" */
   light?: boolean
 }
@@ -16,6 +18,7 @@ export default function SectionHeading({
   subtitle,
   align = 'center',
   variant,
+  as: Heading = 'h2',
   light = false,
 }: SectionHeadingProps) {
   const isDark = variant === 'dark' || light
@@ -26,30 +29,30 @@ export default function SectionHeading({
       {badge && (
         <span
           className={cn(
-            'inline-block mb-4 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase',
+            'inline-block mb-4 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase',
             isDark
-              ? 'bg-enterprise-blue/10 text-enterprise-blue border border-enterprise-blue/20'
+              ? 'bg-enterprise-blue/10 text-enterprise-link border border-enterprise-blue/20'
               : isLight
-              ? 'bg-white/15 text-white/80 border border-white/20'
-              : 'bg-enterprise-blue/8 text-enterprise-blue border border-enterprise-blue/15'
+              ? 'bg-white/15 text-white border border-white/20'
+              : 'bg-white text-enterprise-action border border-enterprise-action/20'
           )}
         >
           {badge}
         </span>
       )}
-      <h2
+      <Heading
         className={cn(
           'text-3xl md:text-4xl font-bold leading-tight tracking-tight',
           isDark ? 'text-white' : 'text-gray-900'
         )}
       >
         {title}
-      </h2>
+      </Heading>
       {subtitle && (
         <p
           className={cn(
             'mt-4 text-base sm:text-lg leading-relaxed',
-            isDark ? 'text-enterprise-muted' : 'text-gray-600'
+            isDark ? 'text-enterprise-muted' : 'text-ink-body'
           )}
         >
           {subtitle}

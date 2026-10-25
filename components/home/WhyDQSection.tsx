@@ -1,41 +1,34 @@
 'use client'
 
-import { TrendingUp, Zap, ShieldCheck } from 'lucide-react'
+import { Store, BadgePercent, ShieldCheck } from 'lucide-react'
 import { useInView } from '@/hooks/useInView'
+import { CLAIMS, CTA, FACTS, OFFER } from '@/lib/site'
 
 const DIFFERENTIATORS = [
   {
-    Icon:        TrendingUp,
-    title:       'Peak hours become your highest-revenue hours',
-    description: 'Weekends, Diwali, end-of-season — high-footfall days should mean high revenue. DQ eliminates queue congestion at peak traffic so your staff serves more customers, your sales complete, and your busiest days produce your best numbers.',
-    highlight:   'Peak-day ready',
-    iconClass:   'bg-enterprise-blue/10 text-enterprise-blue',
-    border:      'border-enterprise-elevated hover:border-enterprise-blue/30',
+    Icon:        Store,
+    title:       'Keep your counter. Add a faster lane.',
+    description: 'DQ isn’t a new POS. Shoppers who want the counter still use it; everyone else checks out on their phone. No scanners, no kiosks, nothing to install in the store.',
+    highlight:   CLAIMS.till,
+    iconClass:   'bg-enterprise-blue/10 text-enterprise-link',
   },
   {
-    Icon:        Zap,
-    title:       'Operational in 48 hours. No implementation project.',
-    description: 'No hardware to buy. No IT team. No integration project. Upload your product catalogue from Excel, log in your staff, share your store code — you are live. Zero-hardware deployment with full operational control from day one.',
-    highlight:   '48-hour deployment',
-    iconClass:   'bg-yellow-400/10 text-yellow-400',
-    border:      'border-enterprise-elevated hover:border-yellow-400/30',
+    Icon:        BadgePercent,
+    title:       'Discounts your staff can’t misuse.',
+    description: `Staff ask for discount authority and you decide the limit — you can approve less than they asked for. ${CLAIMS.discountLog}. ${CLAIMS.priceLock}.`,
+    highlight:   'Owner-set limits',
+    iconClass:   'bg-yellow-400/10 text-yellow-300',
   },
   {
     Icon:        ShieldCheck,
-    title:       'Every exit verified. Zero scan-and-walk risk.',
-    description: 'Customers show their paid QR code at the store exit. Staff validates in one tap. Green means cleared. Red means hold for review. Exit validation is built into the checkout flow — shrinkage risk eliminated by architecture, not policy.',
-    highlight:   'Exit QR validation',
-    iconClass:   'bg-enterprise-live/10 text-enterprise-live',
-    border:      'border-enterprise-elevated hover:border-enterprise-live/30',
+    title:       'Every exit is checked.',
+    description: 'Shoppers show an exit pass at the door — a QR code plus a short code they can read out. Staff check it against the paid order in one tap.',
+    highlight:   'Exit pass',
+    iconClass:   'bg-enterprise-live/10 text-emerald-300',
   },
 ]
 
-const METRICS = [
-  { value: '₹0',          label: 'Hardware cost' },
-  { value: 'UPI · Cards', label: 'Payment methods' },
-  { value: '6 languages', label: 'Supported' },
-  { value: '3 apps',      label: 'Production surfaces' },
-]
+const TRUST = ['No card', 'No contract', 'Founder-led onboarding']
 
 export default function WhyDQSection() {
   const { ref, inView } = useInView<HTMLElement>()
@@ -43,34 +36,31 @@ export default function WhyDQSection() {
     <section ref={ref} className="py-20 lg:py-28 bg-enterprise-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
         <div className="max-w-3xl mb-14">
-          <span className="inline-block mb-4 px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest uppercase bg-enterprise-blue/10 text-enterprise-blue border border-enterprise-blue/20">
+          <span className="inline-block mb-4 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-enterprise-blue/10 text-enterprise-link border border-enterprise-blue/20">
             Why DQ
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
-            Built for how specialty retail<br />actually operates.
+            Built for how specialty retail<br />actually works.
           </h2>
           <p className="mt-4 text-enterprise-muted text-base sm:text-lg leading-relaxed">
-            Not a generic SaaS tool. A checkout intelligence platform designed specifically for
-            fashion, footwear, and lifestyle stores — where checkout is a strategic competitive advantage.
+            Faster checkout for shoppers, and control for you: over discounts, prices and every exit.
           </p>
         </div>
 
-        {/* 3 differentiator cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {DIFFERENTIATORS.map((d, i) => {
             const { Icon } = d
             return (
               <div
                 key={d.title}
-                className={`group bg-enterprise-surface border ${d.border} rounded-xl p-7 transition-all duration-300 reveal${inView ? ' is-visible' : ''}`}
+                className={`bg-enterprise-surface border border-enterprise-elevated rounded-xl p-7 reveal${inView ? ' is-visible' : ''}`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className={`w-10 h-10 ${d.iconClass} rounded-lg flex items-center justify-center mb-5 group-hover:scale-105 transition-transform`}>
-                  <Icon className="w-5 h-5" strokeWidth={1.5} />
+                <div className={`w-10 h-10 ${d.iconClass} rounded-lg flex items-center justify-center mb-5`}>
+                  <Icon className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-                <div className="inline-block bg-enterprise-elevated text-enterprise-muted text-[10px] font-semibold px-2.5 py-0.5 rounded-md mb-3 border border-enterprise-elevated">
+                <div className="inline-block bg-enterprise-elevated text-enterprise-muted text-xs font-semibold px-2.5 py-0.5 rounded-md mb-3">
                   {d.highlight}
                 </div>
                 <h3 className="text-white font-bold text-base mb-3 leading-snug">{d.title}</h3>
@@ -80,38 +70,33 @@ export default function WhyDQSection() {
           })}
         </div>
 
-        {/* Metrics row */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {METRICS.map((m) => (
-            <div
-              key={m.label}
-              className="bg-enterprise-surface border border-enterprise-elevated rounded-xl px-5 py-4 text-center"
-            >
-              <p className="text-lg font-bold text-white">{m.value}</p>
-              <p className="text-xs text-enterprise-muted mt-0.5 leading-snug">{m.label}</p>
+        <dl className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {FACTS.map((m) => (
+            <div key={m.label} className="bg-enterprise-surface border border-enterprise-elevated rounded-xl px-5 py-4 text-center">
+              <dt className="sr-only">{m.label}</dt>
+              <dd className="text-lg font-bold text-white">{m.value}</dd>
+              <dd className="text-xs text-enterprise-muted mt-0.5 leading-snug" aria-hidden="true">{m.label}</dd>
             </div>
           ))}
-        </div>
+        </dl>
 
-        {/* Trust row */}
-        <div className="mt-8 pt-8 border-t border-enterprise-elevated flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-enterprise-muted">
-          {['No long-term contracts', 'Cancel anytime', 'Dedicated onboarding support'].map((t) => (
-            <span key={t} className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded-full bg-enterprise-blue/20 flex items-center justify-center text-[9px] font-bold text-enterprise-blue flex-shrink-0">✓</span>
+        <ul className="mt-8 pt-8 border-t border-enterprise-elevated flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-enterprise-muted">
+          {TRUST.map((t) => (
+            <li key={t} className="flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full bg-enterprise-blue/20 flex items-center justify-center text-xs font-bold text-enterprise-link flex-shrink-0" aria-hidden="true">✓</span>
               {t}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* CTA */}
         <div className="mt-10 text-center">
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 shadow-[0_4px_16px_rgba(46,134,255,0.3)] hover:shadow-[0_6px_24px_rgba(46,134,255,0.4)] hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-enterprise-action hover:bg-enterprise-action-hover text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5"
           >
-            Request a Demo →
+            {CTA.primary} →
           </a>
-          <p className="mt-3 text-xs text-enterprise-muted/60">48-hour deployment · No hardware · No long-term commitment</p>
+          <p className="mt-3 text-sm text-enterprise-muted">{OFFER.headline} · {OFFER.termsShort}</p>
         </div>
 
       </div>

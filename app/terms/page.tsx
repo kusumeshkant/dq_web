@@ -1,10 +1,10 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CONTACT_EMAIL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Terms of Service for using the DQ platform â€” scan-and-go self-checkout for Indian retail stores.',
+  description: 'Terms of Service for using the DQ platform — scan-and-go self-checkout for Indian retail stores.',
   alternates: { canonical: 'https://dqstore.in/terms/' },
 }
 
@@ -13,16 +13,16 @@ export default function TermsPage() {
     <div className="bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="mb-10">
-          <Link href="/" className="text-sm text-enterprise-blue hover:underline">â† Back to Home</Link>
+          <Link href="/" className="text-sm text-enterprise-action hover:underline">← Back to Home</Link>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-2">Terms of Service</h1>
-          <p className="text-gray-400 text-sm">Last updated: April 2026</p>
+          <p className="text-ink-muted text-sm">Last updated: October 2026</p>
         </div>
 
-        <div className="prose prose-gray max-w-none space-y-8 text-gray-600 leading-relaxed">
+        <div className="prose prose-gray max-w-none space-y-8 text-ink-body leading-relaxed">
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-3">1. Acceptance of Terms</h2>
             <p>
-              By accessing or using DQ (&ldquo;the Platform&rdquo;), operated by DQ Technologies Pvt Ltd, you agree to be bound by
+              By accessing or using DQ (&ldquo;the Platform&rdquo;), operated by DQ, you agree to be bound by
               these Terms of Service. If you do not agree, do not use the Platform.
             </p>
           </section>
@@ -31,16 +31,16 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-3">2. Description of Service</h2>
             <p>
               DQ provides a scan-and-go retail platform consisting of customer, staff, and admin applications that enable
-              stores to offer self-checkout experiences. Features and pricing are described on our Pricing page.
+              stores to offer self-checkout experiences. The current offer is described on our Pricing page.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-900 mb-3">3. Free Trial & Billing</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">3. Founding Partner Pilot</h2>
             <p>
-              New accounts receive a 30-day free trial. No credit card is required during the trial. After the trial period,
-              continued use requires a paid subscription. You may cancel at any time before the trial ends without charge.
-              Subscriptions renew monthly or annually depending on the plan selected.
+              Founding partner stores use DQ free for a 90-day pilot. No card and no contract are required. Pricing after the
+              pilot is not final; we will share it with you before your pilot ends, and you decide whether to continue.
+              There is no automatic charge.
             </p>
           </section>
 
@@ -59,14 +59,14 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-3">5. Payments</h2>
             <p>
               Customer payments are processed through Razorpay. DQ is not responsible for payment processing errors or
-              failures caused by Razorpay. Subscription billing is managed separately and invoiced by DQ Technologies Pvt Ltd.
+              failures caused by Razorpay. Any paid plan after the pilot will be agreed with you separately.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-3">6. Limitation of Liability</h2>
             <p>
-              DQ is provided &ldquo;as is.&rdquo; To the maximum extent permitted by applicable law, DQ Technologies Pvt Ltd disclaims all
+              DQ is provided &ldquo;as is.&rdquo; To the maximum extent permitted by applicable law, DQ disclaims all
               warranties. Our total liability for any claim is limited to the amount paid by you in the 3 months preceding
               the claim.
             </p>
@@ -84,7 +84,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-3">8. Governing Law</h2>
             <p>
               These Terms are governed by the laws of India. Disputes shall be resolved in the courts of jurisdiction
-              applicable to DQ Technologies Pvt Ltd.
+              applicable to DQ.
             </p>
           </section>
 
@@ -92,7 +92,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-3">9. Contact</h2>
             <p>
               Questions about these Terms? Email us at:{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-enterprise-blue hover:underline font-medium">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-enterprise-action hover:underline font-medium">
                 {CONTACT_EMAIL}
               </a>
             </p>

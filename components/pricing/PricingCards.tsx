@@ -1,130 +1,49 @@
-'use client'
-
-import { useState } from 'react'
-import { PRICING_PLANS } from '@/lib/constants'
 import Button from '@/components/ui/Button'
-import Badge  from '@/components/ui/Badge'
+import { CLAIMS, CTA, OFFER } from '@/lib/site'
 
 export default function PricingCards() {
-  const [annual, setAnnual] = useState(false)
-
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border-2 border-enterprise-action p-8 sm:p-10 shadow-xl shadow-blue-900/5">
+          <p className="text-xs font-semibold uppercase tracking-widest text-enterprise-action">{OFFER.name}</p>
+          <h2 className="mt-2 text-3xl font-black text-gray-900">{OFFER.headline}</h2>
+          <p className="mt-2 text-ink-body">
+            We&apos;re working closely with a small number of stores while we finish DQ. Founding partners pay
+            nothing for the {OFFER.pilotDays}-day pilot. {OFFER.terms}
+          </p>
 
-        {/* Toggle */}
-        <div className="flex items-center justify-center gap-4 mb-14">
-          <span className={`text-sm font-medium transition-colors ${!annual ? 'text-gray-900' : 'text-gray-400'}`}>
-            Monthly
-          </span>
-          <button
-            onClick={() => setAnnual(a => !a)}
-            aria-label="Toggle billing period"
-            className={`relative w-12 h-6 rounded-full transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-enterprise-blue focus-visible:ring-offset-2 ${
-              annual ? 'bg-enterprise-blue' : 'bg-gray-200'
-            }`}
-          >
-            <span
-              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200 ${
-                annual ? 'translate-x-6' : 'translate-x-0'
-              }`}
-            />
-          </button>
-          <span className={`text-sm font-medium transition-colors flex items-center gap-2 ${annual ? 'text-gray-900' : 'text-gray-400'}`}>
-            Annual
-            <span className="bg-enterprise-blue/10 text-enterprise-blue text-xs font-bold px-2 py-0.5 rounded-full border border-enterprise-blue/20">
-              Save 2 months
-            </span>
-          </span>
-        </div>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {PRICING_PLANS.map((plan) => {
-            const showAnnual = annual && !!plan.annualPerMonth
-            return (
-              <div
-                key={plan.name}
-                className={`relative rounded-xl border-2 p-8 flex flex-col transition-all duration-300 ${
-                  plan.highlight
-                    ? 'border-enterprise-blue shadow-2xl shadow-enterprise-blue/10 bg-white lg:scale-105'
-                    : 'border-gray-200 bg-white hover:shadow-lg hover:border-gray-300'
-                }`}
-              >
-                {plan.highlight && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <Badge variant="green">Most Popular</Badge>
-                  </div>
-                )}
-
-                <div className="mb-5">
-                  <h3 className="text-xl font-bold text-gray-900">{plan.name}</h3>
-                  <p className="text-sm text-gray-500 mt-1">{plan.description}</p>
-                </div>
-
-                {/* Price */}
-                <div className="mb-3">
-                  {showAnnual ? (
-                    <>
-                      <div className="flex items-end gap-1">
-                        <span className="text-4xl font-black text-gray-900">{plan.annualPerMonth}</span>
-                        <span className="text-gray-400 mb-1.5 text-sm">/month</span>
-                      </div>
-                      <p className="text-xs text-enterprise-blue font-semibold mt-1">
-                        Billed as {plan.annual.split('—')[0].trim()} · {plan.annual.split('—')[1]?.trim()}
-                      </p>
-                    </>
-                  ) : (
-                    <>
-                      <div className="flex items-end gap-1">
-                        <span className="text-4xl font-black text-gray-900">{plan.price}</span>
-                        <span className="text-gray-400 mb-1.5 text-sm">{plan.period}</span>
-                      </div>
-                      {plan.annualPerMonth && (
-                        <p className="text-xs text-gray-400 mt-1">Switch to annual — {plan.annual.split('—')[1]?.trim()}</p>
-                      )}
-                    </>
-                  )}
-                </div>
-
-                {/* Best for */}
-                <div className="mb-6">
-                  <span className="inline-block bg-gray-50 border border-gray-200 text-gray-500 text-[11px] font-medium px-3 py-1 rounded-full">
-                    {plan.bestFor}
-                  </span>
-                </div>
-
-                <Button
-                  href="/contact"
-                  variant={plan.highlight ? 'primary' : 'outline'}
-                  size="md"
-                  className="w-full justify-center mb-7"
-                >
-                  {plan.cta}
-                </Button>
-
-                <ul className="space-y-2.5 flex-1">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
-                      <span className="text-enterprise-blue font-bold flex-shrink-0 mt-0.5 text-xs">✓</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                {plan.note && plan.name !== 'Growth' && (
-                  <p className="text-xs text-gray-400 mt-6 pt-4 border-t border-gray-100">
-                    {plan.note}
-                  </p>
-                )}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-sm font-bold text-gray-900 mb-3">Included</h3>
+              <ul className="space-y-2.5">
+                {OFFER.included.map((f) => (
+                  <li key={f} className="flex items-start gap-2.5 text-sm text-ink-body">
+                    <span className="text-enterprise-action font-bold flex-shrink-0 mt-0.5 text-xs" aria-hidden="true">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-2">What we ask</h3>
+                <p className="text-sm text-ink-body leading-relaxed">{OFFER.ask}</p>
               </div>
-            )
-          })}
-        </div>
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-2">After the pilot</h3>
+                <p className="text-sm text-ink-body leading-relaxed">{OFFER.afterPilot}</p>
+              </div>
+            </div>
+          </div>
 
-        <p className="text-center text-sm text-gray-400 mt-10">
-          No credit card required. Cancel anytime.
-        </p>
+          <Button href="/contact" size="lg" className="mt-10 w-full justify-center">
+            {CTA.primary} →
+          </Button>
+          <p className="mt-4 text-center text-sm text-ink-muted">
+            {CLAIMS.cardData}.
+          </p>
+        </div>
       </div>
     </section>
   )
