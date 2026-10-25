@@ -22,6 +22,25 @@ The site sells an "AI-ready checkout intelligence platform" with committed prici
 | 9 | The home page has 11 sections. 4 repeat the "3 apps live" grid, and 3 sell investor-style "compounding intelligence / AI-native OS" to store owners. | VERIFIED `app/page.tsx:16-26`, `PlatformVisionSection.tsx:9`, `TestimonialsSection.tsx:82-83` | Med-High | Low | Cut to 7 sections and move the vision content off the store funnel (`06`). |
 | 10 | The contact form is the only conversion path, and it's weak on a11y: labels aren't linked to inputs, only the phone is validated, and there's no lead source/UTM. The ROI calculator hard-codes ₹2,999 and assumes 100% recovery. | VERIFIED `ContactForm.tsx:47,120,218-228`, `RoiSection.tsx:11,43` | Med | Low | Fix labels/validation, add a qualification field, re-base the ROI calculator (`04`). |
 
+
+## Status after Phases 1–4 (branch `website-redesign-2026-10`, not pushed — 2026-10-26)
+
+| # | Finding | Status | Where it was handled / what remains |
+|---|---|---|---|
+| 1 | "Live/Operational" while shoppers can't pay | **Done** on the site · **needs product action** | Status badges, "All Systems Live" and app links removed; copy says "Now onboarding founding stores". A pilot still can't go live until the Android app reaches stores (08 PB-6) |
+| 2 | Pricing features with no code | **Done** | Tiers replaced by the Founding Partner offer: free 90-day pilot, no card, no contract, pricing not final |
+| 3 | "6 Indian languages" | **Done** | "English & Hindi" everywhere incl. JSON-LD; Hindi hero + owner-control lines (`lang="hi"`) |
+| 4 | Seven deployment-time claims | **Done** | One claim: "Set up in under 5 minutes once your barcoded product list is ready"; "Live in 3 screens" stepper |
+| 5 | Hero not understood in 5 s | **Done** | "Your customers scan, pay and walk out. No billing queue." + "Android app for shoppers" |
+| 6 | Real differentiators missing | **Done** | Owner-control approval flow (20% → 10% → immutable log), price lock, analytics preview (sample data) |
+| 7 | No product visuals | **Partially done** | HTML/CSS recreations labelled "Illustrative" behind `<Screen>`; real WebP captures still to come (07 Q11) |
+| 8 | Install/channel contradictions, stale dates | **Done** | Channel decided: DQ Android app (Q1); iPhone "Not yet"; no web/PWA/app-store wording; no dates |
+| 9 | 11-section home, investor content | **Done** | 9 sections in the 06 order; investor/AI/moat copy removed |
+| 10 | Weak form a11y, ROI with a hard-coded price | **Done** | Linked labels, full validation, `aria-invalid`/`aria-describedby`, focus first error, barcode question, UTM fields; ROI re-based (adoption slider, no price) |
+| — | `www.dqstore.in` 522, email obfuscation, HTML not edge-cached | **Needs dashboard action** | 08 CF-1 … CF-3 |
+| — | Home LCP ≤ 3.0 s | **Unconfirmed** | Lighthouse on the build machine is in a slow-paint mode (unchanged control build 3.23 s now vs 2.86 s earlier). Measure with PageSpeed Insights on the Pages preview (10_release_checklist §B) |
+
+
 ## Also worth fixing early (cheap)
 - **`www.dqstore.in` is down (522).** `www` isn't attached to the Pages project (VERIFIED `09`).
 - Favicon/app-icon PNGs 404 on live because they were never committed (VERIFIED `09`).

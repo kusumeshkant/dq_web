@@ -22,3 +22,24 @@ Each question says why it blocks something and gives my default if you don't dec
 | Q16 | ~~Is the deployed site built from HEAD `ec74f7e`?~~ **CLOSED** | **Answered:** live = `ec74f7e` via Pages Git build (project `dq-web`, deployment `9dbaf449`; `09` §c). | — | New actions: attach `www` or add a redirect, and commit the icon PNGs. |
 
 **When you've decided, I'd do it in this order:** truth pass (`01` REMOVE/REWORD) → IA + copy (`06`) → form + a11y fixes (`04` S1s) → visuals → motion (`05` A, C, E, B, D).
+
+
+## Status after Phases 1–4 (2026-10-26)
+
+**Closed / decided:** Q1 (Android app), Q5 (free 90-day pilot, no card, no contract, pricing not final), Q7 (founder block — see Q18), Q8 (Hindi on hero + owner control only, device fonts), Q9 (investor content removed from the site), Q11 (Phase 3 uses HTML recreations labelled "Illustrative"; real captures can replace them via `<Screen src>`), Q15 (WhatsApp merged into the mobile CTA bar; desktop pill kept), Q16 (live = `ec74f7e`).
+
+**Still open:**
+
+| # | Question | Why it still matters |
+|---|---|---|
+| Q2 | How do shoppers pick the store (nearby list, store code, entrance QR)? | The store-QR screen is built but deliberately not shown until this is decided |
+| Q3 | Settlement model (single DQ Razorpay account vs per-store) | Regulatory; affects Terms and the "What you need" list. The site says nothing about settlement |
+| Q4 | Staff discounts on every plan (`coupons` is off on Starter) | The site leads with discount control; founding stores must be on a plan with `coupons: true` (08 PB-2) |
+| Q6 | Legal entity name | Site and Terms say "DQ" only; legal review needed (08 PB-5) |
+| Q10 | Is the staff app usable in production? | The site now says "in the pilot build" for the staff app |
+| Q12 | Naming brands as ICP examples | Moot on the site today (no brand names used); keep for sales material |
+| Q13 | Site analytics tool | Still none; conversion can't be measured |
+| Q14 | CRM/sheet for leads | UTM/page/referrer now captured in the Web3Forms email; CRM not decided |
+| **Q17** | **Is 918754886595 (the WhatsApp number in every `wa.me` link) a business number or the founder's personal phone?** | The brief says no founder phone number on the site. It is not visible text, but it is in every WhatsApp link |
+| **Q18** | **Approve the founder note** in `lib/site.ts` → `FOUNDER.note` (still marked DRAFT) | No approval has been received; the text shown on /about is the draft |
+| **Q19** | Accept "Response within 24 hours / We call you within 24 hours, Mon–Sat 10am–7pm IST" as an operational promise? | It is the only service-level promise on the site |

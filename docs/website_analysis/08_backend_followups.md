@@ -10,7 +10,7 @@ Phase 1 doesn't touch Cloudflare settings. Each item below needs you to act in t
 | CF-2 | **Email Address Obfuscation is on** | Live HTML shows `[email protected]` and needs `cdn-cgi/.../email-decode.min.js` to reveal `support@dqstore.in`. Without JS, and for some crawlers and link-preview bots, the address is missing. | *Scrape Shield* → turn off **Email Address Obfuscation** for the zone, or add a Configuration Rule that disables it for `dqstore.in`. The address is public anyway (WhatsApp/contact page). |
 | CF-3 | **HTML isn't edge-cached** | `cf-cache-status: DYNAMIC` and `Cache-Control: public, max-age=0, must-revalidate` on every HTML page; Lighthouse measured TTFB at about 950 ms on live. Static chunks are fine (`max-age=14400`). | **(a)** *Caching → Cache Rules* → rule for `dqstore.in` with `URI path does not start with "/_next/"` → *Eligible for cache*, Edge TTL e.g. 1 hour, *Respect origin* off for HTML. Pages purges on each deploy. **(b)** Optionally add `public/_headers` in a later phase with `/_next/static/*  Cache-Control: public, max-age=31536000, immutable`. That's a code change, so it isn't in Phase 1. Re-run Lighthouse on live afterwards. |
 | CF-4 | Confirm the Pages build settings | Read-only wrangler shows Git provider = yes, production branch `main`, last deploy `ec74f7e`. Build command and output directory aren't visible from the CLI. | Pages → `dq-web` → *Settings → Builds*: confirm the build command is `npx next build` (or `npm run build`), the output is `out`, and Node ≥ 18. The new devDependency `playwright-core` installs no browser, so it doesn't slow the build meaningfully. |
-| CF-5 | Phase 1 isn't deployed | This branch (`website-redesign-2026-10`) isn't pushed. Pages only builds `main` for production and pushed branches for previews. | When you approve: push the branch → check the preview URL → merge to `main`. Per the deploy rule: preview (UAT) first, production second. |
+| CF-5 | The redesign branch isn't deployed | `website-redesign-2026-10` is not pushed. Pages builds `main` for production and pushed branches as previews. | Follow `10_release_checklist.md`: push → preview → PageSpeed Insights → merge. Preview first, production second. |
 
 ## Product / backend items the new copy depends on (no code changed)
 
@@ -22,3 +22,18 @@ Phase 1 doesn't touch Cloudflare settings. Each item below needs you to act in t
 | PB-4 | The website's pricing constants were the documented "source of truth" for the backend seed (`seed_subscription_plans.js:14`). | The website no longer lists ₹2,999/₹5,999. The seed comment should point to `lib/site.ts`'s `OFFER` instead, or drop the claim. |
 | PB-5 | Legal: Terms and Privacy now say "DQ" (no entity) and describe the 90-day pilot. | Needs legal review before the first pilot agreement (Q6 in `07`). |
 | PB-6 | **Android app distribution (decision Q1: shoppers use the DQ Android app).** Release builds are signed with the debug keystore and nothing is published. | Decide and document how pilot stores get the Android app (Play internal test track vs direct APK); fix release signing (debug keystore) before any Play listing. The site deliberately makes no store/badge/link claim until then. |
+
+
+## Final action list (2026-10-26), in order
+
+1. **CF-1** Attach `www.dqstore.in` to Pages project `dq-web` or add a 301 redirect to the apex (currently 522).
+2. **CF-2** Turn off Email Address Obfuscation (Scrape Shield).
+3. **CF-3** Add a Cache Rule so HTML is edge-cached (TTFB was ~950 ms).
+4. **CF-4** Confirm build command `npx next build` / output `out` / Node ≥ 18 in Pages settings.
+5. **CF-5** Push the branch for a preview, measure, then merge (10_release_checklist).
+6. **PB-6** Decide how pilot stores get the Android app (Play internal test track vs direct APK); fix release signing (debug keystore) before any Play listing.
+7. **PB-1** Give founding stores a 90-day pilot plan in the backend seed (Trial is 30 days today).
+8. **PB-2** Founding stores must be on a plan with `coupons: true` (staff discount codes).
+9. **PB-5** Legal review of Terms and Privacy ("DQ" with no entity; 90-day pilot; 30-day data retention promise in Terms §7).
+10. **PB-4** Point the seed's "source of truth" comment at `lib/site.ts` `OFFER`.
+11. **Q17** Confirm the WhatsApp number is a business number (or replace it).
