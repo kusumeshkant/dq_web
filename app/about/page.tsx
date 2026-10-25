@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import StorySection    from '@/components/about/StorySection'
 import FoundingStoresSection from '@/components/about/FoundingStoresSection'
 import BuildStatusSection from '@/components/about/BuildStatusSection'
+import FounderSection from '@/components/about/FounderSection'
 import SectionHeading  from '@/components/ui/SectionHeading'
 import CtaBanner       from '@/components/home/CtaBanner'
 import { SITE_URL } from '@/lib/site'
@@ -35,7 +36,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section order: 06_proposed_ia_and_copy.md §2 (founder photo pending Q7) */}
+      {/* Section order: 06_proposed_ia_and_copy.md §2 */}
+      <FounderSection />
       <StorySection />
       <BuildStatusSection />
       <FoundingStoresSection />

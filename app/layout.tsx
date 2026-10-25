@@ -16,7 +16,7 @@ const inter = Inter({
 })
 
 const DESCRIPTION =
-  `Let shoppers scan, pay on their phone and walk out — no billing queue. ${CLAIMS.till}, ${CLAIMS.hardware.toLowerCase()}. ${CLAIMS.status}.`
+  `Let shoppers scan, pay in the DQ Android app and walk out — no billing queue. ${CLAIMS.till}, ${CLAIMS.hardware.toLowerCase()}. ${CLAIMS.status}.`
 
 const jsonLd = [
   {
@@ -38,7 +38,7 @@ const jsonLd = [
     '@type': 'SoftwareApplication',
     name: BRAND,
     applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web',
+    operatingSystem: 'Android',
     description: `${CLAIMS.category}. Shopper, staff and owner apps. ${CLAIMS.hardware}. ${CLAIMS.setup}.`,
     url: SITE_URL,
   },

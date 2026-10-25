@@ -56,7 +56,7 @@ export default function PhoneStory({ as = 'h2' }: { as?: 'h1' | 'h2' }) {
           as={as}
           badge="How it works"
           title="Scan. Pay. Walk out."
-          subtitle="Shoppers use their own phone to check out. Your staff check the exit pass. Your till stays for anyone who wants it."
+          subtitle={`${CLAIMS.channel} to check out. Your staff check the exit pass. Your till stays for anyone who wants it.`}
         />
       </div>
 

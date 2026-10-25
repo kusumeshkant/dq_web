@@ -22,8 +22,18 @@ export const CLAIMS = {
 
   /** Status — replaces Live / Operational / All Systems Live (C-01) */
   status: 'Now onboarding founding stores',
-  /** Shown under every phone/app flow. Shopper channel (web/Android) is undecided — say nothing about it. */
+  /** Shown under every phone/app flow. */
   illustrative: 'Illustrative flow. Pilot stores are set up with the founder.',
+
+  /**
+   * Shopper channel — decided: Android app (Q1). Never mention web checkout,
+   * browsers or app stores; Android builds are not published (no store
+   * listing, badge or link). iPhones are not supported yet — say so plainly.
+   */
+  channel:      'Shoppers use the DQ Android app on their own phone',
+  channelShort: 'Android app for shoppers',
+  iphone:       'The shopper app is Android today. Shoppers with other phones can still use your counter.',
+  frameLabel:   'Android app · Illustrative',
   pilotNote: 'DQ is in its founding-partner pilot.',
 
   /** Payments — replaces "UPI, cards, or wallets" + RBI-compliant (C-02, C-06) */
@@ -54,7 +64,7 @@ export const OFFER = {
   /** Pricing status — replaces ₹2,999 / ₹5,999 tiers (C-15–C-28) */
   afterPilot: "Pricing isn't final yet. We'll share it with you before your pilot ends, and you decide whether to continue. There's no automatic charge.",
   included: [
-    'Shopper, staff and owner apps',
+    'Shopper (Android), staff and owner apps',
     'Excel product upload',
     'Staff discount limits and discount log',
     'Peak hours, peak days and basket analytics',
@@ -75,7 +85,7 @@ export const APPS = [
   {
     key: 'shopper',
     title: 'Shopper app',
-    tagline: 'Checkout on the shopper’s own phone',
+    tagline: 'The DQ Android app, on the shopper’s own phone',
     features: [
       'Scan product barcodes to build a cart',
       CLAIMS.payments,
@@ -121,7 +131,7 @@ export const STORY_STEPS = [
   {
     key: 'scan',
     title: 'Scan',
-    body: 'Shoppers open DQ on their phone and scan product barcodes as they shop — the tags you already use.',
+    body: 'Shoppers open the DQ Android app and scan product barcodes as they shop — the tags you already use.',
     screen: 'A phone scanning a product barcode; the product is added to the cart',
   },
   {
@@ -184,6 +194,7 @@ export const REQUIREMENTS = {
     { title: 'Your product list in Excel',     desc: 'Barcode, name, price and stock for each product.' },
     { title: 'One staff phone at the exit',    desc: 'For the staff app. Any phone your team already has.' },
     { title: 'Internet in the store',          desc: 'Wi-Fi or mobile data for staff and shoppers.' },
+    { title: 'Shoppers with Android phones',   desc: 'The shopper app is Android today. Everyone else can still use your counter.' },
   ],
   notNeeded: [
     'No new hardware — no scanners, kiosks or card machines',
@@ -203,7 +214,11 @@ export const HINDI = {
 export const STORE_FAQ = [
   {
     q: 'How do shoppers use DQ?',
-    a: `Shoppers use DQ on their own phone: they scan product tags, pay in the app and show an exit pass. Anyone who prefers the counter can still use it — ${CLAIMS.till.toLowerCase()}.`,
+    a: `${CLAIMS.channel}: they scan product tags, pay in the app and show an exit pass. Anyone who prefers the counter can still use it — ${CLAIMS.till.toLowerCase()}.`,
+  },
+  {
+    q: 'Does it work on iPhones?',
+    a: `Not yet. ${CLAIMS.iphone}`,
   },
   {
     q: 'What about theft?',
@@ -211,7 +226,7 @@ export const STORE_FAQ = [
   },
   {
     q: 'Do I need hardware?',
-    a: 'No. Your staff use their own phone for the staff app, and shoppers use theirs.',
+    a: 'No. Your staff use their own phone for the staff app, and shoppers use the DQ Android app on their own phone.',
   },
   {
     q: 'What if the internet drops?',
@@ -234,14 +249,30 @@ export const STORE_FAQ = [
 /** About page: what exists today vs what comes next. No dates. */
 export const BUILD_STATUS = {
   today: [
-    'Shopper app: scan barcodes, cart, exit pass',
+    'Shopper Android app: scan barcodes, cart, exit pass',
     'Staff app: exit-pass checks and discount codes within owner-set limits — in the pilot build',
     'Owner dashboard: Excel upload, discount approvals and log',
     'Owner analytics: peak hours and days, unpaid baskets, low-stock list',
   ],
   next: [
-    'Shopper payments on more phones and browsers',
+    'Shopper app for iPhone and web',
     'The features our founding stores ask for most',
+  ],
+} as const
+
+/** Founder (decision Q7). No phone, email, employer names or CV details on the site. */
+export const FOUNDER = {
+  name:     'Kusumeshkant Sharma',
+  role:     'Founder, DQ',
+  linkedin: 'https://www.linkedin.com/in/kusumeshkantsharma/',
+  photo:    null as string | null,
+  initials: 'KS',
+  /** DRAFT — awaiting founder approval. Uses only the facts provided. */
+  note: [
+    'I’m a Flutter engineer, and I’ve been shipping mobile apps for more than five years.',
+    'I’m building DQ so fashion and lifestyle stores can remove the billing queue.',
+    'If your store joins the pilot, I’ll set DQ up with you myself, over WhatsApp.',
+    'In return, I want your honest feedback — what works on your shop floor and what doesn’t.',
   ],
 } as const
 

@@ -84,7 +84,7 @@ export default function RoiSection() {
                       Of those, how many would use DQ instead?
                     </label>
                     <p className="text-sm text-ink-muted mb-5 leading-relaxed">
-                      Not every shopper will check out on their phone. Start low.
+                      Not every shopper will check out on their phone, and the shopper app is Android only today. Start low.
                     </p>
                     <input
                       id={adoptionId}

@@ -21,7 +21,7 @@ export default function StorySection() {
 
             <p>
               DQ started with one question: what if the billing counter wasn&apos;t the only way to pay?
-              The answer is three apps that work together. Shoppers scan and pay on their own phone. Staff check every
+              The answer is three apps that work together. Shoppers scan and pay in the DQ Android app. Staff check every
               exit and give discounts only within the limit the owner sets. Owners see sales, peak hours, discounts and
               stock in one dashboard.
             </p>

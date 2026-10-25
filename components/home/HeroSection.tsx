@@ -3,13 +3,13 @@ import { ScanLine, Wallet, QrCode, ShieldCheck } from 'lucide-react'
 import { CLAIMS, CTA, FACTS, HINDI, OFFER } from '@/lib/site'
 
 const FLOW = [
-  { Icon: ScanLine,    title: 'Scan',   desc: 'Shoppers scan product tags on their own phone.' },
+  { Icon: ScanLine,    title: 'Scan',   desc: 'Shoppers scan product tags in the DQ Android app.' },
   { Icon: Wallet,      title: 'Pay',    desc: 'They pay in the app through Razorpay.' },
   { Icon: QrCode,      title: 'Exit pass', desc: 'The app shows a QR code plus a short typeable code.' },
   { Icon: ShieldCheck, title: 'Verify', desc: 'Staff check the pass against a paid order.' },
 ]
 
-const TRUST = [CLAIMS.hardware, CLAIMS.till, CLAIMS.cardDataShort]
+const TRUST = [CLAIMS.channelShort, CLAIMS.hardware, CLAIMS.till, CLAIMS.cardDataShort]
 
 export default function HeroSection() {
   return (
@@ -40,8 +40,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-enterprise-muted leading-relaxed max-w-[540px]">
-              DQ adds phone self-checkout to your store. It runs alongside your existing till,
-              with no new hardware. {CLAIMS.setup}.
+              DQ adds phone self-checkout to your store: shoppers use the DQ Android app. It runs
+              alongside your existing till, with no new hardware. {CLAIMS.setup}.
             </p>
 
             <p lang="hi" className="font-hi mt-4 text-base text-enterprise-link leading-relaxed max-w-[540px]">

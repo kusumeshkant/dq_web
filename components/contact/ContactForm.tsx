@@ -174,6 +174,7 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" noValidate>
+      <p className="text-sm text-ink-body">DQ suits stores with barcoded products and shoppers with Android phones.</p>
       <p className="text-sm text-ink-muted">Fields marked <span className="text-danger" aria-hidden="true">*</span><span className="sr-only">with an asterisk</span> are required.</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

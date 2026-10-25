@@ -9,18 +9,18 @@ import { CLAIMS, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'How It Works',
-  description: 'See the full DQ flow — shoppers scan and pay on their phone, staff check every exit pass and give discounts within your limit, and owners see sales, peak hours and discounts.',
+  description: 'See the full DQ flow — shoppers scan and pay in the DQ Android app, staff check every exit pass and give discounts within your limit, and owners see sales, peak hours and discounts.',
   alternates: { canonical: `${SITE_URL}/how-it-works/` },
   openGraph: {
     title: 'How DQ Works — Scan, Pay, Walk Out',
-    description: 'Three apps. Shoppers scan and pay on their phone. Staff check the exit pass. Owners see every sale and discount.',
+    description: 'Three apps. Shoppers scan and pay in the DQ Android app. Staff check the exit pass. Owners see every sale and discount.',
     url: `${SITE_URL}/how-it-works/`,
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
 }
 
 const customerSteps = [
-  { number: '1', title: 'Open DQ on your phone and sign in', desc: `Shopper app languages: ${CLAIMS.languages}.` },
+  { number: '1', title: 'Open the DQ Android app and sign in', desc: `Shopper app languages: ${CLAIMS.languages}. iPhones aren’t supported yet.` },
   { number: '2', title: 'Choose the store you’re in', desc: 'Pick the store in the app when you walk in.' },
   { number: '3', title: 'Scan products as you shop', desc: 'Point the camera at the barcode. The product is added to your cart and stock is checked.' },
   { number: '4', title: 'Pay in the app', desc: `${CLAIMS.payments}.` },

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { NAV_LINKS, CONTACT_EMAIL, STORE_LOGIN_URL } from '@/lib/constants'
-import { BRAND, CLAIMS, CTA } from '@/lib/site'
+import { BRAND, CLAIMS, CTA, FOUNDER } from '@/lib/site'
 
 const productLinks = NAV_LINKS.filter(l => l.href !== '/')
 
@@ -71,7 +71,18 @@ export default function Footer() {
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-enterprise-subtle">
           <p>© 2026 {BRAND}. All rights reserved.</p>
-          <p>Built in India for India&apos;s specialty retail.</p>
+          <p>
+            Built by {FOUNDER.name} ·{' '}
+            <a
+              href={FOUNDER.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${FOUNDER.name} on LinkedIn`}
+              className="underline underline-offset-2 hover:text-enterprise-link"
+            >
+              LinkedIn
+            </a>
+          </p>
         </div>
       </div>
     </footer>

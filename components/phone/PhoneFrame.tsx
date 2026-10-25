@@ -1,8 +1,10 @@
 import { cn } from '@/lib/utils'
 
+// Android-style device (decision Q1: shoppers use the DQ Android app):
+// punch-hole camera, squarer corners, gesture bar in the bezel.
 const SIZES = {
-  md: 'w-[260px] h-[540px] rounded-[42px] p-[10px]',
-  sm: 'w-[220px] h-[456px] rounded-[36px] p-[8px]',
+  md: 'w-[260px] h-[540px] rounded-[34px] p-[10px] pb-[16px]',
+  sm: 'w-[220px] h-[456px] rounded-[30px] p-[8px] pb-[14px]',
 } as const
 
 /** Device bezel. Fixed size so swapping screens never shifts layout (CLS). */
@@ -23,8 +25,11 @@ export default function PhoneFrame({
         className,
       )}
     >
-      <div className="absolute top-[14px] left-1/2 -translate-x-1/2 w-16 h-4 rounded-full bg-enterprise-footer z-20" aria-hidden="true" />
-      <div className="relative h-full w-full overflow-hidden rounded-[32px] bg-white">{children}</div>
+      <div className="relative h-full w-full overflow-hidden rounded-[24px] bg-white">
+        <span className="absolute top-[10px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-enterprise-footer z-20" aria-hidden="true" />
+        {children}
+      </div>
+      <span className="absolute bottom-[5px] left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-enterprise-elevated" aria-hidden="true" />
     </div>
   )
 }

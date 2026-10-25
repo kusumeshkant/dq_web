@@ -13,8 +13,8 @@ export default function KeepTillSection() {
             Keep your counter. Add a faster lane.
           </h2>
           <p className="mt-4 text-ink-body text-base sm:text-lg leading-relaxed">
-            DQ isn&apos;t a new POS. Shoppers who want the counter still use it. Everyone else checks out on their
-            phone. No scanners, no kiosks, nothing to install in the store.
+            DQ isn&apos;t a new POS. Shoppers who want the counter still use it. Shoppers with Android phones check
+            out in the DQ app. No scanners, no kiosks, nothing to install in the store.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function KeepTillSection() {
             <Smartphone className="w-6 h-6 text-enterprise-action" strokeWidth={1.5} aria-hidden="true" />
             <h3 className="mt-4 font-bold text-gray-900">The DQ lane</h3>
             <p className="mt-1 text-sm text-ink-body leading-relaxed">
-              Shoppers scan, pay on their phone and show an exit pass. {CLAIMS.hardware}.
+              Shoppers scan, pay in the DQ Android app and show an exit pass. {CLAIMS.hardware}.
             </p>
           </div>
         </div>
