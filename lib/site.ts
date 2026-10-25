@@ -237,7 +237,7 @@ export const SAMPLE_ANALYTICS = {
   kpis: [
     { key: 'sales',  label: 'Sales this week',       value: 184200, kind: 'inr' },
     { key: 'orders', label: 'Paid orders this week', value: 112,    kind: 'count' },
-    { key: 'unpaid', label: 'Baskets not paid',      value: 7,      kind: 'pct' },
+    { key: 'unpaid', label: 'Checked out but not paid', value: 7,   kind: 'pct' }, // (121 − 112) / 121 ≈ 7.4%
   ],
 } as const
 
