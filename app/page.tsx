@@ -1,6 +1,6 @@
 import HeroSection         from '@/components/home/HeroSection'
 import ProblemSection      from '@/components/home/ProblemSection'
-import SolutionSection     from '@/components/home/SolutionSection'
+import PhoneStory          from '@/components/home/PhoneStory'
 import KeepTillSection     from '@/components/home/KeepTillSection'
 import OwnerControlSection from '@/components/home/OwnerControlSection'
 import AnalyticsSection    from '@/components/home/AnalyticsSection'
@@ -14,7 +14,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ProblemSection />
-      <SolutionSection />
+      <PhoneStory />
       <KeepTillSection />
       <OwnerControlSection />
       <AnalyticsSection />

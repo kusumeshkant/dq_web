@@ -4,7 +4,6 @@ import { useState, useId } from 'react'
 import Link from 'next/link'
 import { TrendingUp } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { useInView } from '@/hooks/useInView'
 
 /* ── Constants ── */
 const BASKET_PRESETS = [300, 600, 1_000, 2_000] as const
@@ -30,7 +29,6 @@ export default function RoiSection() {
   const lostId                  = useId()
   const adoptionId              = useId()
   const basketLabelId           = useId()
-  const { ref, inView }         = useInView<HTMLElement>()
 
   /* ── Live calculations — no DQ price is assumed (pricing is not final) ── */
   const lostPct     = ((lost - 1) / (50 - 1)) * 100
@@ -39,7 +37,7 @@ export default function RoiSection() {
   const monthly     = recovered * basket * 30
 
   return (
-    <section ref={ref} className={`py-20 bg-slate-50 reveal${inView ? ' is-visible' : ''}`}>
+    <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Estimate"

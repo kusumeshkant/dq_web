@@ -3,6 +3,7 @@ import FlowSection   from '@/components/how-it-works/FlowSection'
 import SectionHeading from '@/components/ui/SectionHeading'
 import CtaBanner     from '@/components/home/CtaBanner'
 import JourneyMap    from '@/components/how-it-works/JourneyMap'
+import PhoneStory    from '@/components/home/PhoneStory'
 import AppsSection   from '@/components/home/AppsSection'
 import { CLAIMS, SITE_URL } from '@/lib/site'
 
@@ -58,6 +59,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      <PhoneStory />
       <JourneyMap />
       <AppsSection />
 

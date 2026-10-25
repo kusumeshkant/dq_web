@@ -1,5 +1,7 @@
-import ContactForm from '@/components/contact/ContactForm'
-import { CLAIMS, OFFER } from '@/lib/site'
+import Link from 'next/link'
+import LazyContactForm from '@/components/home/LazyContactForm'
+import { WHATSAPP_NUMBER } from '@/lib/constants'
+import { CLAIMS, CTA, OFFER } from '@/lib/site'
 
 /** Founding-partner offer with the application form inline (06 §2, home step 8). */
 export default function OfferSection() {
@@ -31,7 +33,15 @@ export default function OfferSection() {
 
         <div className="bg-white rounded-xl p-6 sm:p-8 shadow-xl">
           <h3 className="text-xl font-bold text-gray-900 mb-6">Apply in a minute</h3>
-          <ContactForm />
+          <noscript>
+            <p className="text-sm text-ink-body">
+              This form needs JavaScript. You can{' '}
+              <Link href="/contact" className="font-semibold text-enterprise-action underline">{CTA.primary.toLowerCase()} on the contact page</Link>
+              {' '}or{' '}
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} className="font-semibold text-whatsapp-deep underline">message us on WhatsApp</a>.
+            </p>
+          </noscript>
+          <LazyContactForm />
         </div>
       </div>
     </section>

@@ -1,8 +1,6 @@
-'use client'
-
 import Link from 'next/link'
 import { BarChart3, ShoppingCart, BadgePercent, Package } from 'lucide-react'
-import { useInView } from '@/hooks/useInView'
+import Reveal from '@/components/motion/Reveal'
 
 // Only metrics the owner dashboard computes today (schema/typeDefs.js
 // StoreAnalytics: peakHours, peakDays, abandonmentRate; DiscountLog; reorderLevel).
@@ -38,10 +36,9 @@ const CARDS = [
 ]
 
 export default function AnalyticsSection() {
-  const { ref, inView } = useInView<HTMLElement>()
 
   return (
-    <section ref={ref} className="py-20 lg:py-28 bg-white">
+    <section className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="max-w-3xl mx-auto text-center mb-12">
@@ -60,10 +57,10 @@ export default function AnalyticsSection() {
           {CARDS.map((item, i) => {
             const { Icon } = item
             return (
-              <div
+              <Reveal
                 key={item.tag}
-                className={`bg-white border border-gray-100 rounded-xl p-7 shadow-sm flex flex-col reveal${inView ? ' is-visible' : ''}`}
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                className="bg-white border border-gray-100 rounded-xl p-7 shadow-sm flex flex-col"
+                delay={i * 0.1}
               >
                 <div className={`w-10 h-10 ${item.iconClass} rounded-lg flex items-center justify-center mb-5`}>
                   <Icon className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
@@ -77,7 +74,7 @@ export default function AnalyticsSection() {
                 <p className="text-ink-body text-sm leading-relaxed flex-1">
                   {item.body}
                 </p>
-              </div>
+              </Reveal>
             )
           })}
         </div>

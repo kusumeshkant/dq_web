@@ -178,7 +178,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Field label="Your name" required placeholder="Rajesh Kumar" autoComplete="name" {...common('name')} />
-        <Field label="Store name" required placeholder="Trends Boutique" autoComplete="organization" {...common('storeName')} />
+        <Field label="Store name" required placeholder="Demo Store" autoComplete="organization" {...common('storeName')} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -188,7 +188,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Field label="Mobile number" type="tel" required placeholder="+91 98765 43210" autoComplete="tel" {...common('mobile')} />
-        <Field label="Email address" type="email" required placeholder="rajesh@trendsstore.com" autoComplete="email" {...common('email')} />
+        <Field label="Email address" type="email" required placeholder="rajesh@example.com" autoComplete="email" {...common('email')} />
       </div>
 
       <SelectField label="Do your products have barcodes or tags?" required options={BARCODE_OPTIONS} {...common('barcodes')} />

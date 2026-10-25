@@ -116,6 +116,67 @@ export const FACTS = [
   { value: '90 days', label: 'Free pilot' },
 ] as const
 
+/** Shopper story (home "How it works" + /how-it-works). Copy from the old Solution section. */
+export const STORY_STEPS = [
+  {
+    key: 'scan',
+    title: 'Scan',
+    body: 'Shoppers open DQ on their phone and scan product barcodes as they shop — the tags you already use.',
+    screen: 'A phone scanning a product barcode; the product is added to the cart',
+  },
+  {
+    key: 'cart',
+    title: 'Cart',
+    body: 'The cart builds as they go, with prices from your product list. No staff needed.',
+    screen: 'The cart with two items and a running total',
+  },
+  {
+    key: 'pay',
+    title: 'Pay',
+    body: `${CLAIMS.payments}, directly on their phone. ${CLAIMS.cardDataShort}.`,
+    screen: 'A payment sheet with UPI and card options, then a payment-confirmed tick',
+  },
+  {
+    key: 'exit',
+    title: 'Exit pass',
+    body: 'Shoppers show their exit pass at the door — a QR code plus a short typeable code. Staff check it against the paid order in one tap.',
+    screen: 'An exit pass with a QR code and a six-group code',
+  },
+] as const
+
+/** Sample data used by the illustrative screens. Fictional store, no real brands. */
+export const SAMPLE = {
+  store: 'Demo Store',
+  cart: [
+    { name: 'Linen shirt', size: 'M', price: 1299 },
+    { name: 'Slim-fit chinos', size: '32', price: 1499 },
+  ],
+  exitCode: ['7KQ2', 'M9TA', '4F8P', 'ZC3N', 'W6HR', 'B2JD'],
+} as const
+
+/** Discount-approval example (ApprovalFlow). Labelled "Example" on the page. */
+export const APPROVAL_EXAMPLE = {
+  staff: 'Ravi',
+  requestedPct: 20,
+  approvedPct: 10,
+  reason: 'Regular customer',
+  bill: '#1042',
+  original: 1200,
+  final: 1080,
+  time: '4:12 pm',
+  earlier: [
+    { staff: 'Meena', bill: '#1038', pct: 5,  original: 2400, final: 2280, time: '3:41 pm' },
+    { staff: 'Ravi',  bill: '#1031', pct: 10, original: 900,  final: 810,  time: '1:05 pm' },
+  ],
+  steps: [
+    { who: 'Staff', title: 'Asks for a discount limit', body: 'With a reason, from the staff app.' },
+    { who: 'You',   title: 'Approve it — or a lower limit', body: 'Approve 20%, approve 10%, or say no. You can take the limit away at any time.' },
+    { who: 'DQ',    title: 'Logs every discount', body: `${CLAIMS.discountLog}. The log can’t be edited.` },
+  ],
+} as const
+
+export const formatINR = (n: number) => `₹${n.toLocaleString('en-IN')}`
+
 /** What a store needs before it starts (06 §4 "What you need"). No settlement wording. */
 export const REQUIREMENTS = {
   have: [

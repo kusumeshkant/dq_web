@@ -1,8 +1,6 @@
-'use client'
-
 import { QrCode, Users, LayoutDashboard } from 'lucide-react'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { useInView } from '@/hooks/useInView'
+import Reveal from '@/components/motion/Reveal'
 import { APPS } from '@/lib/site'
 
 const ICONS = {
@@ -12,10 +10,8 @@ const ICONS = {
 } as const
 
 export default function AppsSection() {
-  const { ref, inView } = useInView<HTMLElement>()
-
   return (
-    <section ref={ref} className="py-20 lg:py-28 bg-slate-50">
+    <section className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Three apps"
@@ -27,10 +23,10 @@ export default function AppsSection() {
           {APPS.map((app, i) => {
             const { Icon, color } = ICONS[app.key]
             return (
-              <div
+              <Reveal
                 key={app.key}
-                className={`flex flex-col rounded-xl border border-gray-100 bg-white shadow-sm overflow-hidden reveal${inView ? ' is-visible' : ''}`}
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                className="flex flex-col rounded-xl border border-gray-100 bg-white shadow-sm overflow-hidden"
+                delay={i * 0.1}
               >
                 <div className="bg-enterprise-navy border-b border-enterprise-elevated px-6 py-6">
                   <div className="w-12 h-12 bg-enterprise-elevated rounded-xl flex items-center justify-center mb-4">
@@ -48,7 +44,7 @@ export default function AppsSection() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             )
           })}
         </div>

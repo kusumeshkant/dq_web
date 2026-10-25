@@ -5,6 +5,7 @@ import Navbar        from '@/components/layout/Navbar'
 import Footer        from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/layout/WhatsAppButton'
 import MobileCtaBar  from '@/components/layout/MobileCtaBar'
+import MotionProvider from '@/components/motion/MotionProvider'
 import { CONTACT_EMAIL } from '@/lib/constants'
 import { BRAND, CLAIMS, SITE_URL } from '@/lib/site'
 
@@ -43,9 +44,9 @@ const jsonLd = [
   },
 ]
 
-// Inline, synchronous: marks JS as available before first paint so that
-// `.js .reveal` can hide below-the-fold content for the scroll animation
-// while the no-JS page stays fully visible.
+// Inline, synchronous: marks JS as present before first paint. globals.css
+// uses it to swap static fallbacks (.story-static) for animated versions
+// (.story-motion) only when JS runs and the user allows motion.
 const JS_FLAG = "document.documentElement.classList.add('js')"
 
 const OG_IMAGE = {
@@ -109,11 +110,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <MobileCtaBar />
+        <MotionProvider>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <MobileCtaBar />
+        </MotionProvider>
       </body>
     </html>
   )

@@ -14,37 +14,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Fade-up animation ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+/*
+ * Animated stories (PhoneStory) ship two renderings. The static one is the
+ * default; the animated one replaces it only when JS has run (the `js` class
+ * set inline in app/layout.tsx) and the user hasn't asked for reduced motion.
+ */
+.story-motion { display: none; }
+
+/* Placeholders for client-only widgets: pointless without JS. */
+html:not(.js) .js-only { display: none; }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Direct entrance animation. Not used on the LCP heading. */
-  .animate-fade-up {
-    animation: fadeUp 0.55s ease-out both;
-  }
-
-  /*
-   * InView pattern. Content is visible by default; it is only hidden when the
-   * inline script in app/layout.tsx has added the `js` class to <html>, so
-   * pages stay readable with JavaScript off.
-   */
-  .js .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.55s ease-out,
-      transform 0.55s ease-out,
-      box-shadow 0.3s,
-      border-color 0.2s,
-      background-color 0.3s;
-  }
-  .js .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .js .story-motion { display: block; }
+  .js .story-static { display: none; }
 }
 
 /* ── ROI Calculator slider ── */
