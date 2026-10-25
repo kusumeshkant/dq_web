@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import StoresHero        from '@/components/for-stores/StoresHero'
 import RoiSection        from '@/components/for-stores/RoiSection'
 import ObjectionsSection from '@/components/for-stores/ObjectionsSection'
-import GettingStarted    from '@/components/for-stores/GettingStarted'
+import OnboardingSection from '@/components/onboarding/OnboardingSection'
 import RequirementsSection from '@/components/shared/RequirementsSection'
 import CtaBanner         from '@/components/home/CtaBanner'
 import { CLAIMS, OFFER, SITE_URL } from '@/lib/site'
@@ -25,7 +25,7 @@ export default function ForStoresPage() {
       {/* Section order: 06_proposed_ia_and_copy.md §2 */}
       <StoresHero />
       <RequirementsSection />
-      <GettingStarted />
+      <OnboardingSection />
       <RoiSection />
       <ObjectionsSection />
       <CtaBanner />

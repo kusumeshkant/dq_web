@@ -5,6 +5,7 @@ import CtaBanner     from '@/components/home/CtaBanner'
 import JourneyMap    from '@/components/how-it-works/JourneyMap'
 import PhoneStory    from '@/components/home/PhoneStory'
 import AppsSection   from '@/components/home/AppsSection'
+import OnboardingSection from '@/components/onboarding/OnboardingSection'
 import { CLAIMS, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -91,6 +92,7 @@ export default function HowItWorksPage() {
           steps={adminSteps}
           accentClass="bg-enterprise-action-hover"
         />
+        <OnboardingSection tone="light" withCta={false} />
       </div>
 
       <CtaBanner />

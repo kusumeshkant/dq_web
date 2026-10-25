@@ -2,6 +2,7 @@ import { ShoppingBag, Clock, Users2 } from 'lucide-react'
 import { PROBLEM_POINTS } from '@/lib/constants'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Reveal from '@/components/motion/Reveal'
+import QueueScene from '@/components/queue/QueueScene'
 
 const ICONS = [ShoppingBag, Clock, Users2]
 const ICON_COLORS = [
@@ -14,11 +15,15 @@ export default function ProblemSection() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="The real cost of queues"
-          title="Fashion stores don't lose customers at the rack. They lose them at the counter."
-          subtitle="Your products do the selling. The billing queue undoes it — especially on the days it matters most."
-        />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <SectionHeading
+            align="left"
+            badge="The real cost of queues"
+            title="Fashion stores don't lose customers at the rack. They lose them at the counter."
+            subtitle="Your products do the selling. The billing queue undoes it — especially on the days it matters most."
+          />
+          <QueueScene />
+        </div>
 
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {PROBLEM_POINTS.map((item, i) => {

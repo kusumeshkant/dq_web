@@ -21,6 +21,12 @@ body {
  */
 .story-motion { display: none; }
 
+/* Onboarding stepper: countdown bar under the active tab (concept E). */
+@keyframes dq-tab-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
 /* Placeholders for client-only widgets: pointless without JS. */
 html:not(.js) .js-only { display: none; }
 

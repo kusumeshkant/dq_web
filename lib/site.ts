@@ -187,6 +187,60 @@ export const APPROVAL_EXAMPLE = {
 
 export const formatINR = (n: number) => `₹${n.toLocaleString('en-IN')}`
 
+/** Concept E — "Live in 3 screens" (mirrors dq_admin onboarding_page.dart). Owner app platform is not claimed. */
+export const ONBOARDING = {
+  title:      'Live in 3 screens',
+  caption:    'Under 5 minutes once your barcoded product list is ready.',
+  panelLabel: 'Owner dashboard · Illustrative',
+  steps: [
+    { key: 'details', tab: 'Store details',    title: 'Store details',           body: 'Enter your store name and address, and pin the store on the map.' },
+    { key: 'upload',  tab: 'Upload Excel',     title: 'Upload your products',    body: 'Upload your product list from Excel and map the columns once.' },
+    { key: 'code',    tab: 'Store code ready', title: 'Your store code is ready', body: 'Share it with shoppers and give your staff their logins.' },
+  ],
+  sample: { address: '12 Market Road', file: 'products.xlsx', imported: 312, storeCode: 'DEMO-4821' },
+} as const
+
+/** Concept B — before/after scene. Never claims DQ measures queues or wait times. */
+export const QUEUE_SCENE = {
+  without: 'Without DQ',
+  with:    'With DQ',
+  caption: 'Shoppers pay in the DQ Android app. Your till stays for anyone who wants it.',
+  label:   'Illustrative',
+  describeWithout: 'Illustration: eight shoppers stand in one line at the billing counter.',
+  describeWith:    'Illustration: seven shoppers spread out at the racks, each holding a phone; one shopper still uses the counter.',
+} as const
+
+/**
+ * Concept D — owner analytics preview. Fictional, small single-store numbers,
+ * and only metrics the backend computes: peak hours, basket abandonment,
+ * discount depth (DiscountLog), sales and paid orders.
+ */
+export const SAMPLE_ANALYTICS = {
+  label: 'Sample store data · Demo Store',
+  // Paid orders by hour across one sample week (sums to 112).
+  peakHours: [
+    { h: '10', v: 3 }, { h: '11', v: 5 }, { h: '12', v: 7 }, { h: '1', v: 8 },
+    { h: '2', v: 9 },  { h: '3', v: 10 }, { h: '4', v: 9 },  { h: '5', v: 11 },
+    { h: '6', v: 14 }, { h: '7', v: 16 }, { h: '8', v: 12 }, { h: '9', v: 8 },
+  ],
+  peakSummary: 'Busiest hour: 7–8 pm (16 paid orders this week).',
+  funnel: [
+    { label: 'Scanned',     v: 148 },
+    { label: 'Checked out', v: 121 },
+    { label: 'Paid',        v: 112 },
+  ],
+  discounts: [
+    { staff: 'Ravi',  pct: 8 },
+    { staff: 'Meena', pct: 5 },
+    { staff: 'Arjun', pct: 3 },
+  ],
+  kpis: [
+    { key: 'sales',  label: 'Sales this week',       value: 184200, kind: 'inr' },
+    { key: 'orders', label: 'Paid orders this week', value: 112,    kind: 'count' },
+    { key: 'unpaid', label: 'Baskets not paid',      value: 7,      kind: 'pct' },
+  ],
+} as const
+
 /** What a store needs before it starts (06 §4 "What you need"). No settlement wording. */
 export const REQUIREMENTS = {
   have: [
