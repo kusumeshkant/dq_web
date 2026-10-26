@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -12,61 +14,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Fade-up animation ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+/*
+ * Animated stories (PhoneStory) ship two renderings. The static one is the
+ * default; the animated one replaces it only when JS has run (the `js` class
+ * set inline in app/layout.tsx) and the user hasn't asked for reduced motion.
+ */
+.story-motion { display: none; }
+
+/* Onboarding stepper: countdown bar under the active tab (concept E). */
+@keyframes dq-tab-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
+
+/* Placeholders for client-only widgets: pointless without JS. */
+html:not(.js) .js-only { display: none; }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Legacy: direct animation (used in Hero — above fold, always visible) */
-  .animate-fade-up {
-    animation: fadeUp 0.55s ease-out both;
-  }
-  .animate-fade-up-delay-1 { animation-delay: 0.1s; }
-  .animate-fade-up-delay-2 { animation-delay: 0.18s; }
-  .animate-fade-up-delay-3 { animation-delay: 0.26s; }
-  .animate-fade-up-delay-4 { animation-delay: 0.34s; }
-
-  /* InView pattern: element starts hidden, animates when .is-visible is added */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.55s ease-out,
-      transform 0.55s ease-out,
-      box-shadow 0.3s,
-      border-color 0.2s,
-      background-color 0.3s;
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
-}
-
-/* ── Progress bar grow (used in Hero) ── */
-@keyframes grow {
-  from { width: 0%; }
-  to   { width: 100%; }
-}
-
-/* ── CTA pulse REMOVED — enterprise platforms do not pulse CTAs ── */
-
-/* ── Shimmer for skeleton states ── */
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+  .js .story-motion { display: block; }
+  .js .story-static { display: none; }
 }
 
 /* ── ROI Calculator slider ── */
@@ -78,8 +44,8 @@ input[type='range'].roi-slider {
   border-radius: 9999px;
   background: linear-gradient(
     to right,
-    #2E86FF var(--slider-pct, 0%),
-    #2E3F52 var(--slider-pct, 0%)
+    theme('colors.enterprise.action') var(--slider-pct, 0%),
+    theme('colors.slate.300') var(--slider-pct, 0%)
   );
   outline: none;
   cursor: pointer;
@@ -91,9 +57,9 @@ input[type='range'].roi-slider::-webkit-slider-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #2E86FF;
-  border: 3px solid #0D1B2A;
-  box-shadow: 0 0 0 2px #2E86FF, 0 2px 8px rgba(46,134,255,0.4);
+  background: theme('colors.enterprise.action');
+  border: 3px solid theme('colors.white');
+  box-shadow: 0 0 0 2px theme('colors.enterprise.action'), 0 2px 8px rgba(26,111,212,0.4);
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
@@ -101,21 +67,20 @@ input[type='range'].roi-slider::-webkit-slider-thumb {
 input[type='range'].roi-slider::-webkit-slider-thumb:hover,
 input[type='range'].roi-slider::-webkit-slider-thumb:active {
   transform: scale(1.15);
-  box-shadow: 0 0 0 3px #2E86FF, 0 2px 16px rgba(46,134,255,0.5);
 }
 
 input[type='range'].roi-slider::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #2E86FF;
-  border: 3px solid #0D1B2A;
-  box-shadow: 0 0 0 2px #2E86FF;
+  background: theme('colors.enterprise.action');
+  border: 3px solid theme('colors.white');
+  box-shadow: 0 0 0 2px theme('colors.enterprise.action');
   cursor: pointer;
 }
 
 input[type='range'].roi-slider:focus-visible {
-  outline: 2px solid #2E86FF;
+  outline: 2px solid theme('colors.enterprise.action');
   outline-offset: 4px;
   border-radius: 4px;
 }

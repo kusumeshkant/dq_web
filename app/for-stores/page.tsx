@@ -2,28 +2,32 @@ import type { Metadata } from 'next'
 import StoresHero        from '@/components/for-stores/StoresHero'
 import RoiSection        from '@/components/for-stores/RoiSection'
 import ObjectionsSection from '@/components/for-stores/ObjectionsSection'
-import GettingStarted    from '@/components/for-stores/GettingStarted'
+import OnboardingSection from '@/components/onboarding/OnboardingSection'
+import RequirementsSection from '@/components/shared/RequirementsSection'
 import CtaBanner         from '@/components/home/CtaBanner'
+import { CLAIMS, OFFER, SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'For Store Owners',
-  description: 'Give your fashion or lifestyle store scan-and-go checkout — no hardware, no IT team. Live in under 1 hour. Starting from ₹2,999/month.',
-  alternates: { canonical: 'https://dqstore.in/for-stores/' },
+  description: `Scan-and-go checkout for fashion and lifestyle stores. ${CLAIMS.hardware}. ${CLAIMS.setup}. ${OFFER.headline}.`,
+  alternates: { canonical: `${SITE_URL}/for-stores/` },
   openGraph: {
-    title: 'DQ for Store Owners — Scan-and-Go Checkout for Retail',
-    description: 'Turn your billing counter into a self-checkout experience. No hardware. Live in under an hour. From ₹2,999/month.',
-    url: 'https://dqstore.in/for-stores/',
-    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
+    title: 'DQ for Store Owners — scan-and-go self-checkout',
+    description: `Turn every shopper's phone into a checkout. ${CLAIMS.hardware}. ${OFFER.headline}.`,
+    url: `${SITE_URL}/for-stores/`,
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
 }
 
 export default function ForStoresPage() {
   return (
     <>
+      {/* Section order: 06_proposed_ia_and_copy.md §2 */}
       <StoresHero />
+      <RequirementsSection />
+      <OnboardingSection />
       <RoiSection />
       <ObjectionsSection />
-      <GettingStarted />
       <CtaBanner />
     </>
   )

@@ -1,32 +1,15 @@
 import Link from 'next/link'
-import { QrCode, BarChart3, Users, Globe, Smartphone, CreditCard, ShieldCheck, Languages } from 'lucide-react'
+import { ScanLine, Wallet, QrCode, ShieldCheck } from 'lucide-react'
+import { CLAIMS, CTA, FACTS, HINDI, OFFER } from '@/lib/site'
 
-const ANCHOR_STATS = [
-  { value: '₹0',    label: 'Hardware cost' },
-  { value: '48hrs', label: 'Deployment time' },
-  { value: '6',     label: 'Languages' },
-  { value: '3',     label: 'Live apps' },
+const FLOW = [
+  { Icon: ScanLine,    title: 'Scan',   desc: 'Shoppers scan product tags in the DQ Android app.' },
+  { Icon: Wallet,      title: 'Pay',    desc: 'They pay in the app through Razorpay.' },
+  { Icon: QrCode,      title: 'Exit pass', desc: 'The app shows a QR code plus a short typeable code.' },
+  { Icon: ShieldCheck, title: 'Verify', desc: 'Staff check the pass against a paid order.' },
 ]
 
-const LIVE_APPS = [
-  { name: 'Customer Checkout', href: 'https://dq.dqstore.in',    dot: 'bg-enterprise-live', Icon: QrCode   },
-  { name: 'Staff Operations',  href: 'https://staff.dqstore.in', dot: 'bg-enterprise-blue', Icon: Users    },
-  { name: 'Admin Intelligence',href: 'https://app.dqstore.in',   dot: 'bg-yellow-400',      Icon: BarChart3 },
-]
-
-const PLATFORM_SURFACES = [
-  { name: 'Customer Checkout',  dot: 'bg-enterprise-live',    status: 'Web Live',  Icon: QrCode    },
-  { name: 'Staff Operations',   dot: 'bg-enterprise-blue',    status: 'Web Live',  Icon: Users     },
-  { name: 'Admin Intelligence', dot: 'bg-yellow-400',         status: 'Web Live',  Icon: BarChart3 },
-  { name: 'Mobile Apps',        dot: 'bg-enterprise-muted/40',status: 'Q3 2026',   Icon: Smartphone },
-]
-
-const CAPABILITIES = [
-  { Icon: Globe,       label: 'Web-first, no install' },
-  { Icon: CreditCard,  label: 'Digital payments' },
-  { Icon: Languages,   label: '6 Indian languages' },
-  { Icon: ShieldCheck, label: 'Exit validation' },
-]
+const TRUST = [CLAIMS.channelShort, CLAIMS.hardware, CLAIMS.till]
 
 export default function HeroSection() {
   return (
@@ -38,184 +21,111 @@ export default function HeroSection() {
           backgroundImage: 'radial-gradient(circle, rgba(46,134,255,0.5) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
         }}
+        aria-hidden="true"
       />
-      {/* Accent line at top */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-enterprise-blue to-transparent opacity-60" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-enterprise-blue to-transparent opacity-60" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px] gap-12 lg:gap-16 items-start">
 
-          {/* ── Left: copy ── */}
-          <div className="animate-fade-up">
+          {/* ── Left: copy. Not animated — the h1 is the LCP element. ── */}
+          <div>
+            <p className="inline-flex items-center gap-2 bg-enterprise-surface border border-enterprise-elevated rounded-full px-4 py-1.5 mb-8 text-enterprise-link text-xs font-semibold tracking-wide">
+              {CLAIMS.category}
+            </p>
 
-            {/* Platform badge */}
-            <div className="inline-flex items-center gap-2 bg-enterprise-surface border border-enterprise-elevated rounded-full px-4 py-1.5 mb-8">
-              <span className="w-1.5 h-1.5 bg-enterprise-blue rounded-full" />
-              <span className="text-enterprise-blue text-xs font-semibold tracking-wide">
-                Checkout Intelligence Platform
-              </span>
-            </div>
-
-            {/* Headline */}
             <h1 className="text-[2.6rem] sm:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-white leading-[1.07] tracking-tight">
-              Intelligence at every<br />
-              <span className="text-enterprise-blue">retail transaction.</span>
+              Your customers scan, pay and walk out.{' '}
+              <span className="text-enterprise-link">No billing queue.</span>
             </h1>
 
-            {/* Subheadline */}
             <p className="mt-6 text-base sm:text-lg text-enterprise-muted leading-relaxed max-w-[540px]">
-              DQ turns every retail transaction into structured operational intelligence.
-              Deployed in 48 hours across fashion, footwear, and lifestyle chains —
-              zero hardware, no IT team.
+              DQ adds phone self-checkout to your store: shoppers use the DQ Android app. It runs
+              alongside your existing till, with no new hardware. {CLAIMS.setup}.
             </p>
 
-            {/* Core phrase */}
-            <p className="mt-4 text-sm font-medium text-enterprise-blue">
-              Every transaction compounds platform intelligence.
+            <p lang="hi" className="font-hi mt-4 text-base text-enterprise-link leading-relaxed max-w-[540px]">
+              {HINDI.headline}
             </p>
 
-            {/* CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-enterprise-blue hover:bg-enterprise-blue-hover text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 shadow-[0_4px_16px_rgba(46,134,255,0.35)] hover:shadow-[0_6px_24px_rgba(46,134,255,0.45)] hover:-translate-y-0.5 active:scale-[0.98] text-base"
+                className="inline-flex items-center justify-center gap-2 bg-enterprise-action hover:bg-enterprise-action-hover text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 shadow-[0_4px_16px_rgba(26,111,212,0.35)] hover:-translate-y-0.5 active:scale-[0.98] text-base"
               >
-                Request a Demo
+                {CTA.primary}
               </Link>
               <Link
                 href="/how-it-works"
                 className="inline-flex items-center justify-center gap-2 text-enterprise-muted hover:text-white border border-enterprise-elevated hover:border-enterprise-blue/50 font-medium px-7 py-3.5 rounded-lg transition-all duration-200 text-base"
               >
-                View Platform →
+                {CTA.secondary} →
               </Link>
             </div>
 
-            {/* Micro trust */}
-            <p className="mt-5 text-xs text-enterprise-muted/70 flex flex-wrap items-center gap-x-5 gap-y-1.5">
-              <span className="flex items-center gap-1.5">
-                <span className="text-enterprise-blue font-bold">✓</span> Zero hardware required
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="text-enterprise-blue font-bold">✓</span> 48-hour deployment
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="text-enterprise-blue font-bold">✓</span> Production-grade infrastructure
-              </span>
-            </p>
+            <ul className="mt-5 text-sm text-enterprise-muted flex flex-wrap items-center gap-x-5 gap-y-1.5">
+              {TRUST.map((t) => (
+                <li key={t} className="flex items-center gap-1.5">
+                  <span className="text-enterprise-link font-bold" aria-hidden="true">✓</span> {t}
+                </li>
+              ))}
+            </ul>
 
-            {/* Mobile anchor stats */}
-            <div className="lg:hidden mt-10 grid grid-cols-4 gap-2">
-              {ANCHOR_STATS.map((s) => (
+            {/* Mobile facts — true statements only */}
+            <dl className="lg:hidden mt-10 grid grid-cols-2 gap-2">
+              {FACTS.map((s) => (
                 <div key={s.label} className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-3 text-center">
-                  <p className="text-lg font-bold text-white tabular-nums">{s.value}</p>
-                  <p className="text-[10px] text-enterprise-muted mt-0.5 leading-tight">{s.label}</p>
+                  <dt className="sr-only">{s.label}</dt>
+                  <dd className="text-lg font-bold text-white">{s.value}</dd>
+                  <dd className="text-xs text-enterprise-muted mt-0.5 leading-tight" aria-hidden="true">{s.label}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
 
-          {/* ── Right: platform panel ── */}
-          <div
-            className="hidden lg:flex flex-col gap-3 animate-fade-up"
-            style={{ animationDelay: '0.15s' }}
-          >
-            {/* Platform status card */}
+          {/* ── Right: how a checkout works ── */}
+          <div className="hidden lg:flex flex-col gap-3">
             <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-2.5 border-b border-enterprise-elevated">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-6 h-6 bg-enterprise-blue rounded-md flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-[9px] tracking-tight">DQ</span>
-                  </div>
-                  <span className="text-white text-xs font-semibold">DQ Platform</span>
-                </div>
-                <span className="text-[10px] text-enterprise-blue font-semibold bg-enterprise-blue/10 border border-enterprise-blue/20 px-2 py-0.5 rounded-full">
-                  3 Apps · All Live
-                </span>
+              <div className="px-5 py-3 border-b border-enterprise-elevated">
+                <p className="text-white text-sm font-semibold">How a DQ checkout works</p>
               </div>
-              <div className="p-4 space-y-2.5">
-                {PLATFORM_SURFACES.map((item) => {
-                  const { Icon } = item
-                  return (
-                    <div key={item.name} className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Icon className="w-3.5 h-3.5 text-enterprise-muted/60" strokeWidth={1.5} />
-                        <span className="text-white text-xs font-medium">{item.name}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className={`w-1.5 h-1.5 ${item.dot} rounded-full flex-shrink-0`} />
-                        <span className="text-[10px] text-enterprise-muted">{item.status}</span>
-                      </div>
+              <ol className="p-5 space-y-4">
+                {FLOW.map(({ Icon, title, desc }, i) => (
+                  <li key={title} className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-enterprise-elevated rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-4 h-4 text-enterprise-link" strokeWidth={1.75} aria-hidden="true" />
                     </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Live app links */}
-            <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-4">
-              <p className="text-[10px] text-enterprise-muted font-semibold uppercase tracking-widest mb-3">
-                Live platforms
-              </p>
-              <div className="space-y-2">
-                {LIVE_APPS.map((app) => {
-                  const { Icon } = app
-                  return (
-                    <a
-                      key={app.name}
-                      href={app.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between group hover:bg-enterprise-elevated/40 rounded-lg px-2 py-2 -mx-2 transition-colors"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 bg-enterprise-elevated rounded-md flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-3.5 h-3.5 text-enterprise-muted" strokeWidth={1.5} />
-                        </div>
-                        <span className="text-white text-xs font-medium">{app.name}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className={`w-1.5 h-1.5 ${app.dot} rounded-full flex-shrink-0`} />
-                        <span className="text-enterprise-live text-[10px] font-bold">LIVE ↗</span>
-                      </div>
-                    </a>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Platform capabilities */}
-            <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-4">
-              <p className="text-[10px] text-enterprise-muted font-semibold uppercase tracking-widest mb-3">
-                Platform capabilities
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                {CAPABILITIES.map(({ Icon, label }) => (
-                  <div key={label} className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-enterprise-elevated rounded-md flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-3 h-3 text-enterprise-blue" strokeWidth={1.5} />
+                    <div>
+                      <p className="text-white text-sm font-semibold">{i + 1}. {title}</p>
+                      <p className="text-enterprise-muted text-sm leading-snug">{desc}</p>
                     </div>
-                    <span className="text-enterprise-muted text-[11px] leading-tight">{label}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
+              <p className="px-5 pb-4 -mt-1 text-xs text-enterprise-muted">{CLAIMS.illustrative}</p>
             </div>
 
-            {/* Anchor stats */}
-            <div className="grid grid-cols-4 gap-2">
-              {ANCHOR_STATS.map((s) => (
+            <div className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-5">
+              <p className="text-xs text-enterprise-muted font-semibold uppercase tracking-widest mb-2">
+                {OFFER.name}
+              </p>
+              <p className="text-white text-lg font-bold">{OFFER.headline}</p>
+              <p className="text-enterprise-muted text-sm mt-1">{OFFER.terms} {CLAIMS.status}.</p>
+            </div>
+
+            <dl className="grid grid-cols-4 gap-2">
+              {FACTS.map((s) => (
                 <div key={s.label} className="bg-enterprise-surface border border-enterprise-elevated rounded-xl p-3 text-center">
-                  <p className="text-lg font-bold text-white tabular-nums">{s.value}</p>
-                  <p className="text-[10px] text-enterprise-muted mt-0.5 leading-tight">{s.label}</p>
+                  <dt className="sr-only">{s.label}</dt>
+                  <dd className="text-base font-bold text-white">{s.value}</dd>
+                  <dd className="text-xs text-enterprise-muted mt-0.5 leading-tight" aria-hidden="true">{s.label}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
 
         </div>
       </div>
-
-      {/* Bottom fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-enterprise-surface/20 to-transparent" />
     </section>
   )
 }

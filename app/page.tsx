@@ -1,29 +1,26 @@
-import HeroSection            from '@/components/home/HeroSection'
-import SocialProofStrip       from '@/components/home/SocialProofStrip'
-import PlatformVisionSection  from '@/components/home/PlatformVisionSection'
-import ProblemSection         from '@/components/home/ProblemSection'
-import SolutionSection        from '@/components/home/SolutionSection'
-import AppsSection            from '@/components/home/AppsSection'
-import TestimonialsSection    from '@/components/home/TestimonialsSection'
-import InfrastructureSection  from '@/components/home/InfrastructureSection'
-import IndustriesSection      from '@/components/home/IndustriesSection'
-import WhyDQSection           from '@/components/home/WhyDQSection'
-import CtaBanner              from '@/components/home/CtaBanner'
+import HeroSection         from '@/components/home/HeroSection'
+import ProblemSection      from '@/components/home/ProblemSection'
+import PhoneStory          from '@/components/home/PhoneStory'
+import KeepTillSection     from '@/components/home/KeepTillSection'
+import OwnerControlSection from '@/components/home/OwnerControlSection'
+import AnalyticsSection    from '@/components/home/AnalyticsSection'
+import RequirementsSection from '@/components/shared/RequirementsSection'
+import OfferSection        from '@/components/home/OfferSection'
+import ObjectionsSection   from '@/components/for-stores/ObjectionsSection'
 
+// Section order: docs/website_analysis/06_proposed_ia_and_copy.md §2
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <SocialProofStrip />
-      <PlatformVisionSection />
       <ProblemSection />
-      <SolutionSection />
-      <AppsSection />
-      <TestimonialsSection />
-      <InfrastructureSection />
-      <IndustriesSection />
-      <WhyDQSection />
-      <CtaBanner />
+      <PhoneStory />
+      <KeepTillSection />
+      <OwnerControlSection />
+      <AnalyticsSection />
+      <RequirementsSection tone="gray" />
+      <OfferSection />
+      <ObjectionsSection title="Questions store owners ask" limit={6} />
     </>
   )
 }
