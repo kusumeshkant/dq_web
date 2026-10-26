@@ -41,6 +41,17 @@ The site sells an "AI-ready checkout intelligence platform" with committed prici
 | — | Home LCP ≤ 3.0 s | **Unconfirmed** | Lighthouse on the build machine is in a slow-paint mode (unchanged control build 3.23 s now vs 2.86 s earlier). Measure with PageSpeed Insights on the Pages preview (10_release_checklist §B) |
 
 
+## Content update (2026-10-26)
+
+| Item | Status |
+|---|---|
+| WhatsApp number | **Done** — 918884133322 in `lib/constants.ts` `WHATSAPP_NUMBER`; every `wa.me` link uses it (07 Q17 closed) |
+| Founder note | **Done** — "Mobile app engineer, building DQ for Indian retail."; DRAFT marker removed (07 Q18 closed) |
+| Contact promise | **Done** — "We call you within 24 hours, Mon–Sat 10am–7pm IST" on /contact (07 Q19 closed) |
+| Pilot wording | **Done** — free 90-day pilot, no card, no contract, pricing not final (07 Q5 closed) |
+| LinkedIn | **On hold** — `FOUNDER.linkedin = null`, so no LinkedIn link or label renders; footer reads "Built by Kusumeshkant Sharma" (07 Q20 open) |
+
+
 ## Also worth fixing early (cheap)
 - **`www.dqstore.in` is down (522).** `www` isn't attached to the Pages project (VERIFIED `09`).
 - Favicon/app-icon PNGs 404 on live because they were never committed (VERIFIED `09`).

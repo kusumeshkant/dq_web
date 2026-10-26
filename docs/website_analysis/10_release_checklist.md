@@ -11,8 +11,8 @@ Production today is Cloudflare Pages project **`dq-web`**, built from GitHub `ku
 | Lint | `npx next lint` | "No ESLint warnings or errors" |
 | Build from tracked files only | `git archive HEAD \| tar -x -C /tmp/dqbuild && cd /tmp/dqbuild && npm ci && npx next build` | 12/12 static pages; `out/` has `index.html`, `sitemap.xml`, `og-image.png`, `icon-192.png`, `apple-touch-icon.png` |
 | Banned strings | grep the built HTML for the Phase 4 list (`48-hour`, `6 Indian languages`, `Operational`, `₹2,999`, `Loyalty`, `outlets`, `Q3 2026`, `RBI`, `Pvt Ltd`, `Google Play`, `Play Store`, `browser`, `PWA`, `no download`, `queue management`, `AI-native`, `theft-proof`, …) | 0 hits |
-| Founder note approved | `lib/site.ts` → `FOUNDER.note` | Approved text in place, DRAFT marker removed (07 Q18) |
-| WhatsApp number confirmed | `lib/constants.ts` `WHATSAPP_NUMBER` | Confirmed business number (07 Q17) |
+| Founder note approved | `lib/site.ts` → `FOUNDER.note` | **Done** — approved text in place, DRAFT marker removed (07 Q18) |
+| WhatsApp number confirmed | `lib/constants.ts` `WHATSAPP_NUMBER` | **Done** — business number 918884133322 (07 Q17) |
 | Legal review | Terms + Privacy | Signed off (08 PB-5) |
 
 ## B. Push the branch and get a Cloudflare Pages preview

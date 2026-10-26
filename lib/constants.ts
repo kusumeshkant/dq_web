@@ -28,7 +28,7 @@ export const PROBLEM_POINTS = [
 export const STORE_LOGIN_URL = 'https://app.dqstore.in'
 
 export const CONTACT_EMAIL   = 'support@dqstore.in'
-export const WHATSAPP_NUMBER = '918754886595'
+export const WHATSAPP_NUMBER = '918884133322'
 export const WEB3FORMS_KEY   = '76c6c6dd-e2aa-4c97-b1a5-f1fca47d329b'
 
 export const STORE_TYPES = [

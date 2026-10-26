@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 const NEXT_STEPS = [
-  { step: '1', title: 'We call you within 24 hours', desc: 'Monday–Saturday, 10am–7pm IST.' },
+  { step: '1', title: 'We call you within 24 hours', desc: 'Mon–Sat 10am–7pm IST.' },
   { step: '2', title: 'A walkthrough of all three apps', desc: 'Scan, pay, exit pass, the staff app and the owner dashboard.' },
   { step: '3', title: 'We set up your store with you', desc: `${CLAIMS.setup}. We help you prepare it.` },
 ]
@@ -33,7 +33,7 @@ export default function ContactPage() {
             as="h1"
             badge={OFFER.name}
             title="Apply to be a founding store."
-            subtitle={`${OFFER.headline}. ${OFFER.terms} Fill in the form and we'll reach out within 24 hours.`}
+            subtitle={`${OFFER.headline}. ${OFFER.terms} Fill in the form and we'll call you within 24 hours, Mon–Sat 10am–7pm IST.`}
             variant="dark"
           />
         </div>
@@ -82,7 +82,7 @@ export default function ContactPage() {
                   </a>
                   {' '}— fastest response
                 </p>
-                <p className="text-sm text-ink-muted">We respond within 24 hours, Monday–Saturday.</p>
+                <p className="text-sm text-ink-muted">We call you within 24 hours, Mon–Sat 10am–7pm IST.</p>
               </div>
 
               <div className="bg-blue-50 border border-enterprise-action/20 rounded-xl p-6">

@@ -70,18 +70,7 @@ export default function Footer() {
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-enterprise-subtle">
           <p>© 2026 {BRAND}. All rights reserved.</p>
-          <p>
-            Built by {FOUNDER.name} ·{' '}
-            <a
-              href={FOUNDER.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${FOUNDER.name} on LinkedIn`}
-              className="underline underline-offset-2 hover:text-enterprise-link"
-            >
-              LinkedIn
-            </a>
-          </p>
+          <p>Built by {FOUNDER.name}</p>
         </div>
       </div>
     </footer>

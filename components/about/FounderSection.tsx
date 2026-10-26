@@ -31,15 +31,17 @@ export default function FounderSection() {
           {FOUNDER.note.map((line) => <p key={line}>{line}</p>)}
         </div>
 
-        <a
-          href={FOUNDER.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${FOUNDER.name} on LinkedIn`}
-          className="mt-6 inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-enterprise-action hover:bg-blue-50"
-        >
-          LinkedIn
-        </a>
+        {FOUNDER.linkedin && (
+          <a
+            href={FOUNDER.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${FOUNDER.name} on LinkedIn`}
+            className="mt-6 inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-enterprise-action hover:bg-blue-50"
+          >
+            LinkedIn
+          </a>
+        )}
       </div>
     </section>
   )

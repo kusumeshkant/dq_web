@@ -8,7 +8,7 @@ Each question says why it blocks something and gives my default if you don't dec
 | Q2 | How does a shopper pick the store in production today: nearby (GPS) list, store code, or entrance QR? | "Scan the store QR" is the copy I drafted. Store code entry is on WIP branch `wip/web-store-code-entry` (memory). | `03` (a), `05` A step 1 | Entrance QR poster with the store code as fallback. Confirm what prod supports. |
 | Q3 | **Settlement model:** today all shopper money settles to DQ's single Razorpay account. Will stores need their own Razorpay account (Route / sub-merchant), and what fee do we state? | It's regulatory (payment aggregator) and a prerequisite on the "What you need" list. It also changes the pricing wording. | `06` §4–5, Terms | Say nothing about settlement on the site until this is decided. Handle it in the pilot agreement. |
 | Q4 | Should staff discount control be in every tier? Right now `coupons` is off on Starter (`resolvers.js:1289`, seed `:50`). | It's the strongest differentiator, and the site will lead with it. | Pricing copy, `05` C | Include it for all founding partners. Change the plan flags before tiers return. |
-| Q5 | Confirm the pricing status wording: "free during pilot, pricing shared before the pilot ends, no auto-charge". How long is the pilot (60/90 days)? | Replaces ₹2,999/₹5,999 everywhere, including JSON-LD and the ROI calculator. | `/pricing`, CTA | Free pilot, 90 days, no card. |
+| Q5 | ~~Confirm the pricing status wording and pilot length.~~ **CLOSED — free 90-day pilot, no card, no contract, pricing not final** (decided 2026-10-26). | Replaces ₹2,999/₹5,999 everywhere, including JSON-LD and the ROI calculator. | — | `OFFER` in `lib/site.ts`. |
 | Q6 | **Legal entity name** for the footer and Terms: "DQ Technologies Pvt Ltd" (site) vs "Digital Queue Private Limited" (templates) vs not yet incorporated. | Naming an entity that doesn't exist is a legal risk. | Footer, Terms, Privacy | Use "DQ (operated by [founder name], India)" until incorporation. Get legal review. |
 | Q7 | Can the About page show the **founder's name, photo, LinkedIn** and a short story? | It's the biggest trust lever a pre-revenue startup has, and today there's no human on the site. | `/about`, hero trust line | Yes: founder note + photo. |
 | Q8 | Hindi: a full `/hi` page, Hindi lines on the English home page, or neither for now? | Needs a Devanagari font, `lang` attributes, and translation QA. | `06` §3 | Hindi hero + owner-control lines only, then a full page after the first pilot. |
@@ -26,7 +26,7 @@ Each question says why it blocks something and gives my default if you don't dec
 
 ## Status after Phases 1–4 (2026-10-26)
 
-**Closed / decided:** Q1 (Android app), Q5 (free 90-day pilot, no card, no contract, pricing not final), Q7 (founder block — see Q18), Q8 (Hindi on hero + owner control only, device fonts), Q9 (investor content removed from the site), Q11 (Phase 3 uses HTML recreations labelled "Illustrative"; real captures can replace them via `<Screen src>`), Q15 (WhatsApp merged into the mobile CTA bar; desktop pill kept), Q16 (live = `ec74f7e`).
+**Closed / decided:** Q1 (Android app), Q5 (free 90-day pilot, no card, no contract, pricing not final), Q7 (founder block — see Q18), Q8 (Hindi on hero + owner control only, device fonts), Q9 (investor content removed from the site), Q11 (Phase 3 uses HTML recreations labelled "Illustrative"; real captures can replace them via `<Screen src>`), Q15 (WhatsApp merged into the mobile CTA bar; desktop pill kept), Q16 (live = `ec74f7e`), Q17 (WhatsApp business number is 918884133322 — `lib/constants.ts` `WHATSAPP_NUMBER`), Q18 (founder note approved: "Mobile app engineer, building DQ for Indian retail."; DRAFT marker removed), Q19 (promise accepted: "We call you within 24 hours, Mon–Sat 10am–7pm IST").
 
 **Still open:**
 
@@ -40,6 +40,4 @@ Each question says why it blocks something and gives my default if you don't dec
 | Q12 | Naming brands as ICP examples | Moot on the site today (no brand names used); keep for sales material |
 | Q13 | Site analytics tool | Still none; conversion can't be measured |
 | Q14 | CRM/sheet for leads | UTM/page/referrer now captured in the Web3Forms email; CRM not decided |
-| **Q17** | **Is 918754886595 (the WhatsApp number in every `wa.me` link) a business number or the founder's personal phone?** | The brief says no founder phone number on the site. It is not visible text, but it is in every WhatsApp link |
-| **Q18** | **Approve the founder note** in `lib/site.ts` → `FOUNDER.note` (still marked DRAFT) | No approval has been received; the text shown on /about is the draft |
-| **Q19** | Accept "Response within 24 hours / We call you within 24 hours, Mon–Sat 10am–7pm IST" as an operational promise? | It is the only service-level promise on the site |
+| **Q20** | **LinkedIn profile — on hold.** The founder can't access the LinkedIn account right now. | `FOUNDER.linkedin` is `null`, so no LinkedIn link or label renders (footer shows "Built by Kusumeshkant Sharma" only). The previous URL is kept in a code comment, marked UNVERIFIED. Set the verified URL to bring the link back |

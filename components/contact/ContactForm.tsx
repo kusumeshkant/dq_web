@@ -144,7 +144,7 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">Application received!</h3>
-        <p className="text-ink-body text-sm mb-1">We&apos;ll call you within 24 hours (Mon–Sat, 10am–7pm IST).</p>
+        <p className="text-ink-body text-sm mb-1">We&apos;ll call you within 24 hours, Mon–Sat 10am–7pm IST.</p>
         <p className="text-ink-muted text-sm mb-6">
           Or email us at{' '}
           <a href={`mailto:${CONTACT_EMAIL}`} className="text-enterprise-action font-medium">

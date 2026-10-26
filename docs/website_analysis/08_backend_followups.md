@@ -36,4 +36,4 @@ Phase 1 doesn't touch Cloudflare settings. Each item below needs you to act in t
 8. **PB-2** Founding stores must be on a plan with `coupons: true` (staff discount codes).
 9. **PB-5** Legal review of Terms and Privacy ("DQ" with no entity; 90-day pilot; 30-day data retention promise in Terms §7).
 10. **PB-4** Point the seed's "source of truth" comment at `lib/site.ts` `OFFER`.
-11. **Q17** Confirm the WhatsApp number is a business number (or replace it).
+11. ~~**Q17** Confirm the WhatsApp number is a business number (or replace it).~~ **Done** — business number 918884133322 (2026-10-26).

@@ -318,15 +318,16 @@ export const BUILD_STATUS = {
 export const FOUNDER = {
   name:     'Kusumeshkant Sharma',
   role:     'Founder, DQ',
-  linkedin: 'https://www.linkedin.com/in/kusumeshkantsharma/',
+  /**
+   * On hold (07 Q20): no LinkedIn link or label renders while this is null.
+   * Previous URL, UNVERIFIED: https://www.linkedin.com/in/kusumeshkantsharma/
+   */
+  linkedin: null as string | null,
   photo:    null as string | null,
   initials: 'KS',
-  /** DRAFT — awaiting founder approval. Uses only the facts provided. */
+  /** Approved founder note (07 Q18). */
   note: [
-    'I’m a Flutter engineer, and I’ve been shipping mobile apps for more than five years.',
-    'I’m building DQ so fashion and lifestyle stores can remove the billing queue.',
-    'If your store joins the pilot, I’ll set DQ up with you myself, over WhatsApp.',
-    'In return, I want your honest feedback — what works on your shop floor and what doesn’t.',
+    'Mobile app engineer, building DQ for Indian retail.',
   ],
 } as const
 
